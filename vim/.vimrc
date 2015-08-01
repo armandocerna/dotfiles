@@ -11,6 +11,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'dfxyz/CandyPaper.vim'
 
 call vundle#end()      
 
@@ -30,8 +31,8 @@ set dir=~/.vim/swap/
 "
 " " backup files (~) in a common location if possible
 set backup
-set backupdir=~/.vim/backup/,~/tmp,.
+set backupdir=~/.vimbackup/,~/tmp,.
 
 " " turn on undo files, put them in a common location
 set undofile
-set undodir=~/.vim/undo/
+set undodir=~/.vimundo/
