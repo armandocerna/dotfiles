@@ -1,0 +1,16 @@
+[general]
+accounts = Anaplan
+[Account Anaplan]
+localrepository = Local
+remoterepository = Remote
+[Repository Local]
+type = Maildir
+localfolders = /home/acerna/Mail/Anaplan
+[Repository Remote]
+type = IMAP
+remotehost = imap.collaborationhost.net
+remoteuser = armando.cerna@anaplan.com
+remotepass = 'AtT@&%McI'
+remoteport = 993
+ssl = yes
+cert_fingerprint = b80905ace962416eb498daca6a540c481f30babc

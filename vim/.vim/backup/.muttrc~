@@ -1,0 +1,99 @@
+set header_cache = "~/.mutt/header"
+set message_cachedir = "~/.mutt/message""
+set timeout=15
+set mail_check=90
+set imap_keepalive=180
+set imap_idle
+set imap_user=armando.cerna@anaplan.com
+set imap_pass=AtT@&%McI
+# Automatically log in to this mailbox at startup
+set spoolfile="imaps://imap.collaborationhost.net:993/"
+# Define the = shortcut, and the entry point for the folder browser (c?)
+set folder="imaps://imap.collaborationhost.net:993/"
+set record="=Sent"
+set postponed="=Drafts"
+set sort=threads
+se16 Solarized (https://github.com/chriskempson/base16)
+# Scheme: Ethan Schoonover (http://ethanschoonover.com/solarized)
+
+# Default
+color normal        color07 color00
+color error         color01 color00
+color tilde         color20 color00
+color message       color06 color00
+color markers       color18 color19
+color attachment    color19 color00
+color search        color05 color00
+color status        color08 color18
+color indicator     color18 color03
+color tree          color03 color00 # arrow in threads
+color signature     color05 color00
+
+mono  bold          bold
+mono  underline     underline
+mono  indicator     reverse
+mono  error         bold
+
+# Index
+color index color00 color07 ~K # contains a PGP public key
+color index color04 color00 ~N # message is new
+color index color06 color00 ~O # message is old
+color index color03 color00 ~P # message is PGP encrypted
+color index color02 color00 ~S # message is signed and signature is verified
+color index color07 color00 ~F # message is flagged
+color index color18 color02 ~T # message is tagged
+color index color18 color01 ~D # message is marked for deletion
+
+mono index bold ~N
+mono index bold ~F
+mono index bold ~T
+mono index bold ~D
+
+# Email addresses
+color body        color06 color00 "[-a-z_0-9.%$]+@[-a-z_0-9.]+\\.[-a-z][-a-z]+"
+
+# Header
+color hdrdefault  color19 color00
+color header      color08 color00 "^(From)"
+color header      color04 color00 "^(Subject)"
+color header      color01 color00 "^(X-spam-rule)"
+color header      color01 color00 "^(X-SpamProbe: SPAM)"
+
+# Body
+color bold        color20 color00
+color underline   color20 color00
+color normal      color07 color00
+color body        color06 color00 "[;:][-o][)/(|]"    # emoticons
+color body        color06 color00 "[;:][)(|]"         # emoticons
+color body        color06 color00 "[*]?((N)?ACK|CU|LOL|SCNR|BRB|BTW|CWYL|\
+                                   |FWIW|vbg|GD&R|HTH|HTHBE|IMHO|IMNSHO|\
+                                   |IRL|RTFM|STFW|ROTFL|ROFL|YMMV)[*]?"
+color body        color06 color00 "[ ][*][^*]*[*][ ]?" # more emoticon?
+color body        color06 color00 "[ ]?[*][^*]*[*][ ]" # more emoticon?
+
+# Quoted text
+color quoted      color04 color00 # Quote level 1: Blue
+color quoted1     color06 color00 # Quote level 2: Cyan
+color quoted2     color03 color00 # Quote level 3: Yellow
+color quoted3     color01 color00 # Quote level 4: Red
+color quoted4     color02 color00 # Quote level 5: Green
+color quoted5     color04 color00 # Quote level 6: Blue
+color quoted6     color06 color00 # Quote level 7: Cyan
+color quoted7     color03 color00 # Quote level 8: Yellow
+color quoted8     color01 color00 # Quote level 9: Red
+
+# PGP
+mono  body        bold            "^gpg: Good signature"
+mono  body        bold            "^gpg: BAD signature from.*"
+color body        color01 color00 "(BAD signature)"
+color body        color06 color00 "(Good signature)"
+color body        color02 color00 "^gpg: Good signature .*"
+color body        color03 color00 "^gpg: "
+color body        color01 color00 "^gpg: BAD signature from.*"
+
+# yes, an insane URL regex
+color body red default "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+
+# Border lines.
+color body        color04 color00 "( *[-+=#*~_]){6,}"
+
