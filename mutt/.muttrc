@@ -6,6 +6,7 @@ set imap_keepalive=180
 set imap_idle
 set imap_user=armando.cerna@anaplan.com
 set imap_pass=AtT@&%McI
+set imap_check_subscribed
 # Automatically log in to this mailbox at startup
 set spoolfile="imaps://imap.collaborationhost.net:993/"
 # Define the = shortcut, and the entry point for the folder browser (c?)
@@ -14,6 +15,27 @@ set record="=Sent"
 set postponed="=Drafts"
 set sort=threads
 set pager_index_lines=10
+
+# Mutt Sidebar
+set sidebar_width=30
+ 
+#Visible at first, then change its value to yes
+set sidebar_visible=no
+ 
+set sidebar_delim='|'
+set sidebar_sort=yes
+mailboxes =INBOX =INBOX/Alerts =INBOX/Jira
+bind index CP sidebar-prev
+bind index CN sidebar-next
+bind index CO sidebar-open
+bind pager CP sidebar-prev
+bind pager CN sidebar-next
+bind pager CO sidebar-open
+macro index b '<enter-command>toggle sidebar_visible<enter>'
+macro pager b '<enter-command>toggle sidebar_visible<enter>'
+bind index B bounce-message
+
+
 # base16 Solarized (https://github.com/chriskempson/base16)
 # Scheme: Ethan Schoonover (http://ethanschoonover.com/solarized)
 
@@ -36,7 +58,7 @@ mono  indicator     reverse
 mono  error         bold
 
 # Index
-color index color00 color07 ~K # contains a PGP public key
+#color index color00 color07 ~K # contains a PGP public key
 color index color04 color00 ~N # message is new
 color index color06 color00 ~O # message is old
 color index color03 color00 ~P # message is PGP encrypted
@@ -98,3 +120,5 @@ color body red default "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-
 # Border lines.
 color body        color04 color00 "( *[-+=#*~_]){6,}"
 
+# Set sleep time to 0 for faster folder changes
+set sleep_time=0
