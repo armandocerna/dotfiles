@@ -1,0 +1,55 @@
+Received: from AUSP01VMBX10.collaborationhost.net ([10.2.8.162]) by
+ AUSP01MHUB06.collaborationhost.net ([10.2.8.241]) with mapi; Wed, 8 Jul 2015
+ 11:52:08 -0500
+From: Reigner Yrastorza <reigner.yrastorza@anaplan.com>
+To: Level 3 Support <level3support@anaplan.com>, Oliver Plattner
+	<oliver.plattner@anaplan.com>, Manish Raman <manish.raman@anaplan.com>,
+	Anaplan Development <development@anaplan.com>
+CC: Anaplan Tech Operations <operations@anaplan.com>, Anaplan Support Agents
+	<supportagents@anaplan.com>
+Date: Wed, 8 Jul 2015 11:52:40 -0500
+Subject: Urgent - multiple alerts CRITICAL org.jasig.cas.client.validation
+ TicketValidationException is found in the logs
+Thread-Topic: Urgent - multiple alerts CRITICAL
+ org.jasig.cas.client.validation TicketValidationException is found in the
+ logs
+Thread-Index: AdC5nmyHBbbHCB/RRNeafX1L/2BBNg==
+Message-ID: <D1C2A368.48561%reigner.yrastorza@anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB06.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+acceptlanguage: en-US
+user-agent: Microsoft-MacOutlook/14.4.8.150116
+Content-Type: multipart/alternative;
+	boundary="_000_D1C2A36848561reigneryrastorzaanaplancom_"
+MIME-Version: 1.0
+
+--_000_D1C2A36848561reigneryrastorzaanaplancom_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+Same error we experienced before =93CRITICAL org.jasig.cas.client.validatio=
+n TicketValidationException is found in the logs =93 that caused core downt=
+ime.
+
+--_000_D1C2A36848561reigneryrastorzaanaplancom_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252"></head><body style=3D"word-wrap: break-word; -webkit-nbsp-mode: space;=
+ -webkit-line-break: after-white-space; color: rgb(0, 0, 0); font-size: 14p=
+x; font-family: Calibri, sans-serif;"><div>Same error we experienced before=
+ =93<span style=3D"font-family: arial, serif; font-size: 10.6666669845581px=
+; widows: 1; background-color: rgb(187, 195, 187);">CRITICAL org.jasig.cas.=
+client.validation TicketValidationException is found in the logs&nbsp;</spa=
+n>=93 that caused core downtime.</div></body></html>
+
+--_000_D1C2A36848561reigneryrastorzaanaplancom_--

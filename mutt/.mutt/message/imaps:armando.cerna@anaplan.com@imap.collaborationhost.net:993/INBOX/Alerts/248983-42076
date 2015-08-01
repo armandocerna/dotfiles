@@ -1,0 +1,61 @@
+Received: from mail6.bemta8.messagelabs.com (10.2.3.195) by
+ in055.collaborationhost.net (10.2.0.163) with Microsoft SMTP Server id
+ 8.3.327.1; Wed, 29 Jul 2015 17:05:14 -0500
+Received: from [216.82.242.99] by server-11.bemta-8.messagelabs.com id
+ 2B/C8-19580-22E49B55; Wed, 29 Jul 2015 22:05:22 +0000
+Received: (qmail 27052 invoked from network); 29 Jul 2015 22:05:21 -0000
+Received: from 94.31.44.62.ipyx-072921-zyo.above.net (HELO
+ am3-util2.anaplan.com) (94.31.44.62)  by server-6.tower-131.messagelabs.com
+ with SMTP; 29 Jul 2015 22:05:21 -0000
+Received: from icinga by am3-util2.anaplan.com with local (Exim 4.72)
+	(envelope-from <icinga@am3-util2.anaplan.com>)	id 1ZKZTV-0003zJ-2Y	for
+ applicationops@anaplan.com; Wed, 29 Jul 2015 22:05:21 +0000
+From: "icinga@am3-icinga.anaplan.com" <icinga@am3-icinga.anaplan.com>
+To: Site Reliability Ops <applicationops@anaplan.com>
+Sender: "icinga@am3-util2.anaplan.com" <icinga@am3-util2.anaplan.com>
+Date: Wed, 29 Jul 2015 17:05:21 -0500
+Subject: ** PROBLEM Service Alert:
+ eu-core1007.anaplan.com/eu-core1007.anaplan.com server log -
+ TicketValidationException Error is CRITICAL **
+Thread-Topic: ** PROBLEM Service Alert:
+ eu-core1007.anaplan.com/eu-core1007.anaplan.com server log -
+ TicketValidationException Error is CRITICAL **
+Thread-Index: AdDKSqXCNNKZfcayQzutZGrQAdN7dg==
+Message-ID: <55b94e21.L6AFio+1QOHMvoCQ%icinga@am3-icinga.anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB55.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: 0
+X-MS-Exchange-Organization-PCL: 2
+X-MS-TNEF-Correlator:
+x-viruschecked: Checked
+x-env-sender: icinga@am3-util2.anaplan.com
+x-msg-ref: server-6.tower-131.messagelabs.com!1438207521!25061245!1
+x-starscan-version: 6.13.16; banners=-,-,-
+x-originating-ip: [94.31.44.62]
+x-spamreason: No, hits=0.0 required=7.0 tests=
+user-agent: Heirloom mailx 12.4 7/29/08
+x-starscan-received:
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+***** Icinga *****
+
+Notification Type: PROBLEM
+
+Service: eu-core1007.anaplan.com server log - TicketValidationException Err=
+or
+Host: eu-core1007.anaplan.com
+Address: eu-core1007.anaplan.com
+State: CRITICAL
+
+Date/Time: Wed Jul 29 22:05:21 UTC 2015
+
+Additional Info:
+
+CRITICAL org.jasig.cas.client.validation TicketValidationException is found=
+ in the logs

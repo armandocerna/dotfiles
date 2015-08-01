@@ -1,0 +1,54 @@
+Received: from mail6.bemta12.messagelabs.com (10.2.3.195) by
+ in053.collaborationhost.net (10.2.0.166) with Microsoft SMTP Server id
+ 8.3.327.1; Wed, 29 Jul 2015 12:23:26 -0500
+Received: from [216.82.250.115] by server-16.bemta-12.messagelabs.com id
+ 22/8C-12985-53709B55; Wed, 29 Jul 2015 17:02:45 +0000
+Received: (qmail 30039 invoked from network); 29 Jul 2015 17:02:45 -0000
+Received: from unknown (HELO s04.a.anaplan.com) (198.207.221.104)  by
+ server-2.tower-127.messagelabs.com with SMTP; 29 Jul 2015 17:02:45 -0000
+Received: by s04.a.anaplan.com (Postfix, from userid 229)	id 3BA8C1A77BA; Wed,
+ 29 Jul 2015 17:02:45 +0000 (UTC)
+From: "icinga@dc5-icinga.anaplan.com" <icinga@dc5-icinga.anaplan.com>
+To: Site Reliability Ops <applicationops@anaplan.com>
+Date: Wed, 29 Jul 2015 12:02:45 -0500
+Subject: ** RECOVERY Service Alert: dc5-backup-livesync.anaplan.com/DC5 to
+ Livesync Rsync is OK **
+Thread-Topic: ** RECOVERY Service Alert: dc5-backup-livesync.anaplan.com/DC5
+ to Livesync Rsync is OK **
+Thread-Index: AdDKI0fyzBP6fA4JTKyMw4UwsVNduQ==
+Message-ID: <55b90735.we+QATkQMzg0qTKg%icinga@dc5-icinga.anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB53.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: 1
+X-MS-Exchange-Organization-PCL: 2
+X-MS-TNEF-Correlator:
+x-viruschecked: Checked
+x-env-sender: icinga@dc5-icinga.anaplan.com
+x-msg-ref: server-2.tower-127.messagelabs.com!1438189365!12994509!1
+x-starscan-version: 6.13.16; banners=-,-,-
+x-originating-ip: [198.207.221.104]
+user-agent: Heirloom mailx 12.4 7/29/08
+x-spamwhitelisted: IP whitelist
+x-starscan-received:
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+***** Icinga *****
+
+Notification Type: RECOVERY
+
+Service: DC5 to Livesync Rsync
+Host: dc5-backup-livesync.anaplan.com
+Address: dc5-backup-livesync.anaplan.com
+State: OK
+
+Date/Time: Wed Jul 29 17:02:45 UTC 2015
+
+Additional Info:
+
+Command completed successfully about 0.92 minutes ago.

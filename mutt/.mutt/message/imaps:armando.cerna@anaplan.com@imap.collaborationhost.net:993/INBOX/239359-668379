@@ -1,0 +1,129 @@
+Received: from AUSP01VMBX10.collaborationhost.net ([10.2.8.162]) by
+ AUSP01MHUB53.collaborationhost.net ([::1]) with mapi; Fri, 31 Jul 2015
+ 19:16:32 -0500
+From: James Tsamoudakis <James@anaplan.com>
+To: Anaplan Tech Operations <operations@anaplan.com>
+Date: Fri, 31 Jul 2015 19:16:35 -0500
+Subject: weekly report 7/31/15
+Thread-Topic: weekly report 7/31/15
+Thread-Index: AdDL71HHLtfui6QyT5us66a+ixr5Hw==
+Message-ID: <D1D91269.48415%james@anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB53.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+acceptlanguage: en-US
+user-agent: Microsoft-MacOutlook/14.4.6.141106
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+
+
+  Worked on:
+
+* meeting: Global Leadership Call
+* increase WS =B3CBI=B3 to 10gb
+* increase WS =B3RB ENA Procurement=B2 to 20gb
+* Rename workspace =B3HPE Prod EG EMEA - FY16H1=B2 to =B3HPE Prod EG EMEA 1=
+ -
+FY16H1=B2
+* reduce 7 HP WS from 130gb to 100gb per Nathan Price (approved by
+Salesops)
+* reduce 4 HP WS of varying sizes per Nathan Price (approved by Salesops)
+* create 10 new HP WS of varying sizes per Nathan Price (approved by
+Salesops)
+* process HR terminations
+* increase WS =B3FireEye Territory and Quota Planning=B2 to 20gb
+* set user =B3daniel.armagno@kmg.com.ar=B2 to inactive in prod
+* set WS =B3Astellas Pharma US- Project Planning=B2 to 55gb
+* meeting: On-site Interview with Daniel Nowak for devops
+* create WS =B3Satriun Group=B2 on core017
+* create WS =B3StreamPoint Group=B2 on core017
+* create WS =B3Tribune Media 2=B2 on core190
+* increase WS =B3Tribune Media=B2 to 125gb
+* create WS =B3Aviva France=B2 on eu-core1005
+* meeting: Engineering VPC status
+* meeting: Change Review Board Meeting - Weekly
+* create WS =B3Richmond FP&A=B2 on eu-core1008
+* increase WS =B3Unilever Russia=B2 to 25gb
+* create WS =B3JB Alexander Ltd=B3 on core017
+* create WS =B3Marketing Administration=B2 on core086
+* create WS =B3Brad Sisson=B2 on core185
+* create WS =B3Zenefits FP&A=B2 on core189
+* create WS =B3Builderhomesite SPM=B2 on core190
+* increase WS =B3Workday FP&A=B2 to 60gb
+* increase WS =B3Brake Bros FPA=B2 to 30gb
+* decrease WS =B3MediaMath - BPF & Sales Forecasting=B2 to 35gb
+* create WS =B3Kimberly-Clark EMEA Development 2=B2 on core114
+* create WS =B3Burra Foods -FPA=B2 on core190
+* create WS =B3Justfab FP&A=B2 on core191
+* increase WS =B3Rentokil FPA=B2 to 15gb
+* increase WS =B3Countryside Properties_Finance/Land Appraisal=B2 to 35gb
+* create WS =B3ABS India=B2 on eu-core1028
+* increase WS =B3Juniper=B2 to 35gb
+* increase WS =B3SEACO Global FP&A=B2 to 35gb
+* increase WS =B3Dun & Bradstreet=B2 to 40gb
+* increase WS =B3Astellas Pharma=B2 to 80gb
+
+In Progress:
+
+ * SOC II prep. Recruiting. Release planning.
+Capacity planning.
+
+Waiting for:
+
+ * New rack of core app servers in DC5.  New EMC shelves. Tomorrow!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

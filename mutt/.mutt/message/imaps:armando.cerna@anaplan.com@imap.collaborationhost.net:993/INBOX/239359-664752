@@ -1,0 +1,52 @@
+Received: from AUSP01VMBX10.collaborationhost.net ([10.2.8.162]) by
+ AUSP01MHUB02.collaborationhost.net ([10.2.8.26]) with mapi; Tue, 14 Jul 2015
+ 16:12:01 -0500
+From: Reigner Yrastorza <reigner.yrastorza@anaplan.com>
+To: PingdomContacts <pingdomcontacts@anaplan.com>
+CC: Anaplan Tech Operations <operations@anaplan.com>
+Date: Tue, 14 Jul 2015 16:11:57 -0500
+Subject: Ignore the eu-core recent alerts 
+Thread-Topic: Ignore the eu-core recent alerts 
+Thread-Index: AdC+ebkYNEx37EmHQJybqlFR/BT+Tg==
+Message-ID: <D1CAC92D.49309%reigner.yrastorza@anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB02.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+acceptlanguage: en-US
+user-agent: Microsoft-MacOutlook/14.4.8.150116
+Content-Type: multipart/alternative;
+	boundary="_000_D1CAC92D49309reigneryrastorzaanaplancom_"
+MIME-Version: 1.0
+
+--_000_D1CAC92D49309reigneryrastorzaanaplancom_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+In preparation for Saturday release I have removed the cores hosted in am3-=
+app11 and am3-app12 server, those were the cores that sent out an alert.
+
+We are currently working on https://anaplansite.atlassian.net/browse/TECHOP=
+S-1146, please ignore the recent eu-core alerts.
+
+
+--_000_D1CAC92D49309reigneryrastorzaanaplancom_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head></head><body style=3D"word-wrap: break-word; -webkit-nbsp-mode:=
+ space; -webkit-line-break: after-white-space; color: rgb(0, 0, 0); font-si=
+ze: 14px; font-family: Calibri, sans-serif;"><div>In preparation for Saturd=
+ay release I have removed the cores hosted in am3-app11 and am3-app12 serve=
+r, those were the cores that sent out an alert.</div><div><br></div><div>We=
+ are currently working on&nbsp;<a href=3D"https://anaplansite.atlassian.net=
+/browse/TECHOPS-1146">https://anaplansite.atlassian.net/browse/TECHOPS-1146=
+</a>, please ignore the recent eu-core alerts.</div><div><br></div></body><=
+/html>
+
+--_000_D1CAC92D49309reigneryrastorzaanaplancom_--

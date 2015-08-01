@@ -1,0 +1,345 @@
+Received: from AUSP01VMBX49.collaborationhost.net ([10.2.10.101]) by
+ AUSP01MHUB02.collaborationhost.net ([10.2.8.26]) with mapi; Fri, 19 Jun 2015
+ 15:28:05 -0500
+From: Tobias Muellner <tobias.muellner@anaplan.com>
+To: James Tsamoudakis <James@anaplan.com>, Anaplan Tech Operations
+	<operations@anaplan.com>, Debbie Heffernan <debbie.heffernan@anaplan.com>,
+	Sales Ops <sales.ops@anaplan.com>
+CC: George Ballaseux <george.ballaseux@anaplan.com>
+Date: Fri, 19 Jun 2015 15:28:19 -0500
+Subject: Re: Workspace Change Request [#734]
+Thread-Topic: Workspace Change Request [#734]
+Thread-Index: AdCqznI0pH0RjMNgRQy632eiTd6osw==
+Message-ID: <D1A9C87D.79F4%tobias.muellner@anaplan.com>
+References: <20150619152100.52B0CA16BC@sjc-wfweb08.endor.lan>
+ <D1A9C14B.79E4%tobias.muellner@anaplan.com>
+ <D1A9C6CE.43B2A%james@anaplan.com>
+In-Reply-To: <D1A9C6CE.43B2A%james@anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB02.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+acceptlanguage: en-US
+user-agent: Microsoft-MacOutlook/14.5.1.150515
+Content-Type: multipart/alternative;
+	boundary="_000_D1A9C87D79F4tobiasmuellneranaplancom_"
+MIME-Version: 1.0
+
+--_000_D1A9C87D79F4tobiasmuellneranaplancom_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+I=92m confused now=85.
+
+George says you "We were told that TechOps recommends this be done during t=
+he upcoming release (2015.3), which is fine. Please schedule and notify the=
+ right people.=94
+
+Last time I checked you=92re TechOps, James :)
+
+So, I was hoping you know what you advised. Unless it just wasn=92t you=85
+
+I can go into Speakeasy, rename one of the customers, and re-assign all WS =
+under this new customer name. Not sure about the implications since this is=
+ purely technical and not Sales Ops related.
+
+Please advise.
+
+
+From: James Tsamoudakis <James@anaplan.com<mailto:James@anaplan.com>>
+Date: Friday, June 19, 2015 at 1:22 PM
+To: Tobias Muellner <tobias.muellner@anaplan.com<mailto:tobias.muellner@ana=
+plan.com>>, Anaplan Tech Operations <operations@anaplan.com<mailto:operatio=
+ns@anaplan.com>>, Debbie Heffernan <debbie.heffernan@anaplan.com<mailto:deb=
+bie.heffernan@anaplan.com>>, Sales Ops <sales.ops@anaplan.com<mailto:sales.=
+ops@anaplan.com>>
+Cc: George Ballaseux <george.ballaseux@anaplan.com<mailto:george.ballaseux@=
+anaplan.com>>
+Subject: Re: Workspace Change Request [#734]
+
+SalesOps is responsible for managing the Customer object so I do not unders=
+tand what this means.
+
+Also , maintenance on production has to go through change review board and =
+approved by Jon Sandles the release managet.   We can=92t overload those ti=
+mes with customer change requests but feel free to make these adjustments f=
+or the customer after the systems have been made available again.
+
+Last note; I have not seen a notification of when the next maintenance will=
+ be.
+
+Thanks,
+James
+
+
+
+From: Tobias Muellner <tobias.muellner@anaplan.com<mailto:tobias.muellner@a=
+naplan.com>>
+Date: Friday, June 19, 2015 at 12:54 PM
+To: Anaplan Tech Operations <operations@anaplan.com<mailto:operations@anapl=
+an.com>>, Debbie Heffernan <debbie.heffernan@anaplan.com<mailto:debbie.heff=
+ernan@anaplan.com>>, Sales Ops <sales.ops@anaplan.com<mailto:sales.ops@anap=
+lan.com>>
+Cc: George Ballaseux <george.ballaseux@anaplan.com<mailto:george.ballaseux@=
+anaplan.com>>
+Subject: Re: Workspace Change Request [#734]
+
+Approved.
+
+Hi James, can you help facilitate this during release update?
+
+Thanks and all my best
+Tobias
+
+
+From: Anaplan New Customer Alert <no-reply@wufoo.com<mailto:no-reply@wufoo.=
+com>>
+Reply-To: "no-reply@wufoo.com<mailto:no-reply@wufoo.com>" <no-reply@wufoo.c=
+om<mailto:no-reply@wufoo.com>>
+Date: Friday, June 19, 2015 at 8:21 AM
+To: Debbie Heffernan <debbie.heffernan@anaplan.com<mailto:debbie.heffernan@=
+anaplan.com>>, Sales Ops <sales.ops@anaplan.com<mailto:sales.ops@anaplan.co=
+m>>
+Subject: Workspace Change Request [#734]
+
+Your Name *     George Ballaseux
+Your Email *    george.ballaseux@anaplan.com<mailto:george.ballaseux@anapla=
+n.com>
+Workspace to be changed *
+Davita Name Change
+
+Anaplan Employee (Sales) Contact name, email, phone *
+George Ballaseux
++13035641584
+
+End User Company Name *
+DaVita
+
+Change Date *   Saturday, June 27, 2015
+Describe Changes Requested *
+DaVita currently has two customer names. We'd like both to be changed/merge=
+d to a new customer name.
+
+DaVita >> DaVita-HCP
+HCP >> DaVita-HCP
+
+Please note that the V is capitalized.
+
+We were told that TechOps recommends this be done during the upcoming relea=
+se (2015.3), which is fine. Please schedule and notify the right people.
+
+Request was previously approved by: *
+Managing Director
+
+
+--_000_D1A9C87D79F4tobiasmuellneranaplancom_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252"></head><body style=3D"word-wrap: break-word; -webkit-nbsp-mode: space;=
+ -webkit-line-break: after-white-space;"><div style=3D"color: rgb(0, 0, 0);=
+ font-family: Calibri, sans-serif; font-size: 14px;"><div><div>I=92m confus=
+ed now=85.</div></div></div><div style=3D"color: rgb(0, 0, 0); font-family:=
+ Calibri, sans-serif; font-size: 14px;"><br></div><div><font face=3D"Calibr=
+i,sans-serif">George says you &quot;</font><span style=3D"color: rgb(51, 51=
+, 51); font-family: 'Lucida Grande', 'Lucida Sans Unicode', Tahoma, sans-se=
+rif; font-size: 12px; line-height: 16.200000762939453px; background-color: =
+rgb(245, 245, 245);">We were told that TechOps recommends this be done duri=
+ng the upcoming release (2015.3), which is fine. Please schedule and notify=
+ the right people.</span><font color=3D"#333333" face=3D"Lucida Grande,Luci=
+da Sans Unicode,Tahoma,sans-serif"><span style=3D"font-size: 12px; line-hei=
+ght: 16.200000762939453px;">=94</span></font></div><div style=3D"color: rgb=
+(0, 0, 0); font-family: Calibri, sans-serif; font-size: 14px;"><span style=
+=3D"color: rgb(51, 51, 51); font-family: 'Lucida Grande', 'Lucida Sans Unic=
+ode', Tahoma, sans-serif; font-size: 12px; line-height: 16.200000762939453p=
+x; background-color: rgb(245, 245, 245);"><br></span></div><div style=3D"co=
+lor: rgb(0, 0, 0); font-family: Calibri, sans-serif; font-size: 14px;">Last=
+ time I checked you=92re TechOps, James :)</div><div style=3D"color: rgb(0,=
+ 0, 0); font-family: Calibri, sans-serif; font-size: 14px;"><br></div><div =
+style=3D"color: rgb(0, 0, 0); font-family: Calibri, sans-serif; font-size: =
+14px;">So, I was hoping you know what you advised. Unless it just wasn=92t =
+you=85</div><div style=3D"color: rgb(0, 0, 0); font-family: Calibri, sans-s=
+erif; font-size: 14px;"><br></div><div style=3D"color: rgb(0, 0, 0); font-f=
+amily: Calibri, sans-serif; font-size: 14px;">I can go into Speakeasy, rena=
+me one of the customers, and re-assign all WS under this new customer name.=
+ Not sure about the implications since this is purely technical and not Sal=
+es Ops related.</div><div style=3D"color: rgb(0, 0, 0); font-family: Calibr=
+i, sans-serif; font-size: 14px;"><br></div><div style=3D"color: rgb(0, 0, 0=
+); font-family: Calibri, sans-serif; font-size: 14px;">Please advise.</div>=
+<div style=3D"color: rgb(0, 0, 0); font-family: Calibri, sans-serif; font-s=
+ize: 14px;"><br></div><div style=3D"color: rgb(0, 0, 0); font-family: Calib=
+ri, sans-serif; font-size: 14px;"><br></div><span id=3D"OLK_SRC_BODY_SECTIO=
+N" style=3D"color: rgb(0, 0, 0); font-family: Calibri, sans-serif; font-siz=
+e: 14px;"><div style=3D"font-family:Calibri; font-size:11pt; text-align:lef=
+t; color:black; BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; PADDI=
+NG-BOTTOM: 0in; PADDING-LEFT: 0in; PADDING-RIGHT: 0in; BORDER-TOP: #b5c4df =
+1pt solid; BORDER-RIGHT: medium none; PADDING-TOP: 3pt"><span style=3D"font=
+-weight:bold">From: </span> James Tsamoudakis &lt;<a href=3D"mailto:James@a=
+naplan.com">James@anaplan.com</a>&gt;<br><span style=3D"font-weight:bold">D=
+ate: </span> Friday, June 19, 2015 at 1:22 PM<br><span style=3D"font-weight=
+:bold">To: </span> Tobias Muellner &lt;<a href=3D"mailto:tobias.muellner@an=
+aplan.com">tobias.muellner@anaplan.com</a>&gt;, Anaplan Tech Operations &lt=
+;<a href=3D"mailto:operations@anaplan.com">operations@anaplan.com</a>&gt;, =
+Debbie Heffernan &lt;<a href=3D"mailto:debbie.heffernan@anaplan.com">debbie=
+.heffernan@anaplan.com</a>&gt;, Sales Ops &lt;<a href=3D"mailto:sales.ops@a=
+naplan.com">sales.ops@anaplan.com</a>&gt;<br><span style=3D"font-weight:bol=
+d">Cc: </span> George Ballaseux &lt;<a href=3D"mailto:george.ballaseux@anap=
+lan.com">george.ballaseux@anaplan.com</a>&gt;<br><span style=3D"font-weight=
+:bold">Subject: </span> Re: Workspace Change Request [#734]<br></div><div><=
+br></div><div><div style=3D"word-wrap: break-word; -webkit-nbsp-mode: space=
+; -webkit-line-break: after-white-space; color: rgb(0, 0, 0); font-size: 14=
+px; font-family: Calibri, sans-serif;"><div>SalesOps is responsible for man=
+aging the Customer object so I do not understand what this means. &nbsp;</d=
+iv><div><br></div><div>Also , maintenance on production has to go through c=
+hange review board and approved by Jon Sandles the release managet. &nbsp; =
+We can=92t overload those times with customer change requests but feel free=
+ to make these adjustments for the customer after the systems
+ have been made available again.</div><div><br></div><div>Last note; I have=
+ not seen a notification of when the next maintenance will be.&nbsp;</div><=
+div><br></div><div>Thanks,</div><div>James&nbsp;</div><div><br></div><div><=
+br></div><div><br></div><span id=3D"OLK_SRC_BODY_SECTION"><div style=3D"fon=
+t-family:Calibri; font-size:11pt; text-align:left; color:black; BORDER-BOTT=
+OM: medium none; BORDER-LEFT: medium none; PADDING-BOTTOM: 0in; PADDING-LEF=
+T: 0in; PADDING-RIGHT: 0in; BORDER-TOP: #b5c4df 1pt solid; BORDER-RIGHT: me=
+dium none; PADDING-TOP: 3pt"><span style=3D"font-weight:bold">From: </span>=
+Tobias Muellner &lt;<a href=3D"mailto:tobias.muellner@anaplan.com">tobias.m=
+uellner@anaplan.com</a>&gt;<br><span style=3D"font-weight:bold">Date: </spa=
+n>Friday, June 19, 2015 at 12:54 PM<br><span style=3D"font-weight:bold">To:=
+ </span>Anaplan Tech Operations &lt;<a href=3D"mailto:operations@anaplan.co=
+m">operations@anaplan.com</a>&gt;, Debbie Heffernan &lt;<a href=3D"mailto:d=
+ebbie.heffernan@anaplan.com">debbie.heffernan@anaplan.com</a>&gt;, Sales Op=
+s &lt;<a href=3D"mailto:sales.ops@anaplan.com">sales.ops@anaplan.com</a>&gt=
+;<br><span style=3D"font-weight:bold">Cc: </span>George Ballaseux &lt;<a hr=
+ef=3D"mailto:george.ballaseux@anaplan.com">george.ballaseux@anaplan.com</a>=
+&gt;<br><span style=3D"font-weight:bold">Subject: </span>Re: Workspace Chan=
+ge Request [#734]<br></div><div><br></div><div><div style=3D"word-wrap: bre=
+ak-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-space; c=
+olor: rgb(0, 0, 0); font-size: 14px; font-family: Calibri, sans-serif;"><di=
+v><div>Approved.</div><div><br></div><div>Hi James, can you help facilitate=
+ this during release update?&nbsp;</div><div><br></div><div>Thanks and all =
+my best</div><div>Tobias</div><div><br></div><div><div></div></div></div><d=
+iv><br></div><span id=3D"OLK_SRC_BODY_SECTION"><div style=3D"font-family:Ca=
+libri; font-size:11pt; text-align:left; color:black; BORDER-BOTTOM: medium =
+none; BORDER-LEFT: medium none; PADDING-BOTTOM: 0in; PADDING-LEFT: 0in; PAD=
+DING-RIGHT: 0in; BORDER-TOP: #b5c4df 1pt solid; BORDER-RIGHT: medium none; =
+PADDING-TOP: 3pt"><span style=3D"font-weight:bold">From: </span>Anaplan New=
+ Customer Alert &lt;<a href=3D"mailto:no-reply@wufoo.com">no-reply@wufoo.co=
+m</a>&gt;<br><span style=3D"font-weight:bold">Reply-To: </span>&quot;<a hre=
+f=3D"mailto:no-reply@wufoo.com">no-reply@wufoo.com</a>&quot; &lt;<a href=3D=
+"mailto:no-reply@wufoo.com">no-reply@wufoo.com</a>&gt;<br><span style=3D"fo=
+nt-weight:bold">Date: </span>Friday, June 19, 2015 at 8:21 AM<br><span styl=
+e=3D"font-weight:bold">To: </span>Debbie Heffernan &lt;<a href=3D"mailto:de=
+bbie.heffernan@anaplan.com">debbie.heffernan@anaplan.com</a>&gt;, Sales Ops=
+ &lt;<a href=3D"mailto:sales.ops@anaplan.com">sales.ops@anaplan.com</a>&gt;=
+<br><span style=3D"font-weight:bold">Subject: </span>Workspace Change Reque=
+st [#734]<br></div><div><br></div><div xmlns=3D"http://www.w3.org/1999/xhtm=
+l"><title></title><meta http-equiv=3D"Content-Language" content=3D"en-us"><=
+style type=3D"text/css">
+
+* .location a:hover address, * .location a:hover span {
+	color:blue !important;
+	text-decoration:underline;
+}
+* .file a:hover .file-name{
+	color:green !important;
+}
+.rtl .info .var{
+	float:left;
+	padding:0 10px 0 0;
+	margin:0 10px 12px 0;
+}
+.rtl .info h2{
+	clear:none;
+}
+.rtl .createTD{
+	padding:0 0 0 12px !important;
+}
+.rtl .updateTD{
+	padding:0 12px 0 0 !important;
+}
+.rtl #entryInfo *{
+	text-align:center !important;
+}
+.rtl table .h2{
+	padding:0 0 7px 10px !important;
+}
+.rtl table .var{
+	padding:0 10px 0 0 !important;
+}
+.rtl .mapicon{
+	float:right !important;
+}
+.rtl .adr{
+	padding:2px 25px 2px 0 !important;
+}
+
+</style><div title=3D"634619"><div style=3D"font-family:'Lucida Grande','Lu=
+cida Sans Unicode', Tahoma, sans-serif;"><table class=3D"readonly" cellspac=
+ing=3D"0" cellpadding=3D"0" style=3D"width:100%;border-bottom:1px solid #ee=
+e;font-size:12px;line-height:135%;font-family:'Lucida Grande','Lucida Sans =
+Unicode', Tahoma, sans-serif"><tbody><tr style=3D"background-color:#F5F5F5"=
+><th style=3D"vertical-align:top;color:#222;text-align:left;padding:7px 9px=
+ 7px 9px;border-top:1px solid #eee;">
+Your Name <span class=3D"req" style=3D"color:red">*</span> </th><td style=
+=3D"vertical-align:top;color:#333;width:60%;padding:7px 9px 7px 0;border-to=
+p:1px solid #eee;"><span class=3D"fn n"><span class=3D"given-name" style=3D=
+"padding:0 5px 0 0">George </span><span class=3D"family-name">Ballaseux</sp=
+an> </span></td></tr><tr style=3D"background-color:#FFFFFF"><th style=3D"ve=
+rtical-align:top;color:#222;text-align:left;padding:7px 9px 7px 9px;border-=
+top:1px solid #eee;">
+Your Email <span class=3D"req" style=3D"color:red;">*</span> </th><td style=
+=3D"vertical-align:top;color:#333;width:60%;padding:7px 9px 7px 0;border-to=
+p:1px solid #eee;"><a class=3D"email" href=3D"mailto:george.ballaseux@anapl=
+an.com">george.ballaseux@anaplan.com</a></td></tr><tr style=3D"background-c=
+olor:#F5F5F5"><th style=3D"vertical-align:top;color:#222;text-align:left;pa=
+dding:7px 9px 7px 9px;border-top:1px solid #eee;">
+Workspace to be changed <span class=3D"req" style=3D"color:red">*</span> </=
+th><td id=3D"roField91" style=3D"vertical-align:top;color:#333;width:60%;pa=
+dding:7px 9px 7px 0;border-top:1px solid #eee;"><div>Davita Name Change</di=
+v></td></tr><tr style=3D"background-color:#FFFFFF"><th style=3D"vertical-al=
+ign:top;color:#222;text-align:left;padding:7px 9px 7px 9px;border-top:1px s=
+olid #eee;">
+Anaplan Employee (Sales) Contact name, email, phone <span class=3D"req" sty=
+le=3D"color:red">
+*</span> </th><td style=3D"vertical-align:top;color:#333;width:60%;padding:=
+7px 9px 7px 0;border-top:1px solid #eee;"><div>George Ballaseux<br>
+&#43;13035641584</div></td></tr><tr style=3D"background-color:#F5F5F5"><th =
+style=3D"vertical-align:top;color:#222;text-align:left;padding:7px 9px 7px =
+9px;border-top:1px solid #eee;">
+End User Company Name <span class=3D"req" style=3D"color:red">*</span> </th=
+><td id=3D"roField1" style=3D"vertical-align:top;color:#333;width:60%;paddi=
+ng:7px 9px 7px 0;border-top:1px solid #eee;"><div>DaVita</div></td></tr><tr=
+ style=3D"background-color:#FFFFFF"><th style=3D"vertical-align:top;color:#=
+222;text-align:left;padding:7px 9px 7px 9px;border-top:1px solid #eee;">
+Change Date <span class=3D"req" style=3D"color:red;">*</span> </th><td styl=
+e=3D"vertical-align:top;color:#333;width:60%;padding:7px 9px 7px 0;border-t=
+op:1px solid #eee;"><abbr class=3D"dtstamp" title=3D"20150627" style=3D"fon=
+t-style:normal;border:none;">Saturday, June 27, 2015</abbr></td></tr><tr st=
+yle=3D"background-color:#F5F5F5"><th style=3D"vertical-align:top;color:#222=
+;text-align:left;padding:7px 9px 7px 9px;border-top:1px solid #eee;">
+Describe Changes Requested <span class=3D"req" style=3D"color:red">*</span>=
+ </th><td style=3D"vertical-align:top;color:#333;width:60%;padding:7px 9px =
+7px 0;border-top:1px solid #eee;"><div>DaVita currently has two customer na=
+mes. We'd like both to be changed/merged to a new customer name.<br><br>
+DaVita &gt;&gt; DaVita-HCP <br>
+HCP &gt;&gt; DaVita-HCP<br><br>
+Please note that the V is capitalized.<br><br>
+We were told that TechOps recommends this be done during the upcoming relea=
+se (2015.3), which is fine. Please schedule and notify the right people.</d=
+iv></td></tr><tr class=3D"radio" style=3D"background-color:#FFFFFF"><th sty=
+le=3D"vertical-align:top;color:#222;text-align:left;padding:7px 9px 7px 9px=
+;border-top:1px solid #eee;">
+Request was previously approved by: <span class=3D"req" style=3D"color:red"=
+>*</span> </th><td style=3D"vertical-align:top;color:#333;width:60%;padding=
+:7px 9px 7px 0;border-top:1px solid #eee;"><div>Managing Director</div></td=
+></tr></tbody></table></div></div></div></span></div></div></span></div></d=
+iv></span></body></html>
+
+--_000_D1A9C87D79F4tobiasmuellneranaplancom_--

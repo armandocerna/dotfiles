@@ -1,0 +1,40 @@
+Received: from mail6.bemta7.messagelabs.com (10.2.3.197) by
+ in003.collaborationhost.net (10.2.0.119) with Microsoft SMTP Server id
+ 8.3.327.1; Wed, 8 Jul 2015 11:07:23 -0500
+Received: from [216.82.255.3] by server-16.bemta-7.messagelabs.com id
+ 55/BB-22481-3EA4D955; Wed, 08 Jul 2015 16:08:03 +0000
+Received: (qmail 19776 invoked from network); 8 Jul 2015 16:08:02 -0000
+Received: from unknown (HELO s04.a.anaplan.com) (198.207.221.104)  by
+ server-9.tower-209.messagelabs.com with SMTP; 8 Jul 2015 16:08:02 -0000
+Received: by s04.a.anaplan.com (Postfix, from userid 229)	id 62D8D1A35BD; Wed,
+  8 Jul 2015 16:08:02 +0000 (UTC)
+From: icinga <icinga@s04.a.anaplan.com>
+To: Level 3 Support <level3support@anaplan.com>, Anaplan Tech Operations
+	<operations@anaplan.com>
+Date: Wed, 8 Jul 2015 11:08:02 -0500
+Subject: [ICINGA RESTART] core007
+Thread-Topic: [ICINGA RESTART] core007
+Thread-Index: AdC5mDNrkznZsv0dRNWlBDPUE3duUA==
+Message-ID: <20150708160802.62D8D1A35BD@s04.a.anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB03.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: 6
+X-MS-Exchange-Organization-PCL: 2
+X-MS-TNEF-Correlator:
+x-viruschecked: Checked
+x-env-sender: icinga@s04.a.anaplan.com
+x-msg-ref: server-9.tower-209.messagelabs.com!1436371682!13997702!1
+x-starscan-version: 6.13.16; banners=-,-,-
+x-originating-ip: [198.207.221.104]
+user-agent: Heirloom mailx 12.4 7/29/08
+x-spamwhitelisted: IP whitelist
+x-starscan-received:
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Icinga restarted core007

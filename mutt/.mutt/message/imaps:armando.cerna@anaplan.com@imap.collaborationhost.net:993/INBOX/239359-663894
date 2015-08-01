@@ -1,0 +1,228 @@
+Received: from AUSP01VMBX10.collaborationhost.net ([10.2.8.162]) by
+ AUSP01MHUB06.collaborationhost.net ([10.2.8.241]) with mapi; Wed, 8 Jul 2015
+ 12:01:35 -0500
+From: Reigner Yrastorza <reigner.yrastorza@anaplan.com>
+To: Reigner Yrastorza <reigner.yrastorza@anaplan.com>, Level 3 Support
+	<level3support@anaplan.com>, Oliver Plattner <oliver.plattner@anaplan.com>,
+	Manish Raman <manish.raman@anaplan.com>, Anaplan Development
+	<development@anaplan.com>
+CC: Anaplan Tech Operations <operations@anaplan.com>, Anaplan Support Agents
+	<supportagents@anaplan.com>
+Date: Wed, 8 Jul 2015 12:02:09 -0500
+Subject: Re: Urgent - multiple alerts CRITICAL
+ org.jasig.cas.client.validation TicketValidationException is found in the
+ logs
+Thread-Topic: Urgent - multiple alerts CRITICAL
+ org.jasig.cas.client.validation TicketValidationException is found in the
+ logs
+Thread-Index: AdC5n78IGo4PdF2QTGC7qLBFPIqpnQ==
+Message-ID: <D1C2A4B5.48580%reigner.yrastorza@anaplan.com>
+References: <D1C2A368.48561%reigner.yrastorza@anaplan.com>
+In-Reply-To: <D1C2A368.48561%reigner.yrastorza@anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB06.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+acceptlanguage: en-US
+user-agent: Microsoft-MacOutlook/14.4.8.150116
+Content-Type: multipart/alternative;
+	boundary="_000_D1C2A4B548580reigneryrastorzaanaplancom_"
+MIME-Version: 1.0
+
+--_000_D1C2A4B548580reigneryrastorzaanaplancom_
+Content-Type: text/plain; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+I am seeing multiple error like this in the glue logs -
+
+
+2015-07-08 16:37:52,803 ERROR [AbstractFlushingEventListener] [connector.ht=
+tp.0.receiver.58] Could not synchronize database state with session
+org.hibernate.StaleObjectStateException: Row was updated or deleted by anot=
+her transaction (or unsaved-value mapping was incorrect): [com.anaplan.glue=
+.persistence.customer.UserModel#8a81b08e4e377ca7014e4667e8f91f5d]
+        at org.hibernate.persister.entity.AbstractEntityPersister.check(Abs=
+tractEntityPersister.java:1761)
+        at org.hibernate.persister.entity.AbstractEntityPersister.update(Ab=
+stractEntityPersister.java:2403)
+        at org.hibernate.persister.entity.AbstractEntityPersister.updateOrI=
+nsert(AbstractEntityPersister.java:2303)
+        at org.hibernate.persister.entity.AbstractEntityPersister.update(Ab=
+stractEntityPersister.java:2603)
+        at org.hibernate.action.EntityUpdateAction.execute(EntityUpdateActi=
+on.java:92)
+        at org.hibernate.engine.ActionQueue.execute(ActionQueue.java:248)
+        at org.hibernate.engine.ActionQueue.executeActions(ActionQueue.java=
+:232)
+        at org.hibernate.engine.ActionQueue.executeActions(ActionQueue.java=
+:140)
+
+
+2015-07-08 16:37:31,048 ERROR [AbstractFlushingEventListener] [connector.ht=
+tp.0.receiver.3] Could not synchronize database state with session
+org.hibernate.exception.ConstraintViolationException: Could not execute JDB=
+C batch update
+        at org.hibernate.exception.SQLStateConverter.convert(SQLStateConver=
+ter.java:71)
+        at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptio=
+nHelper.java:43)
+        at org.hibernate.jdbc.AbstractBatcher.executeBatch(AbstractBatcher.=
+java:249)
+        at org.hibernate.engine.ActionQueue.executeActions(ActionQueue.java=
+:235)
+        at org.hibernate.engine.ActionQueue.executeActions(ActionQueue.java=
+:139)
+        at org.hibernate.event.def.AbstractFlushingEventListener.performExe=
+cutions(AbstractFlushingEventListener.java:298)
+        at org.hibernate.event.def.DefaultFlushEventListener.onFlush(Defaul=
+tFlushEventListener.java:27)
+=85
+=85
+=85
+Caused by: java.sql.BatchUpdateException: Duplicate entry '8a81948240d60b19=
+01415aecf1af11c9-MODEL_VIEW_TYPE' for key 'uc_userProfilePreferenceIdentifi=
+er'
+        at com.mysql.jdbc.PreparedStatement.executeBatchSerially(PreparedSt=
+atement.java:1693)
+        at com.mysql.jdbc.PreparedStatement.executeBatch(PreparedStatement.=
+java:1108)
+        at com.mchange.v2.c3p0.impl.NewProxyPreparedStatement.executeBatch(=
+NewProxyPreparedStatement.java:1135)
+        at org.hibernate.jdbc.BatchingBatcher.doExecuteBatch(BatchingBatche=
+r.java:48)
+        at org.hibernate.jdbc.AbstractBatcher.executeBatch(AbstractBatcher.=
+java:242)
+
+
+I remembered before,  one of the reason that this could happen for error 1 =
+above, is someone running a heavy load test in prod.
+Still checking the logs.
+
+
+From: Reigner Yrastorza <reigner.yrastorza@anaplan.com<mailto:reigner.yrast=
+orza@anaplan.com>>
+Date: Wednesday, July 8, 2015 at 9:52 AM
+To: Level 3 Support <level3support@anaplan.com<mailto:level3support@anaplan=
+.com>>, Oliver Plattner <oliver.plattner@anaplan.com<mailto:oliver.plattner=
+@anaplan.com>>, Manish Raman <manish.raman@anaplan.com<mailto:manish.raman@=
+anaplan.com>>, Anaplan Development <development@anaplan.com<mailto:developm=
+ent@anaplan.com>>
+Cc: Anaplan Tech Operations <operations@anaplan.com<mailto:operations@anapl=
+an.com>>, Anaplan Support Agents <supportagents@anaplan.com<mailto:supporta=
+gents@anaplan.com>>
+Subject: Urgent - multiple alerts CRITICAL org.jasig.cas.client.validation =
+TicketValidationException is found in the logs
+
+Same error we experienced before =93CRITICAL org.jasig.cas.client.validatio=
+n TicketValidationException is found in the logs =93 that caused core downt=
+ime.
+
+--_000_D1C2A4B548580reigneryrastorzaanaplancom_
+Content-Type: text/html; charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3DWindows-1=
+252"></head><body style=3D"word-wrap: break-word; -webkit-nbsp-mode: space;=
+ -webkit-line-break: after-white-space; color: rgb(0, 0, 0); font-size: 14p=
+x;"><div style=3D"font-family: Calibri, sans-serif;">I am seeing multiple e=
+rror like this in the glue logs -</div><div style=3D"font-family: Calibri, =
+sans-serif;"><br></div><div style=3D"font-family: Calibri, sans-serif;"><br=
+></div><blockquote style=3D"margin:0 0 0 40px; border:none; padding:0px;"><=
+div style=3D"font-family: Calibri, sans-serif;"><div>2015-07-08 16:37:52,80=
+3 ERROR [AbstractFlushingEventListener] [connector.http.0.receiver.58] Coul=
+d not synchronize database state with session</div><div>org.hibernate.Stale=
+ObjectStateException: <span style=3D"background-color: rgb(255, 255, 0);">R=
+ow was updated or deleted by another transaction</span> (or unsaved-value m=
+apping was incorrect): [com.anaplan.glue.persistence.customer.UserModel#8a8=
+1b08e4e377ca7014e4667e8f91f5d]</div><div>&nbsp; &nbsp; &nbsp; &nbsp; at org=
+.hibernate.persister.entity.AbstractEntityPersister.check(AbstractEntityPer=
+sister.java:1761)</div><div>&nbsp; &nbsp; &nbsp; &nbsp; at org.hibernate.pe=
+rsister.entity.AbstractEntityPersister.update(AbstractEntityPersister.java:=
+2403)</div><div>&nbsp; &nbsp; &nbsp; &nbsp; at org.hibernate.persister.enti=
+ty.AbstractEntityPersister.updateOrInsert(AbstractEntityPersister.java:2303=
+)</div><div>&nbsp; &nbsp; &nbsp; &nbsp; at org.hibernate.persister.entity.A=
+bstractEntityPersister.update(AbstractEntityPersister.java:2603)</div><div>=
+&nbsp; &nbsp; &nbsp; &nbsp; at org.hibernate.action.EntityUpdateAction.exec=
+ute(EntityUpdateAction.java:92)</div><div>&nbsp; &nbsp; &nbsp; &nbsp; at or=
+g.hibernate.engine.ActionQueue.execute(ActionQueue.java:248)</div><div>&nbs=
+p; &nbsp; &nbsp; &nbsp; at org.hibernate.engine.ActionQueue.executeActions(=
+ActionQueue.java:232)</div><div>&nbsp; &nbsp; &nbsp; &nbsp; at org.hibernat=
+e.engine.ActionQueue.executeActions(ActionQueue.java:140)</div></div></bloc=
+kquote><div style=3D"font-family: Calibri, sans-serif;"><br></div><blockquo=
+te style=3D"margin: 0px 0px 0px 40px; border: none; padding: 0px;"><div sty=
+le=3D"font-family: Calibri, sans-serif;"><br></div><div><div><font face=3D"=
+Courier">2015-07-08 16:37:31,048 ERROR [AbstractFlushingEventListener] [con=
+nector.http.0.receiver.3] Could not synchronize database state with session=
+</font></div><div><font face=3D"Courier">org.hibernate.exception.Constraint=
+ViolationException: Could not execute JDBC batch update</font></div><div><f=
+ont face=3D"Courier">&nbsp; &nbsp; &nbsp; &nbsp; at org.hibernate.exception=
+.SQLStateConverter.convert(SQLStateConverter.java:71)</font></div><div><fon=
+t face=3D"Courier">&nbsp; &nbsp; &nbsp; &nbsp; at org.hibernate.exception.J=
+DBCExceptionHelper.convert(JDBCExceptionHelper.java:43)</font></div><div><f=
+ont face=3D"Courier">&nbsp; &nbsp; &nbsp; &nbsp; at org.hibernate.jdbc.Abst=
+ractBatcher.executeBatch(AbstractBatcher.java:249)</font></div><div><font f=
+ace=3D"Courier">&nbsp; &nbsp; &nbsp; &nbsp; at org.hibernate.engine.ActionQ=
+ueue.executeActions(ActionQueue.java:235)</font></div><div><font face=3D"Co=
+urier">&nbsp; &nbsp; &nbsp; &nbsp; at org.hibernate.engine.ActionQueue.exec=
+uteActions(ActionQueue.java:139)</font></div><div><font face=3D"Courier">&n=
+bsp; &nbsp; &nbsp; &nbsp; at org.hibernate.event.def.AbstractFlushingEventL=
+istener.performExecutions(AbstractFlushingEventListener.java:298)</font></d=
+iv><div><font face=3D"Courier">&nbsp; &nbsp; &nbsp; &nbsp; at org.hibernate=
+.event.def.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java=
+:27)</font></div></div><div><font face=3D"Courier">=85</font></div><div><fo=
+nt face=3D"Courier">=85</font></div><div><font face=3D"Courier">=85</font><=
+/div><div><div><font face=3D"Courier">Caused by: java.sql.BatchUpdateExcept=
+ion: Duplicate entry '8a81948240d60b1901415aecf1af11c9-MODEL_VIEW_TYPE' for=
+ key 'uc_userProfilePreferenceIdentifier'</font></div><div><font face=3D"Co=
+urier">&nbsp; &nbsp; &nbsp; &nbsp; at com.mysql.jdbc.PreparedStatement.exec=
+uteBatchSerially(PreparedStatement.java:1693)</font></div><div><font face=
+=3D"Courier">&nbsp; &nbsp; &nbsp; &nbsp; at com.mysql.jdbc.PreparedStatemen=
+t.executeBatch(PreparedStatement.java:1108)</font></div><div><font face=3D"=
+Courier">&nbsp; &nbsp; &nbsp; &nbsp; at com.mchange.v2.c3p0.impl.NewProxyPr=
+eparedStatement.executeBatch(NewProxyPreparedStatement.java:1135)</font></d=
+iv><div><font face=3D"Courier">&nbsp; &nbsp; &nbsp; &nbsp; at org.hibernate=
+.jdbc.BatchingBatcher.doExecuteBatch(BatchingBatcher.java:48)</font></div><=
+div><font face=3D"Courier">&nbsp; &nbsp; &nbsp; &nbsp; at org.hibernate.jdb=
+c.AbstractBatcher.executeBatch(AbstractBatcher.java:242)</font></div></div>=
+</blockquote><div style=3D"font-family: Calibri, sans-serif;"><br></div><di=
+v style=3D"font-family: Calibri, sans-serif;"><br></div><div style=3D"font-=
+family: Calibri, sans-serif;">I remembered before, &nbsp;one of the reason =
+that this could happen for error 1 above, is someone running a heavy load t=
+est in prod.</div><div style=3D"font-family: Calibri, sans-serif;">Still ch=
+ecking the logs.</div><div style=3D"font-family: Calibri, sans-serif;"><br>=
+</div><div style=3D"font-family: Calibri, sans-serif;"><br></div><span id=
+=3D"OLK_SRC_BODY_SECTION" style=3D"font-family: Calibri, sans-serif;"><div =
+style=3D"font-family:Calibri; font-size:11pt; text-align:left; color:black;=
+ BORDER-BOTTOM: medium none; BORDER-LEFT: medium none; PADDING-BOTTOM: 0in;=
+ PADDING-LEFT: 0in; PADDING-RIGHT: 0in; BORDER-TOP: #b5c4df 1pt solid; BORD=
+ER-RIGHT: medium none; PADDING-TOP: 3pt"><span style=3D"font-weight:bold">F=
+rom: </span> Reigner Yrastorza &lt;<a href=3D"mailto:reigner.yrastorza@anap=
+lan.com">reigner.yrastorza@anaplan.com</a>&gt;<br><span style=3D"font-weigh=
+t:bold">Date: </span> Wednesday, July 8, 2015 at 9:52 AM<br><span style=3D"=
+font-weight:bold">To: </span> Level 3 Support &lt;<a href=3D"mailto:level3s=
+upport@anaplan.com">level3support@anaplan.com</a>&gt;, Oliver Plattner &lt;=
+<a href=3D"mailto:oliver.plattner@anaplan.com">oliver.plattner@anaplan.com<=
+/a>&gt;, Manish Raman &lt;<a href=3D"mailto:manish.raman@anaplan.com">manis=
+h.raman@anaplan.com</a>&gt;, Anaplan Development &lt;<a href=3D"mailto:deve=
+lopment@anaplan.com">development@anaplan.com</a>&gt;<br><span style=3D"font=
+-weight:bold">Cc: </span> Anaplan Tech Operations &lt;<a href=3D"mailto:ope=
+rations@anaplan.com">operations@anaplan.com</a>&gt;, Anaplan Support Agents=
+ &lt;<a href=3D"mailto:supportagents@anaplan.com">supportagents@anaplan.com=
+</a>&gt;<br><span style=3D"font-weight:bold">Subject: </span> Urgent - mult=
+iple alerts CRITICAL org.jasig.cas.client.validation TicketValidationExcept=
+ion is found in the logs<br></div><div><br></div><div><div style=3D"word-wr=
+ap: break-word; -webkit-nbsp-mode: space; -webkit-line-break: after-white-s=
+pace; color: rgb(0, 0, 0); font-size: 14px; font-family: Calibri, sans-seri=
+f;"><div>Same error we experienced before =93<span style=3D"font-family: ar=
+ial, serif; font-size: 10.6666669845581px; widows: 1; background-color: rgb=
+(187, 195, 187);">CRITICAL org.jasig.cas.client.validation TicketValidation=
+Exception is found in the logs&nbsp;</span>=93
+ that caused core downtime.</div></div></div></span></body></html>
+
+--_000_D1C2A4B548580reigneryrastorzaanaplancom_--

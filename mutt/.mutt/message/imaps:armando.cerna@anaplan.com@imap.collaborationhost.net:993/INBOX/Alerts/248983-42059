@@ -1,0 +1,54 @@
+Received: from mail6.bemta8.messagelabs.com (10.2.3.195) by
+ in051.collaborationhost.net (10.2.65.63) with Microsoft SMTP Server id
+ 8.3.327.1; Wed, 29 Jul 2015 07:39:38 -0500
+Received: from [216.82.242.99] by server-14.bemta-8.messagelabs.com id
+ 7A/A3-10752-199C8B55; Wed, 29 Jul 2015 12:39:45 +0000
+Received: (qmail 32738 invoked from network); 29 Jul 2015 12:39:45 -0000
+Received: from unknown (HELO s04.a.anaplan.com) (198.207.221.104)  by
+ server-4.tower-131.messagelabs.com with SMTP; 29 Jul 2015 12:39:45 -0000
+Received: by s04.a.anaplan.com (Postfix, from userid 229)	id 32BFD1A338A; Wed,
+ 29 Jul 2015 12:39:45 +0000 (UTC)
+From: "icinga@dc5-icinga.anaplan.com" <icinga@dc5-icinga.anaplan.com>
+To: Site Reliability Ops <applicationops@anaplan.com>
+Date: Wed, 29 Jul 2015 07:39:45 -0500
+Subject: ** RECOVERY Service Alert: dc5-backup-livesync.anaplan.com/DC5 to
+ Livesync Rsync is OK **
+Thread-Topic: ** RECOVERY Service Alert: dc5-backup-livesync.anaplan.com/DC5
+ to Livesync Rsync is OK **
+Thread-Index: AdDJ+6KlcY3TujIrRlyd8sK+/FZLzA==
+Message-ID: <55b8c991.aAZ0SjIju+VlRgV+%icinga@dc5-icinga.anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB51.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: 1
+X-MS-Exchange-Organization-PCL: 2
+X-MS-TNEF-Correlator:
+x-viruschecked: Checked
+x-env-sender: icinga@dc5-icinga.anaplan.com
+x-msg-ref: server-4.tower-131.messagelabs.com!1438173585!30302009!1
+x-starscan-version: 6.13.16; banners=-,-,-
+x-originating-ip: [198.207.221.104]
+user-agent: Heirloom mailx 12.4 7/29/08
+x-spamwhitelisted: IP whitelist
+x-starscan-received:
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+***** Icinga *****
+
+Notification Type: RECOVERY
+
+Service: DC5 to Livesync Rsync
+Host: dc5-backup-livesync.anaplan.com
+Address: dc5-backup-livesync.anaplan.com
+State: OK
+
+Date/Time: Wed Jul 29 12:39:45 UTC 2015
+
+Additional Info:
+
+Command completed successfully about 0.73 minutes ago.

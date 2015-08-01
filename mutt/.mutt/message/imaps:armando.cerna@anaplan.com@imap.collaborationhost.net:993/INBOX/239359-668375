@@ -1,0 +1,110 @@
+Received: from AUSP01VMBX10.collaborationhost.net ([10.2.8.162]) by
+ AUSP01MHUB06.collaborationhost.net ([10.2.8.241]) with mapi; Fri, 31 Jul 2015
+ 18:53:52 -0500
+From: Armando Cerna <armando.cerna@anaplan.com>
+To: Judd Reiffin <Judd.Reiffin@anaplan.com>
+CC: Anaplan Tech Operations <operations@anaplan.com>
+Date: Fri, 31 Jul 2015 18:54:06 -0500
+Subject: Weekly Report 07/27/15 - 07/31/15
+Thread-Topic: Weekly Report 07/27/15 - 07/31/15
+Thread-Index: AdDL7CXUHlX/piK4RT+9O79ygOUx0A==
+Message-ID: <D1E13166.61DF4%armando.cerna@anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB06.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+acceptlanguage: en-US
+user-agent: Microsoft-MacOutlook/14.5.2.150604
+Content-Type: multipart/alternative;
+	boundary="_000_D1E1316661DF4armandocernaanaplancom_"
+MIME-Version: 1.0
+
+--_000_D1E1316661DF4armandocernaanaplancom_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+Worked on
+
+ *   WWW-86, Removal of weak ciphers and enable Forward Secrecy to obtain '=
+A' grading of certificate.
+ *   TECHOPS-1181, re-pxe dc5-app3-1-prod
+ *   TECHOPS-1300, Check cores have the right build
+ *   DEVOPS-158, Add splunk graph for backup transfer speed
+ *   DEVOPS-156, Add splunk monitoring for livesync logs
+ *   TECHOPS-1292, please move P&G Core046 to larger core
+ *   TECHOPS-1232, Creation of rundeck job to allow L3 to add debug to thei=
+r cores, and addition of eu-core1014 to rundeck restart job
+ *   DEVOPS-156 Create a new recipe called backups or livesync in the splun=
+k cookbook and apply to the dc5 and am3 livesync backup server
+ *   TECHOPS-1284, access to Rundeck for Carolyn Davis and Ravi Ramaanujan
+ *   TECHOPS-1277, Deployment - branch build to beta please
+ *   TECHOPS-1197, Daily RkHunter Warnings Failing
+ *   TECHOPS-1280, Please restore model to requested serial number
+ *   TECHOPS-1261, ADFS AWS instance loosing elastic IP on every restart.
+ *   TECHOPS-1066, Unable to add new users to OpenAM
+ *   TECHOPS-1281, Chef issues on ec2us-sso1.anaplan.com
+ *   TECHOPS-1239, Rundeck Access for Level 3
+ *   TECHOPS-1250, renew www.anaplan.com thawte cert.5
+ *   TECHOPS-1270, reconfigure core208-217 to be generic in build, run.conf=
+, and properties flags. NO CUSTOMERS ON THESE CORES
+ *   TECHOPS-1216, create techops user in mysql for setting "model serial n=
+umber"
+ *   TECHOPS-1265, Deploy hotfix build to new core
+ *   TECHOPS-1252, AWS MFA setup
+ *   INFRAOPS-284, VPN access for the AWS Dev VPC
+ *   TECHOPS-1249, Please restore model to requested serial
+ *   TECHOPS-1215, Please restore Model to requested serial
+ *   TECHOPS-1209, Please rollback model to requested serial number
+ *   PT x 2
+ *   Planned defcon trip
+
+Waiting for
+
+ *   TECHOPS-1287, Please update DNS cname for learning.anaplan.com to poin=
+t to anaplan-lms.customers.my-lms.net
+
+--_000_D1E1316661DF4armandocernaanaplancom_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html><head></head><body style=3D"word-wrap: break-word; -webkit-nbsp-mode:=
+ space; -webkit-line-break: after-white-space; color: rgb(0, 0, 0); font-si=
+ze: 14px; font-family: Calibri, sans-serif;"><div><div>Worked on</div><ul><=
+li>WWW-86, Removal of weak ciphers and enable Forward Secrecy to obtain 'A'=
+ grading of certificate.</li><li>TECHOPS-1181, re-pxe dc5-app3-1-prod</li><=
+li>TECHOPS-1300, Check cores have the right build</li><li>DEVOPS-158, Add s=
+plunk graph for backup transfer speed</li><li>DEVOPS-156, Add splunk monito=
+ring for livesync logs</li><li>TECHOPS-1292, please move P&amp;G Core046 to=
+ larger core</li><li>TECHOPS-1232, Creation of rundeck job to allow L3 to a=
+dd debug to their cores, and addition of eu-core1014 to rundeck restart job=
+</li><li>DEVOPS-156 Create a new recipe called backups or livesync in the s=
+plunk cookbook and apply to the dc5 and am3 livesync backup server</li><li>=
+TECHOPS-1284, access to Rundeck for Carolyn Davis and Ravi Ramaanujan<span =
+class=3D"Apple-tab-span" style=3D"white-space:pre">	</span> <span class=3D"=
+Apple-tab-span" style=3D"white-space:pre">	</span></li><li>TECHOPS-1277, De=
+ployment - branch build to beta please</li><li>TECHOPS-1197, Daily RkHunter=
+ Warnings Failing</li><li>TECHOPS-1280, Please restore model to requested s=
+erial number</li><li>TECHOPS-1261, ADFS AWS instance loosing elastic IP on =
+every restart.</li><li>TECHOPS-1066, Unable to add new users to OpenAM</li>=
+<li>TECHOPS-1281, Chef issues on ec2us-sso1.anaplan.com</li><li>TECHOPS-123=
+9, Rundeck Access for Level 3</li><li>TECHOPS-1250, renew www.anaplan.com t=
+hawte cert.5<span class=3D"Apple-tab-span" style=3D"white-space:pre">	</spa=
+n> <span class=3D"Apple-tab-span" style=3D"white-space:pre">	</span></li><l=
+i>TECHOPS-1270, reconfigure core208-217 to be generic in build, run.conf, a=
+nd properties flags. NO CUSTOMERS ON THESE CORES</li><li>TECHOPS-1216, crea=
+te techops user in mysql for setting "model serial number"</li><li>TECHOPS-=
+1265, Deploy hotfix build to new core</li><li>TECHOPS-1252, AWS MFA setup</=
+li><li>INFRAOPS-284, VPN access for the AWS Dev VPC</li><li>TECHOPS-1249, P=
+lease restore model to requested serial</li><li>TECHOPS-1215, Please restor=
+e Model to requested serial</li><li>TECHOPS-1209, Please rollback model to =
+requested serial number</li><li>PT x 2</li><li>Planned defcon trip</li></ul=
+><div><br></div><div>Waiting for</div><ul><li>TECHOPS-1287, Please update D=
+NS cname for learning.anaplan.com to point to anaplan-lms.customers.my-lms.=
+net</li></ul></div></body></html>
+
+--_000_D1E1316661DF4armandocernaanaplancom_--

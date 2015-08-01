@@ -1,0 +1,54 @@
+Received: from mail6.bemta7.messagelabs.com (10.2.3.199) by
+ in052.collaborationhost.net (10.2.65.73) with Microsoft SMTP Server id
+ 8.3.327.1; Wed, 29 Jul 2015 09:49:29 -0500
+Received: from [216.82.255.3] by server-12.bemta-7.messagelabs.com id
+ B6/EA-06956-008E8B55; Wed, 29 Jul 2015 14:49:36 +0000
+Received: (qmail 12505 invoked from network); 29 Jul 2015 14:49:35 -0000
+Received: from unknown (HELO s04.a.anaplan.com) (198.207.221.104)  by
+ server-10.tower-209.messagelabs.com with SMTP; 29 Jul 2015 14:49:35 -0000
+Received: by s04.a.anaplan.com (Postfix, from userid 229)	id 5846A1A217B; Wed,
+ 29 Jul 2015 14:49:35 +0000 (UTC)
+From: "icinga@dc5-icinga.anaplan.com" <icinga@dc5-icinga.anaplan.com>
+To: PingdomContacts <pingdomcontacts@anaplan.com>
+Date: Wed, 29 Jul 2015 09:49:35 -0500
+Subject: ** PROBLEM Service Alert:
+ core149.anaplan.com/core149.anaplan.com/anaplan/blank.html is CRITICAL **
+Thread-Topic: ** PROBLEM Service Alert:
+ core149.anaplan.com/core149.anaplan.com/anaplan/blank.html is CRITICAL **
+Thread-Index: AdDKDcY/PyrovptxSVKhiQZs3mybWA==
+Message-ID: <55b8e7ff.tVbvm5Coac4hC7KX%icinga@dc5-icinga.anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB52.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: 0
+X-MS-Exchange-Organization-PCL: 2
+X-MS-TNEF-Correlator:
+x-viruschecked: Checked
+x-env-sender: icinga@dc5-icinga.anaplan.com
+x-msg-ref: server-10.tower-209.messagelabs.com!1438181375!16144369!1
+x-starscan-version: 6.13.16; banners=-,-,-
+x-originating-ip: [198.207.221.104]
+user-agent: Heirloom mailx 12.4 7/29/08
+x-spamwhitelisted: IP whitelist
+x-starscan-received:
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+***** Icinga *****
+
+Notification Type: PROBLEM
+
+Service: core149.anaplan.com/anaplan/blank.html
+Host: core149.anaplan.com
+Address: core149.anaplan.com
+State: CRITICAL
+
+Date/Time: Wed Jul 29 14:49:35 UTC 2015
+
+Additional Info:
+
+CRITICAL - Socket timeout after 10 seconds

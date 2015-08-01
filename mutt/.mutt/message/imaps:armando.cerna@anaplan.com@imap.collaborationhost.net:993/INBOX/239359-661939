@@ -1,0 +1,1317 @@
+Received: from AUSP01VMBX10.collaborationhost.net ([10.2.8.162]) by
+ AUSP01MHUB52.collaborationhost.net ([::1]) with mapi; Mon, 22 Jun 2015
+ 13:51:37 -0500
+From: Brad Fino <brad.fino@anaplan.com>
+To: Reigner Yrastorza <reigner.yrastorza@anaplan.com>, Anaplan Tech Operations
+	<operations@anaplan.com>
+Date: Mon, 22 Jun 2015 13:51:35 -0500
+Subject: RE: [Version 1] Steps for June 27, 2015 Release
+Thread-Topic: [Version 1] Steps for June 27, 2015 Release
+Thread-Index: AdCtG10ZjaDVIuEPSdmq4v0njZKNfAAABU+Q
+Message-ID:
+ <2469346B71DE0549AF14420ED1872EC6CFACD7AB62@AUSP01VMBX10.collaborationhost.net>
+References: <D1A99B34.47220%reigner.yrastorza@anaplan.com>
+ <D1AD90B3.47773%reigner.yrastorza@anaplan.com>
+In-Reply-To: <D1AD90B3.47773%reigner.yrastorza@anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Internal
+X-MS-Exchange-Organization-AuthMechanism: 04
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB52.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: -1
+X-MS-TNEF-Correlator:
+acceptlanguage: en-US
+Content-Type: multipart/alternative;
+	boundary="_000_2469346B71DE0549AF14420ED1872EC6CFACD7AB62AUSP01VMBX10c_"
+MIME-Version: 1.0
+
+--_000_2469346B71DE0549AF14420ED1872EC6CFACD7AB62AUSP01VMBX10c_
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+1.       11. Promote dc5-glue1-1-prod.anaplan-prod.net as the new mysql mas=
+ter  -  Brad
+
+a.       5 minutes
+
+2.      12. Modify all the mysql slaves to use dc5-glue1-1-prod as the new =
+mysql master  -  Brad
+
+a.       15 minutes per slaver server.
+
+                                                               i.      Ensu=
+re all traffic has stopped to the master (run show binary logs or show mast=
+er status and verify the master_log_pos is not incrementing)
+
+                                                             ii.      Chang=
+e master to master_host =3D 'new host' <and so on>
+
+b.      Includes the following replication validation tests
+
+                                                               i.      Test=
+ that slaves are getting updates from master (create database on master, cr=
+eate table, drop database, drop table)
+
+                                                             ii.      Run '=
+checksum table $foo' before switching and after switching
+
+                                                            iii.      Verif=
+y show slave status and ensure IO and SQL Slave Threads are running
+
+                                                           iv.      Ensure =
+binary/master log updates are occurring
+
+3.       13. Transfer the NATs to the new vms hosted in dc5-hyp1-1-prod  - =
+ Brad
+
+a.       This should be renamed to "Change DNS to switch to new/pre-staged =
+NATs"
+
+b.      It would be more appropriate for Armando to manage this component.
+
+
+Let me know if you need anything else
+
+From: Reigner Yrastorza
+Sent: Monday, June 22, 2015 11:44 AM
+To: Anaplan Tech Operations
+Subject: Re: [Version 1] Steps for June 27, 2015 Release
+
+Note:
+
+ *   Time estimates needed from Brad and QA
+ *   Assign a QA/person for the testing phase (step 16)  -  James
+ *   InfraOps needs to fill out the public ip for step 2 - Brad
+
+Pending:
+
+ *   Replace *.anaplan.com ssl cert - https://anaplansite.atlassian.net/bro=
+wse/TECHOPS-925
+ *   Move remaining cores on legacy s* servers to new dc5-app - https://ana=
+plansite.atlassian.net/browse/TECHOPS-773
+ *   Log4j change - https://anaplansite.atlassian.net/browse/TECHOPS-519
+ *   Splunk recipe for SDP tomcat - https://anaplansite.atlassian.net/brows=
+e/DEVOPS-99
+
+
+Suggesting we skip the core moves on this release.
+
+
+
+
+[Version 2] Steps for June 27, 2015 Release -
+
+Date: June 27, 2015
+Start: 1pm
+End: 5pm
+Current estimated time of completion: 166mins (~3hours)   (Time does not ye=
+t include Brad's eta)
+
+
+1.  1min - Disable monitoring - https://rundeck.anaplan.com/project/Anaplan=
+/job/show/a780631b-1128-4753-8272-be0fff48b67e   -  Reigner
+
+2.  2mins - Bring down the maintenance page through Wpengine  -   Armando
+
+3.  3mins - Update route53 for the new public ips for   -   Armando
+                                A. sdp.anaplan.com -
+                                B. api.anaplan.com -
+                                C. relay.anaplan.com -
+                                D. university.anaplan.com -
+                                E. community.anaplan.com -
+
+4. 3mins - Stop the apps  -  Reigner
+
+SDP
+GLUE
+API
+
+
+5. 5mins - Stop all MySQL hosted in the dc5 prod hyp
+
+v008  -  Reigner
+v007  -  Reigner
+v002  -  Reigner
+v009 (university)  -  Armando
+v010 (community)  -  Armando
+
+
+6. 10mins - Prep chef  -  Reigner
+
+ 1.  Update apache version in dc5prod and am3prod to 0.0.5
+ 2.  Set core build to all cores - 2015.3.0.78-1
+ 3.  Remove the custom builds in site-cookbooks/core_deployments
+ 4.  Update anaplan_core version in dc5prod and am3prod to 0.0.13
+ 5.  Update core_deployments in dc5prod and am3prod to 0.0.3
+ 6.  Set builds to -
+
+api-services
+
+2015.3.0.41<http://am3-build1.anaplan.com:8081/nexus/content/repositories/a=
+naplan-master/com/anaplan/api-services/2015.3.0.41/api-services-2015.3.0.41=
+.rpm>
+
+apphub-admin
+
+2015.3.0.11<http://am3-build1.anaplan.com:8081/nexus/content/repositories/a=
+naplan-master/com/anaplan/apphub-admin/2015.3.0.11/apphub-admin-2015.3.0.11=
+.rpm>
+
+frontdoor
+
+2015.3.0.24<http://am3-build1.anaplan.com:8081/nexus/content/repositories/a=
+naplan-master/com/anaplan/frontdoor/2015.3.0.24/frontdoor-2015.3.0.24.rpm>
+
+glue
+
+2015.3.0.17<http://am3-build1.anaplan.com:8081/nexus/content/repositories/a=
+naplan-master/com/anaplan/glue/2015.3.0.17/glue-2015.3.0.17.zip>
+
+jasper-reports
+
+2015.3.0.11<http://am3-build1.anaplan.com:8081/nexus/content/repositories/a=
+naplan-master/com/anaplan/jasper-reports/2015.3.0.11/jasper-reports-2015.3.=
+0.11.zip>
+
+launchpad
+
+2015.3.0.16<http://am3-build1.anaplan.com:8081/nexus/content/repositories/a=
+naplan-master/com/anaplan/launchpad/2015.3.0.16/launchpad-2015.3.0.16.rpm>
+
+reporting
+
+2015.3.0.13<http://am3-build1.anaplan.com:8081/nexus/content/repositories/a=
+naplan-master/com/anaplan/reporting/2015.3.0.13/reporting-2015.3.0.13.rpm>
+
+scheduler
+
+2015.3.0.13<http://am3-build1.anaplan.com:8081/nexus/content/repositories/a=
+naplan-master/com/anaplan/scheduler/2015.3.0.13/scheduler-2015.3.0.13.rpm>
+
+speakeasy
+
+2015.3.0.23<http://am3-build1.anaplan.com:8081/nexus/content/repositories/a=
+naplan-master/com/anaplan/speakeasy/2015.3.0.23/speakeasy-2015.3.0.23.rpm>
+
+
+
+7. 5mins  -  Remove GCC https://rundeck.anaplan.com/project/Anaplan/job/sho=
+w/c3b794cf-850f-400f-8d7b-1b023917373d  -  Reigner
+
+
+8. 20mins  -  Shutdown the vms in dc5-hyp2 and move them to dc5-hyp1  -  Re=
+igner
+
+v014 (techops git)
+v012.p.a  (secondary dns)
+v002.p.a (mysql slave)
+dc5-apisso1-1-prod (current prod server)
+
+1. export the vm definition from dc5-hyp1
+2. import the vm definition to dc5-hyp1-1-prod
+3. start the vm
+4. Verify the vms and apps are working
+
+
+9. 30mins  -  Bring up the servers in dc5-hyp1-1-prod and ensure the server=
+s are running -
+
+5mins - dc5-sdp3-1-prod (New SDP prod)  -  Reigner
+10mins - dc5-glue1-1-prod (New GLUE and mysql master prod  -  )  -  Reigner
+5mins - dc5-api1-1-prod (New API prod)   -   Reigner
+dc5-mysql1-1-prod (Additional mysql slave  -  This will be a slave before J=
+une 27)  -   Reigner
+10mins dc5-mail2-1-prod (New mail relay server)   -   Armando
+
+
+10. 20mins - Mount the v009 and v010 image and modify it to use the ips bel=
+ow -
+
+v009 (New ip - 10.1.48.16)   -   Armando
+v010 (New ip - 10.1.48.17)   -   Armando
+
+1. export the vm definition from dc5-hyp1
+2. import the vm definition to dc5-hyp1-1-prod
+3. start the vm
+4. console in the vm
+5. Edit the ip
+6. Restart
+7. Start the app and mysql
+
+
+11. Promote dc5-glue1-1-prod.anaplan-prod.net as the new mysql master  -  B=
+rad
+
+
+12. Modify all the mysql slaves to use dc5-glue1-1-prod as the new mysql ma=
+ster  -  Brad
+
+
+13. Transfer the NATs to the new vms hosted in dc5-hyp1-1-prod  -  Brad
+
+sdp.anaplan.com  -  198.207.221.11  =3D> 10.1.48.12
+api.anaplan.com  -  198.207.221.32   =3D> 10.1.48.13
+university.anaplan.com  -   198.207.221.40  =3D> 10.1.48.16
+community.anaplan.com  -  198.207.221.41  =3D> 10.1.48.17
+relay.anaplan.com  -  198.207.221.249  =3D> 10.1.48.11
+
+
+14. 5mins - Update internal DNS  -  Reigner
+
+
+15. Deploy the apps -
+
+12.1. 10mins SDP -  Reigner
+
+12.2. 5mins - Glue -  Reigner
+
+12.3. 5mins - API -  Reigner
+
+12.4. 10mins - Cores  -  Reigner
+
+EU - https://rundeck.anaplan.com/project/Anaplan/job/show/73fd4159-95c1-4e3=
+4-9ae3-54dfb60effa5
+US - https://rundeck.anaplan.com/project/Anaplan/job/show/e4f84948-f5d1-4ff=
+7-a474-d6e952e22b70
+
+
+12.5. 10mins - Excel add-in -  https://anaplansite.atlassian.net/browse/TEC=
+HOPS-800  -  Armando
+
+
+
+16. Testing phase -
+
+16.1. 10mins - Run the check buildstamp  -  Reigner
+
+16.2. SDP
+
+16.3. Glue
+
+16.4. API
+
+16.5. University
+
+16.6. Community
+
+16.7. 3mins - Mail Relay  -   Armando
+
+
+17. 2mins - Enable monitoring -  https://rundeck.anaplan.com/project/Anapla=
+n/job/show/fb0a4000-5e26-46c7-a494-55c12609fe30  -  Reigner
+
+18. 2mins - Bring up the maintenance page through Wpengine  -   Armando
+
+
+
+-------------
+
+
+Rollback:
+1. Shutdown the vms in dc5-hyp1-1-prod
+2. Bring up the old vms in dc5-hyp1
+3. Start v009 and v010 on dc5-hyp1
+4. Undo the NAT change
+5. Verify Sdp, glue, api, university, community and relay
+6. Revert the core builds  (https://anaplansite.atlassian.net/browse/RB-969=
+)
+
+
+
+
+--_000_2469346B71DE0549AF14420ED1872EC6CFACD7AB62AUSP01VMBX10c_
+Content-Type: text/html; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" xmlns:o=3D"urn:schemas-micr=
+osoft-com:office:office" xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" xmlns=3D"http:=
+//www.w3.org/TR/REC-html40"><head><meta http-equiv=3DContent-Type content=
+=3D"text/html; charset=3Dus-ascii"><meta name=3DGenerator content=3D"Micros=
+oft Word 15 (filtered medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-priority:99;
+	color:purple;
+	text-decoration:underline;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.apple-tab-span
+	{mso-style-name:apple-tab-span;}
+span.EmailStyle18
+	{mso-style-type:personal-reply;
+	font-family:"Calibri",sans-serif;
+	color:#1F497D;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	font-size:10.0pt;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+/* List Definitions */
+@list l0
+	{mso-list-id:172569313;
+	mso-list-template-ids:1683633034;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1
+	{mso-list-id:710572577;
+	mso-list-template-ids:437564462;}
+@list l2
+	{mso-list-id:1023432587;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1178713280 67698703 67698713 67698715 67698703 6769=
+8713 67698715 67698703 67698713 67698715;}
+@list l2:level1
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level2
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l2:level4
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l2:level7
+	{mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-number-format:alpha-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-number-format:roman-lower;
+	mso-level-tab-stop:none;
+	mso-level-number-position:right;
+	text-indent:-9.0pt;}
+@list l3
+	{mso-list-id:1993756152;
+	mso-list-template-ids:-460017476;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l3:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Times New Roman";}
+@list l3:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEN-US link=3Dblue vli=
+nk=3Dpurple><div class=3DWordSection1><p class=3DMsoListParagraph style=3D'=
+text-indent:-.25in;mso-list:l2 level1 lfo4'><![if !supportLists]><span styl=
+e=3D'font-size:11.0pt;font-family:"Calibri",sans-serif;color:#1F497D'><span=
+ style=3D'mso-list:Ignore'>1.<span style=3D'font:7.0pt "Times New Roman"'>&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span st=
+yle=3D'color:black'>11. Promote dc5-glue1-1-prod.anaplan-prod.net as the ne=
+w mysql master &nbsp;- &nbsp;<span style=3D'background:#FF6600'>Brad </span=
+></span><span style=3D'font-size:11.0pt;font-family:"Calibri",sans-serif;co=
+lor:#1F497D'><o:p></o:p></span></p><p class=3DMsoListParagraph style=3D'mar=
+gin-left:1.0in;text-indent:-.25in;mso-list:l2 level2 lfo4'><![if !supportLi=
+sts]><span style=3D'font-size:11.0pt;font-family:"Calibri",sans-serif;color=
+:#1F497D'><span style=3D'mso-list:Ignore'>a.<span style=3D'font:7.0pt "Time=
+s New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![=
+endif]><span style=3D'color:black;background:#FF6600'>5 minutes</span><span=
+ style=3D'font-size:11.0pt;font-family:"Calibri",sans-serif;color:#1F497D'>=
+<o:p></o:p></span></p><p class=3DMsoListParagraph style=3D'text-indent:-.25=
+in;mso-list:l2 level1 lfo4'><![if !supportLists]><span style=3D'color:black=
+'><span style=3D'mso-list:Ignore'>2.<span style=3D'font:7.0pt "Times New Ro=
+man"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span s=
+tyle=3D'font-size:10.5pt;color:black'>12. Modify all the mysql slaves to us=
+e&nbsp;</span><span style=3D'color:black'>dc5-glue1-1-prod as the new mysql=
+ master &nbsp;- &nbsp;<span style=3D'background:#FF6600'>Brad</span><o:p></=
+o:p></span></p><p class=3DMsoListParagraph style=3D'margin-left:1.0in;text-=
+indent:-.25in;mso-list:l2 level2 lfo4'><![if !supportLists]><span style=3D'=
+font-size:11.0pt;font-family:"Calibri",sans-serif;color:#1F497D'><span styl=
+e=3D'mso-list:Ignore'>a.<span style=3D'font:7.0pt "Times New Roman"'>&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span style=
+=3D'font-size:11.0pt;font-family:"Calibri",sans-serif;color:#1F497D'>15 min=
+utes per slaver server.<o:p></o:p></span></p><p class=3DMsoListParagraph st=
+yle=3D'margin-left:1.5in;text-indent:-1.5in;mso-text-indent-alt:-9.0pt;mso-=
+list:l2 level3 lfo4'><![if !supportLists]><span style=3D'font-size:11.0pt;f=
+ont-family:"Calibri",sans-serif;color:#1F497D'><span style=3D'mso-list:Igno=
+re'><span style=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>i.<span style=3D'font=
+:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></sp=
+an><![endif]><span style=3D'font-size:11.0pt;font-family:"Calibri",sans-ser=
+if;color:#1F497D'>Ensure all traffic has stopped to the master (run show bi=
+nary logs or show master status and verify the master_log_pos is not increm=
+enting)<o:p></o:p></span></p><p class=3DMsoListParagraph style=3D'margin-le=
+ft:1.5in;text-indent:-1.5in;mso-text-indent-alt:-9.0pt;mso-list:l2 level3 l=
+fo4'><![if !supportLists]><span style=3D'font-size:11.0pt;font-family:"Cali=
+bri",sans-serif;color:#1F497D'><span style=3D'mso-list:Ignore'><span style=
+=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp; </span>ii.<span style=3D'font:7.0pt "Times New Roman"'>=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span style=
+=3D'font-size:11.0pt;font-family:"Calibri",sans-serif;color:#1F497D'>Change=
+ master to master_host =3D &#8216;new host&#8217; &lt;and so on&gt;<o:p></o=
+:p></span></p><p class=3DMsoListParagraph style=3D'margin-left:1.0in;text-i=
+ndent:-.25in;mso-list:l2 level2 lfo4'><![if !supportLists]><span style=3D'f=
+ont-size:11.0pt;font-family:"Calibri",sans-serif;color:#1F497D'><span style=
+=3D'mso-list:Ignore'>b.<span style=3D'font:7.0pt "Times New Roman"'>&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span style=3D'font-=
+size:11.0pt;font-family:"Calibri",sans-serif;color:#1F497D'>Includes the fo=
+llowing replication validation tests<o:p></o:p></span></p><p class=3DMsoLis=
+tParagraph style=3D'margin-left:1.5in;text-indent:-1.5in;mso-text-indent-al=
+t:-9.0pt;mso-list:l2 level3 lfo4'><![if !supportLists]><span style=3D'font-=
+size:11.0pt;font-family:"Calibri",sans-serif;color:#1F497D'><span style=3D'=
+mso-list:Ignore'><span style=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>i.<span =
+style=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </spa=
+n></span></span><![endif]><span style=3D'font-size:11.0pt;font-family:"Cali=
+bri",sans-serif;color:#1F497D'>Test that slaves are getting updates from ma=
+ster (create database on master, create table, drop database, drop table)<o=
+:p></o:p></span></p><p class=3DMsoListParagraph style=3D'margin-left:1.5in;=
+text-indent:-1.5in;mso-text-indent-alt:-9.0pt;mso-list:l2 level3 lfo4'><![i=
+f !supportLists]><span style=3D'font-size:11.0pt;font-family:"Calibri",sans=
+-serif;color:#1F497D'><span style=3D'mso-list:Ignore'><span style=3D'font:7=
+.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp; </span>ii.<span style=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><span style=3D'font-siz=
+e:11.0pt;font-family:"Calibri",sans-serif;color:#1F497D'>Run &#8216;checksu=
+m table $foo&#8217; before switching and after switching<o:p></o:p></span><=
+/p><p class=3DMsoListParagraph style=3D'margin-left:1.5in;text-indent:-1.5i=
+n;mso-text-indent-alt:-9.0pt;mso-list:l2 level3 lfo4'><![if !supportLists]>=
+<span style=3D'font-size:11.0pt;font-family:"Calibri",sans-serif;color:#1F4=
+97D'><span style=3D'mso-list:Ignore'><span style=3D'font:7.0pt "Times New R=
+oman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>iii.<s=
+pan style=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <=
+/span></span></span><![endif]><span style=3D'font-size:11.0pt;font-family:"=
+Calibri",sans-serif;color:#1F497D'>Verify show slave status and ensure IO a=
+nd SQL Slave Threads are running<o:p></o:p></span></p><p class=3DMsoListPar=
+agraph style=3D'margin-left:1.5in;text-indent:-1.5in;mso-text-indent-alt:-9=
+.0pt;mso-list:l2 level3 lfo4'><![if !supportLists]><span style=3D'font-size=
+:11.0pt;font-family:"Calibri",sans-serif;color:#1F497D'><span style=3D'mso-=
+list:Ignore'><span style=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>iv.<span style=3D'font:7.0pt "Times =
+New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><=
+span style=3D'font-size:11.0pt;font-family:"Calibri",sans-serif;color:#1F49=
+7D'>Ensure binary/master log updates are occurring <o:p></o:p></span></p><p=
+ class=3DMsoListParagraph style=3D'text-indent:-.25in;mso-list:l2 level1 lf=
+o4'><![if !supportLists]><span style=3D'font-size:10.5pt;font-family:"Calib=
+ri",sans-serif;color:black'><span style=3D'mso-list:Ignore'>3.<span style=
+=3D'font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </sp=
+an></span></span><![endif]><span style=3D'font-size:10.5pt;font-family:"Cal=
+ibri",sans-serif;color:black'>13. Transfer the NATs to the new vms hosted i=
+n dc5-hyp1-1-prod &nbsp;- &nbsp;<span style=3D'background:#FF6600'>Brad</sp=
+an><o:p></o:p></span></p><p class=3DMsoListParagraph style=3D'margin-left:1=
+.0in;text-indent:-.25in;mso-list:l2 level2 lfo4'><![if !supportLists]><span=
+ style=3D'font-size:11.0pt;font-family:"Calibri",sans-serif;color:#1F497D'>=
+<span style=3D'mso-list:Ignore'>a.<span style=3D'font:7.0pt "Times New Roma=
+n"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><![endif]><sp=
+an style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>=
+This should be renamed to &#8220;Change DNS to switch to new/pre-staged NAT=
+s&#8221;</span><span style=3D'font-size:11.0pt;font-family:"Calibri",sans-s=
+erif;color:#1F497D'><o:p></o:p></span></p><p class=3DMsoListParagraph style=
+=3D'margin-left:1.0in;text-indent:-.25in;mso-list:l2 level2 lfo4'><![if !su=
+pportLists]><span style=3D'font-size:11.0pt;font-family:"Calibri",sans-seri=
+f;color:#1F497D'><span style=3D'mso-list:Ignore'>b.<span style=3D'font:7.0p=
+t "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span><!=
+[endif]><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;co=
+lor:black'>It would be more appropriate for Armando to manage this componen=
+t.</span><span style=3D'font-size:11.0pt;font-family:"Calibri",sans-serif;c=
+olor:#1F497D'><o:p></o:p></span></p><p class=3DMsoNormal><span style=3D'fon=
+t-size:11.0pt;font-family:"Calibri",sans-serif;color:#1F497D'><o:p>&nbsp;</=
+o:p></span></p><p class=3DMsoNormal><span style=3D'font-size:11.0pt;font-fa=
+mily:"Calibri",sans-serif;color:#1F497D'><o:p>&nbsp;</o:p></span></p><p cla=
+ss=3DMsoNormal><span style=3D'font-size:11.0pt;font-family:"Calibri",sans-s=
+erif;color:#1F497D'>Let me know if you need anything else<o:p></o:p></span>=
+</p><p class=3DMsoNormal><span style=3D'font-size:11.0pt;font-family:"Calib=
+ri",sans-serif;color:#1F497D'><o:p>&nbsp;</o:p></span></p><div><div style=
+=3D'border:none;border-top:solid #E1E1E1 1.0pt;padding:3.0pt 0in 0in 0in'><=
+p class=3DMsoNormal><b><span style=3D'font-size:11.0pt;font-family:"Calibri=
+",sans-serif'>From:</span></b><span style=3D'font-size:11.0pt;font-family:"=
+Calibri",sans-serif'> Reigner Yrastorza <br><b>Sent:</b> Monday, June 22, 2=
+015 11:44 AM<br><b>To:</b> Anaplan Tech Operations<br><b>Subject:</b> Re: [=
+Version 1] Steps for June 27, 2015 Release<o:p></o:p></span></p></div></div=
+><p class=3DMsoNormal><o:p>&nbsp;</o:p></p><div><div><p class=3DMsoNormal><=
+b><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:bl=
+ack'>Note:</span></b><span style=3D'font-size:10.5pt;font-family:"Calibri",=
+sans-serif;color:black'><o:p></o:p></span></p></div><ul type=3Ddisc><li cla=
+ss=3DMsoNormal style=3D'color:black;mso-margin-top-alt:auto;mso-margin-bott=
+om-alt:auto;mso-list:l3 level1 lfo1'><span style=3D'font-size:10.5pt;font-f=
+amily:"Calibri",sans-serif'>Time estimates needed from <span style=3D'backg=
+round:#FF6600'>Brad</span> and <span style=3D'background:fuchsia'>QA</span>=
+<o:p></o:p></span></li><li class=3DMsoNormal style=3D'color:black;mso-margi=
+n-top-alt:auto;mso-margin-bottom-alt:auto;mso-list:l3 level1 lfo1'><span st=
+yle=3D'font-size:10.5pt;font-family:"Calibri",sans-serif'>Assign a QA/perso=
+n for the testing phase (step 16) &nbsp;- &nbsp;<span style=3D'background:#=
+CCCCCC'>James</span><o:p></o:p></span></li><li class=3DMsoNormal style=3D'c=
+olor:black;mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;mso-list:l3 l=
+evel1 lfo1'><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-seri=
+f'>InfraOps needs to fill out the public ip for step 2 -&nbsp;<span style=
+=3D'background:#FF6600'>Brad</span><o:p></o:p></span></li></ul><div><p clas=
+s=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-se=
+rif;color:black'><o:p>&nbsp;</o:p></span></p></div></div><div><p class=3DMs=
+oNormal><b><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif=
+;color:black'>Pending:</span></b><span style=3D'font-size:10.5pt;font-famil=
+y:"Calibri",sans-serif;color:black'><o:p></o:p></span></p></div><ul type=3D=
+disc><li class=3DMsoNormal style=3D'color:black;mso-margin-top-alt:auto;mso=
+-margin-bottom-alt:auto;mso-list:l0 level1 lfo2'><span style=3D'font-size:1=
+0.5pt;font-family:"Calibri",sans-serif'>Replace *.anaplan.com ssl cert -&nb=
+sp;<a href=3D"https://anaplansite.atlassian.net/browse/TECHOPS-925">https:/=
+/anaplansite.atlassian.net/browse/TECHOPS-925</a>&nbsp;<o:p></o:p></span></=
+li><li class=3DMsoNormal style=3D'color:black;mso-margin-top-alt:auto;mso-m=
+argin-bottom-alt:auto;mso-list:l0 level1 lfo2'><span style=3D'font-size:10.=
+5pt;font-family:"Calibri",sans-serif'>Move remaining cores on legacy s* ser=
+vers to new dc5-app -&nbsp;<a href=3D"https://anaplansite.atlassian.net/bro=
+wse/TECHOPS-773">https://anaplansite.atlassian.net/browse/TECHOPS-773</a><o=
+:p></o:p></span></li><li class=3DMsoNormal style=3D'color:black;mso-margin-=
+top-alt:auto;mso-margin-bottom-alt:auto;mso-list:l0 level1 lfo2'><span styl=
+e=3D'font-size:10.5pt;font-family:"Calibri",sans-serif'>Log4j change -&nbsp=
+;<a href=3D"https://anaplansite.atlassian.net/browse/TECHOPS-519">https://a=
+naplansite.atlassian.net/browse/TECHOPS-519</a><o:p></o:p></span></li><li c=
+lass=3DMsoNormal style=3D'color:black;mso-margin-top-alt:auto;mso-margin-bo=
+ttom-alt:auto;mso-list:l0 level1 lfo2'><span style=3D'font-size:10.5pt;font=
+-family:"Calibri",sans-serif'>Splunk recipe for SDP tomcat -&nbsp;<a href=
+=3D"https://anaplansite.atlassian.net/browse/DEVOPS-99">https://anaplansite=
+.atlassian.net/browse/DEVOPS-99</a><o:p></o:p></span></li></ul><div><p clas=
+s=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-se=
+rif;color:black'><o:p>&nbsp;</o:p></span></p></div><div><p class=3DMsoNorma=
+l><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:bl=
+ack'><o:p>&nbsp;</o:p></span></p></div><div><p class=3DMsoNormal><b><span s=
+tyle=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:red'>Sugges=
+ting we skip the core moves on this release.</span></b><span style=3D'font-=
+size:10.5pt;font-family:"Calibri",sans-serif'><o:p></o:p></span></p></div><=
+div><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calib=
+ri",sans-serif;color:black'><o:p>&nbsp;</o:p></span></p></div><div><p class=
+=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-ser=
+if;color:black'><o:p>&nbsp;</o:p></span></p></div><div style=3D'border:none=
+;border-top:solid #B5C4DF 1.0pt;padding:3.0pt 0in 0in 0in'><p class=3DMsoNo=
+rmal><span style=3D'font-size:11.0pt;font-family:"Calibri",sans-serif;color=
+:black'><o:p>&nbsp;</o:p></span></p></div><div><div><div><p class=3DMsoNorm=
+al><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:b=
+lack'><o:p>&nbsp;</o:p></span></p></div><div><p class=3DMsoNormal><b><span =
+style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>[Ve=
+rsion 2] Steps for June 27, 2015 Release -</span></b><span style=3D'font-si=
+ze:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p></o:p></span><=
+/p></div></div></div><div><p class=3DMsoNormal><o:p>&nbsp;</o:p></p></div><=
+div><p class=3DMsoNormal><b>Date: June 27, 2015</b><o:p></o:p></p></div><di=
+v><p class=3DMsoNormal><b>Start: 1pm</b><o:p></o:p></p></div><div><p class=
+=3DMsoNormal><b>End: 5pm</b><o:p></o:p></p></div><div><p class=3DMsoNormal>=
+<b>Current estimated time of completion: 166mins (~3hours)&nbsp;<span style=
+=3D'color:red'>&nbsp; (Time does not yet include Brad&#8217;s eta)</span></=
+b><o:p></o:p></p></div><div><div><p class=3DMsoNormal><span style=3D'font-s=
+ize:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p><=
+/span></p></div><div><div><p class=3DMsoNormal><span style=3D'font-size:10.=
+5pt;font-family:"Calibri",sans-serif;color:black'>&nbsp;</span><span style=
+=3D'color:black'><o:p></o:p></span></p></div><div><div><p class=3DMsoNormal=
+><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:bla=
+ck'>1. &nbsp;<b><i>1min</i></b> - Disable monitoring -&nbsp;<a href=3D"http=
+s://rundeck.anaplan.com/project/Anaplan/job/show/a780631b-1128-4753-8272-be=
+0fff48b67e"><span style=3D'color:purple'>https://rundeck.anaplan.com/projec=
+t/Anaplan/job/show/a780631b-1128-4753-8272-be0fff48b67e</span></a>&nbsp;&nb=
+sp;&nbsp;- &nbsp;<span style=3D'background:aqua'>Reigner</span></span><span=
+ style=3D'color:black'><o:p></o:p></span></p></div></div></div></div><div><=
+div><div><div><div><p class=3DMsoNormal><span style=3D'font-size:10.5pt;fon=
+t-family:"Calibri",sans-serif;color:black'>&nbsp;</span><span style=3D'colo=
+r:black'><o:p></o:p></span></p></div><div><p class=3DMsoNormal><span style=
+=3D'font-family:"Calibri",sans-serif;color:black'>2. &nbsp;<b><i>2mins</i><=
+/b> - Bring down the maintenance page through Wpengine &nbsp;- &nbsp;&nbsp;=
+<span style=3D'background:yellow'>Armando</span></span><span style=3D'font-=
+size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p></o:p></span=
+></p></div></div></div></div></div><div><p class=3DMsoNormal><span style=3D=
+'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;=
+</o:p></span></p></div><div><p class=3DMsoNormal><span style=3D'font-size:1=
+0.5pt;font-family:"Calibri",sans-serif;color:black'>3. &nbsp;<b><i>3mins</i=
+></b> - Update route53 for the new public ips for&nbsp;</span><span style=
+=3D'font-family:"Calibri",sans-serif;color:black'>&nbsp;&nbsp;- &nbsp;&nbsp=
+;<span style=3D'background:yellow'>Armando</span></span><span style=3D'font=
+-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p></o:p></spa=
+n></p></div><div><p class=3DMsoNormal><span class=3Dapple-tab-span><span st=
+yle=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D'font-size:10.5=
+pt;font-family:"Calibri",sans-serif;color:black'>A. sdp.anaplan.com - &nbsp=
+;<o:p></o:p></span></p></div><div><p class=3DMsoNormal><span class=3Dapple-=
+tab-span><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;c=
+olor:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nb=
+sp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=
+=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>B. api.a=
+naplan.com -&nbsp;<o:p></o:p></span></p></div><div><p class=3DMsoNormal><sp=
+an class=3Dapple-tab-span><span style=3D'font-size:10.5pt;font-family:"Cali=
+bri",sans-serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></=
+span><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color=
+:black'>C. relay.anaplan.com -<o:p></o:p></span></p></div><div><p class=3DM=
+soNormal><span class=3Dapple-tab-span><span style=3D'font-size:10.5pt;font-=
+family:"Calibri",sans-serif;color:black'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&=
+nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
+p; </span></span><span style=3D'font-size:10.5pt;font-family:"Calibri",sans=
+-serif;color:black'>D. university.anaplan.com -&nbsp;<o:p></o:p></span></p>=
+</div><div><p class=3DMsoNormal><span class=3Dapple-tab-span><span style=3D=
+'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n=
+bsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp=
+;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span style=3D'font-size:10.5pt;fon=
+t-family:"Calibri",sans-serif;color:black'>E. community.anaplan.com -&nbsp;=
+<o:p></o:p></span></p></div><div><div><div><div><div><p class=3DMsoNormal><=
+span style=3D'color:black'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal=
+><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:bla=
+ck'>4. <b><i>3mins</i></b> - Stop the apps &nbsp;- &nbsp;<span style=3D'bac=
+kground:aqua'>Reigner</span></span><span style=3D'color:black'><o:p></o:p><=
+/span></p><p class=3DMsoNormal><span style=3D'color:black'><o:p>&nbsp;</o:p=
+></span></p><blockquote style=3D'margin-left:30.0pt;margin-right:0in'><p cl=
+ass=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-=
+serif;color:black'>SDP</span><span style=3D'color:black'><o:p></o:p></span>=
+</p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calib=
+ri",sans-serif;color:black'>GLUE</span><span style=3D'color:black'><o:p></o=
+:p></span></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-fam=
+ily:"Calibri",sans-serif;color:black'>API</span><span style=3D'color:black'=
+><o:p></o:p></span></p><p class=3DMsoNormal><span style=3D'color:black'><o:=
+p>&nbsp;</o:p></span></p></blockquote><p class=3DMsoNormal><span style=3D'c=
+olor:black'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span style=3D=
+'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>5. <b><i>5m=
+ins</i></b> - Stop all MySQL hosted in the dc5 prod hyp &nbsp;</span><span =
+style=3D'color:black'><o:p></o:p></span></p><p class=3DMsoNormal><span styl=
+e=3D'color:black'><o:p>&nbsp;</o:p></span></p><blockquote style=3D'margin-l=
+eft:30.0pt;margin-right:0in'><p class=3DMsoNormal><span style=3D'font-size:=
+10.5pt;font-family:"Calibri",sans-serif;color:black'>v008 &nbsp;- &nbsp;<sp=
+an style=3D'background:aqua'>Reigner</span></span><span style=3D'color:blac=
+k'><o:p></o:p></span></p><p class=3DMsoNormal><span style=3D'font-size:10.5=
+pt;font-family:"Calibri",sans-serif;color:black'>v007 &nbsp;- &nbsp;<span s=
+tyle=3D'background:aqua'>Reigner</span></span><span style=3D'color:black'><=
+o:p></o:p></span></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;f=
+ont-family:"Calibri",sans-serif;color:black'>v002 &nbsp;- &nbsp;<span style=
+=3D'background:aqua'>Reigner</span></span><span style=3D'color:black'><o:p>=
+</o:p></span></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-=
+family:"Calibri",sans-serif;color:black'>v009 (university) &nbsp;- &nbsp;</=
+span><span style=3D'font-size:13.5pt;font-family:"Calibri",sans-serif;color=
+:black;background:yellow'>Armando</span><span style=3D'color:black'><o:p></=
+o:p></span></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-fa=
+mily:"Calibri",sans-serif;color:black'>v010 (community) &nbsp;- &nbsp;</spa=
+n><span style=3D'font-size:13.5pt;font-family:"Calibri",sans-serif;color:bl=
+ack;background:yellow'>Armando</span><span style=3D'color:black'><o:p></o:p=
+></span></p></blockquote></div></div></div></div></div><blockquote style=3D=
+'margin-left:30.0pt;margin-right:0in'><div><p class=3DMsoNormal><span style=
+=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nb=
+sp;</o:p></span></p></div><div><p class=3DMsoNormal><span style=3D'font-siz=
+e:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p></s=
+pan></p></div></blockquote><div><p class=3DMsoNormal><span style=3D'font-si=
+ze:10.5pt;font-family:"Calibri",sans-serif;color:black'>6. <b><i>10mins</i>=
+</b> - Prep chef &nbsp;- &nbsp;<span style=3D'background:aqua'>Reigner</spa=
+n><o:p></o:p></span></p></div><blockquote style=3D'margin-left:30.0pt;margi=
+n-right:0in'><ol start=3D1 type=3D1><li class=3DMsoNormal style=3D'color:bl=
+ack;mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;mso-list:l1 level1 l=
+fo3'><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif'>Upda=
+te apache version in dc5prod and am3prod to 0.0.5<o:p></o:p></span></li><li=
+ class=3DMsoNormal style=3D'color:black;mso-margin-top-alt:auto;mso-margin-=
+bottom-alt:auto;mso-list:l1 level1 lfo3'><span style=3D'font-size:10.5pt;fo=
+nt-family:"Calibri",sans-serif'>Set core build to all cores -&nbsp;2015.3.0=
+.78-1<o:p></o:p></span></li><li class=3DMsoNormal style=3D'color:black;mso-=
+margin-top-alt:auto;mso-margin-bottom-alt:auto;mso-list:l1 level1 lfo3'><sp=
+an style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif'>Remove the c=
+ustom builds in site-cookbooks/core_deployments<o:p></o:p></span></li><li c=
+lass=3DMsoNormal style=3D'color:black;mso-margin-top-alt:auto;mso-margin-bo=
+ttom-alt:auto;mso-list:l1 level1 lfo3'><span style=3D'font-size:10.5pt;font=
+-family:"Calibri",sans-serif'>Update anaplan_core version&nbsp;in dc5prod a=
+nd am3prod to 0.0.13<o:p></o:p></span></li><li class=3DMsoNormal style=3D'c=
+olor:black;mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;mso-list:l1 l=
+evel1 lfo3'><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-seri=
+f'>Update core_deployments&nbsp;in dc5prod and am3prod to 0.0.3<o:p></o:p><=
+/span></li><li class=3DMsoNormal style=3D'color:black;mso-margin-top-alt:au=
+to;mso-margin-bottom-alt:auto;mso-list:l1 level1 lfo3'><span style=3D'font-=
+size:10.5pt;font-family:"Calibri",sans-serif'>Set builds to -<o:p></o:p></s=
+pan></li></ol></blockquote><div><p class=3DMsoNormal><span style=3D'font-si=
+ze:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p></=
+span></p></div><blockquote style=3D'margin-left:30.0pt;margin-right:0in'><b=
+lockquote style=3D'margin-left:30.0pt;margin-right:0in'><div><table class=
+=3DMsoNormalTable border=3D0 cellspacing=3D0 cellpadding=3D0 style=3D'backg=
+round:white;border-collapse:collapse;overflow-x: auto;widows: 1'><tr><td va=
+lign=3Dtop style=3D'border:solid #DDDDDD 1.0pt;padding:5.25pt 7.5pt 5.25pt =
+7.5pt'><p class=3DMsoNormal style=3D'line-height:15.0pt'><span style=3D'fon=
+t-size:10.5pt;font-family:"Arial",sans-serif;color:#333333'>api-services<o:=
+p></o:p></span></p></td><td valign=3Dtop style=3D'border:solid #DDDDDD 1.0p=
+t;border-left:none;padding:5.25pt 7.5pt 5.25pt 7.5pt'><p class=3DMsoNormal =
+style=3D'line-height:15.0pt'><span style=3D'font-size:10.5pt;font-family:"A=
+rial",sans-serif;color:#333333'><a href=3D"http://am3-build1.anaplan.com:80=
+81/nexus/content/repositories/anaplan-master/com/anaplan/api-services/2015.=
+3.0.41/api-services-2015.3.0.41.rpm"><span style=3D'color:#3B73AF;text-deco=
+ration:none'>2015.3.0.41</span></a><o:p></o:p></span></p></td></tr><tr><td =
+valign=3Dtop style=3D'border:solid #DDDDDD 1.0pt;border-top:none;padding:5.=
+25pt 7.5pt 5.25pt 7.5pt'><p class=3DMsoNormal style=3D'line-height:15.0pt'>=
+<span style=3D'font-size:10.5pt;font-family:"Arial",sans-serif;color:#33333=
+3'>apphub-admin<o:p></o:p></span></p></td><td valign=3Dtop style=3D'border-=
+top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;border-right:so=
+lid #DDDDDD 1.0pt;padding:5.25pt 7.5pt 5.25pt 7.5pt'><p class=3DMsoNormal s=
+tyle=3D'line-height:15.0pt'><span style=3D'font-size:10.5pt;font-family:"Ar=
+ial",sans-serif;color:#333333'><a href=3D"http://am3-build1.anaplan.com:808=
+1/nexus/content/repositories/anaplan-master/com/anaplan/apphub-admin/2015.3=
+.0.11/apphub-admin-2015.3.0.11.rpm"><span style=3D'color:#3B73AF;text-decor=
+ation:none'>2015.3.0.11</span></a><o:p></o:p></span></p></td></tr><tr><td v=
+align=3Dtop style=3D'border:solid #DDDDDD 1.0pt;border-top:none;padding:5.2=
+5pt 7.5pt 5.25pt 7.5pt'><p class=3DMsoNormal style=3D'line-height:15.0pt'><=
+span style=3D'font-size:10.5pt;font-family:"Arial",sans-serif;color:#333333=
+'>frontdoor<o:p></o:p></span></p></td><td valign=3Dtop style=3D'border-top:=
+none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;border-right:solid =
+#DDDDDD 1.0pt;padding:5.25pt 7.5pt 5.25pt 7.5pt'><p class=3DMsoNormal style=
+=3D'line-height:15.0pt'><span style=3D'font-size:10.5pt;font-family:"Arial"=
+,sans-serif;color:#333333'><a href=3D"http://am3-build1.anaplan.com:8081/ne=
+xus/content/repositories/anaplan-master/com/anaplan/frontdoor/2015.3.0.24/f=
+rontdoor-2015.3.0.24.rpm"><span style=3D'color:#3B73AF;text-decoration:none=
+'>2015.3.0.24</span></a><o:p></o:p></span></p></td></tr><tr><td valign=3Dto=
+p style=3D'border:solid #DDDDDD 1.0pt;border-top:none;padding:5.25pt 7.5pt =
+5.25pt 7.5pt'><p class=3DMsoNormal style=3D'line-height:15.0pt'><span style=
+=3D'font-size:10.5pt;font-family:"Arial",sans-serif;color:#333333'>glue<o:p=
+></o:p></span></p></td><td valign=3Dtop style=3D'border-top:none;border-lef=
+t:none;border-bottom:solid #DDDDDD 1.0pt;border-right:solid #DDDDDD 1.0pt;p=
+adding:5.25pt 7.5pt 5.25pt 7.5pt'><p class=3DMsoNormal style=3D'line-height=
+:15.0pt'><span style=3D'font-size:10.5pt;font-family:"Arial",sans-serif;col=
+or:#333333'><a href=3D"http://am3-build1.anaplan.com:8081/nexus/content/rep=
+ositories/anaplan-master/com/anaplan/glue/2015.3.0.17/glue-2015.3.0.17.zip"=
+><span style=3D'color:#3B73AF;text-decoration:none'>2015.3.0.17</span></a><=
+o:p></o:p></span></p></td></tr><tr><td valign=3Dtop style=3D'border:solid #=
+DDDDDD 1.0pt;border-top:none;padding:5.25pt 7.5pt 5.25pt 7.5pt'><p class=3D=
+MsoNormal style=3D'line-height:15.0pt'><span style=3D'font-size:10.5pt;font=
+-family:"Arial",sans-serif;color:#333333'>jasper-reports<o:p></o:p></span><=
+/p></td><td valign=3Dtop style=3D'border-top:none;border-left:none;border-b=
+ottom:solid #DDDDDD 1.0pt;border-right:solid #DDDDDD 1.0pt;padding:5.25pt 7=
+.5pt 5.25pt 7.5pt'><p class=3DMsoNormal style=3D'line-height:15.0pt'><span =
+style=3D'font-size:10.5pt;font-family:"Arial",sans-serif;color:#333333'><a =
+href=3D"http://am3-build1.anaplan.com:8081/nexus/content/repositories/anapl=
+an-master/com/anaplan/jasper-reports/2015.3.0.11/jasper-reports-2015.3.0.11=
+.zip"><span style=3D'color:#3B73AF;text-decoration:none'>2015.3.0.11</span>=
+</a><o:p></o:p></span></p></td></tr><tr><td valign=3Dtop style=3D'border:so=
+lid #DDDDDD 1.0pt;border-top:none;padding:5.25pt 7.5pt 5.25pt 7.5pt'><p cla=
+ss=3DMsoNormal style=3D'line-height:15.0pt'><span style=3D'font-size:10.5pt=
+;font-family:"Arial",sans-serif;color:#333333'>launchpad<o:p></o:p></span><=
+/p></td><td valign=3Dtop style=3D'border-top:none;border-left:none;border-b=
+ottom:solid #DDDDDD 1.0pt;border-right:solid #DDDDDD 1.0pt;padding:5.25pt 7=
+.5pt 5.25pt 7.5pt'><p class=3DMsoNormal style=3D'line-height:15.0pt'><span =
+style=3D'font-size:10.5pt;font-family:"Arial",sans-serif;color:#333333'><a =
+href=3D"http://am3-build1.anaplan.com:8081/nexus/content/repositories/anapl=
+an-master/com/anaplan/launchpad/2015.3.0.16/launchpad-2015.3.0.16.rpm"><spa=
+n style=3D'color:#3B73AF;text-decoration:none'>2015.3.0.16</span></a><o:p><=
+/o:p></span></p></td></tr><tr><td valign=3Dtop style=3D'border:solid #DDDDD=
+D 1.0pt;border-top:none;padding:5.25pt 7.5pt 5.25pt 7.5pt'><p class=3DMsoNo=
+rmal style=3D'line-height:15.0pt'><span style=3D'font-size:10.5pt;font-fami=
+ly:"Arial",sans-serif;color:#333333'>reporting<o:p></o:p></span></p></td><t=
+d valign=3Dtop style=3D'border-top:none;border-left:none;border-bottom:soli=
+d #DDDDDD 1.0pt;border-right:solid #DDDDDD 1.0pt;padding:5.25pt 7.5pt 5.25p=
+t 7.5pt'><p class=3DMsoNormal style=3D'line-height:15.0pt'><span style=3D'f=
+ont-size:10.5pt;font-family:"Arial",sans-serif;color:#333333'><a href=3D"ht=
+tp://am3-build1.anaplan.com:8081/nexus/content/repositories/anaplan-master/=
+com/anaplan/reporting/2015.3.0.13/reporting-2015.3.0.13.rpm"><span style=3D=
+'color:#3B73AF;text-decoration:none'>2015.3.0.13</span></a><o:p></o:p></spa=
+n></p></td></tr><tr><td valign=3Dtop style=3D'border:solid #DDDDDD 1.0pt;bo=
+rder-top:none;padding:5.25pt 7.5pt 5.25pt 7.5pt'><p class=3DMsoNormal style=
+=3D'line-height:15.0pt'><span style=3D'font-size:10.5pt;font-family:"Arial"=
+,sans-serif;color:#333333'>scheduler<o:p></o:p></span></p></td><td valign=
+=3Dtop style=3D'border-top:none;border-left:none;border-bottom:solid #DDDDD=
+D 1.0pt;border-right:solid #DDDDDD 1.0pt;padding:5.25pt 7.5pt 5.25pt 7.5pt'=
+><p class=3DMsoNormal style=3D'line-height:15.0pt'><span style=3D'font-size=
+:10.5pt;font-family:"Arial",sans-serif;color:#333333'><a href=3D"http://am3=
+-build1.anaplan.com:8081/nexus/content/repositories/anaplan-master/com/anap=
+lan/scheduler/2015.3.0.13/scheduler-2015.3.0.13.rpm"><span style=3D'color:#=
+3B73AF;text-decoration:none'>2015.3.0.13</span></a><o:p></o:p></span></p></=
+td></tr><tr><td valign=3Dtop style=3D'border:solid #DDDDDD 1.0pt;border-top=
+:none;padding:5.25pt 7.5pt 5.25pt 7.5pt'><p class=3DMsoNormal style=3D'line=
+-height:15.0pt'><span style=3D'font-size:10.5pt;font-family:"Arial",sans-se=
+rif;color:#333333'>speakeasy<o:p></o:p></span></p></td><td valign=3Dtop sty=
+le=3D'border-top:none;border-left:none;border-bottom:solid #DDDDDD 1.0pt;bo=
+rder-right:solid #DDDDDD 1.0pt;padding:5.25pt 7.5pt 5.25pt 7.5pt'><p class=
+=3DMsoNormal style=3D'line-height:15.0pt'><span style=3D'font-size:10.5pt;f=
+ont-family:"Arial",sans-serif;color:#333333'><a href=3D"http://am3-build1.a=
+naplan.com:8081/nexus/content/repositories/anaplan-master/com/anaplan/speak=
+easy/2015.3.0.23/speakeasy-2015.3.0.23.rpm"><span style=3D'color:#3B73AF;te=
+xt-decoration:none'>2015.3.0.23</span></a><o:p></o:p></span></p></td></tr><=
+/table></div></blockquote></blockquote><div><p class=3DMsoNormal><span styl=
+e=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&n=
+bsp;</o:p></span></p></div><div><p class=3DMsoNormal><span style=3D'font-si=
+ze:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p></=
+span></p></div><div><p class=3DMsoNormal><span style=3D'font-size:10.5pt;fo=
+nt-family:"Calibri",sans-serif;color:black'>7. <b><i>5mins</i></b> &nbsp;- =
+&nbsp;Remove GCC&nbsp;<a href=3D"https://rundeck.anaplan.com/project/Anapla=
+n/job/show/c3b794cf-850f-400f-8d7b-1b023917373d">https://rundeck.anaplan.co=
+m/project/Anaplan/job/show/c3b794cf-850f-400f-8d7b-1b023917373d</a>&nbsp; -=
+ &nbsp;<span style=3D'background:aqua'>Reigner</span><o:p></o:p></span></p>=
+</div><div><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family=
+:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p></span></p></div><div><=
+div><div><div><div><p class=3DMsoNormal><span style=3D'color:black'><o:p>&n=
+bsp;</o:p></span></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;f=
+ont-family:"Calibri",sans-serif;color:black'>8. <b><i>20mins</i></b> &nbsp;=
+- &nbsp;Shutdown the vms in dc5-hyp2 and move them to dc5-hyp1 &nbsp;- &nbs=
+p;<span style=3D'background:aqua'>Reigner</span></span><span style=3D'color=
+:black'><o:p></o:p></span></p><p class=3DMsoNormal><span style=3D'color:bla=
+ck'><o:p>&nbsp;</o:p></span></p><blockquote style=3D'margin-left:30.0pt;mar=
+gin-right:0in'><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-fa=
+mily:"Calibri",sans-serif;color:black'>v014 (techops git)</span><span style=
+=3D'color:black'><o:p></o:p></span></p><p class=3DMsoNormal><span style=3D'=
+font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>v012.p.a &nb=
+sp;(secondary dns)</span><span style=3D'color:black'><o:p></o:p></span></p>=
+<p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calibri",=
+sans-serif;color:black'>v002.p.a (mysql slave)</span><span style=3D'color:b=
+lack'><o:p></o:p></span></p><p class=3DMsoNormal><span style=3D'font-size:1=
+0.5pt;font-family:"Calibri",sans-serif;color:black'>dc5-apisso1-1-prod (cur=
+rent prod server)<o:p></o:p></span></p><p class=3DMsoNormal><span style=3D'=
+font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;<=
+/o:p></span></p><blockquote style=3D'margin-left:30.0pt;margin-right:0in'><=
+div><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calib=
+ri",sans-serif;color:black'>1. export the vm definition from dc5-hyp1<o:p><=
+/o:p></span></p></div><div><p class=3DMsoNormal><span style=3D'font-size:10=
+.5pt;font-family:"Calibri",sans-serif;color:black'>2. import the vm definit=
+ion to dc5-hyp1-1-prod<o:p></o:p></span></p></div><div><p class=3DMsoNormal=
+><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:bla=
+ck'>3. start the vm<o:p></o:p></span></p></div><div><p class=3DMsoNormal><s=
+pan style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'=
+>4. Verify the vms and apps are working<o:p></o:p></span></p></div></blockq=
+uote><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Cali=
+bri",sans-serif;color:black'><o:p>&nbsp;</o:p></span></p></blockquote><p cl=
+ass=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-=
+serif;color:black'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span s=
+tyle=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>9. <=
+b><i>30mins</i></b> &nbsp;- &nbsp;Bring up the servers in dc5-hyp1-1-prod a=
+nd ensure the servers are running -<o:p></o:p></span></p><p class=3DMsoNorm=
+al><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:b=
+lack'><o:p>&nbsp;</o:p></span></p><blockquote style=3D'margin-left:30.0pt;m=
+argin-right:0in'><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-=
+family:"Calibri",sans-serif;color:black'>5mins - dc5-sdp3-1-prod (New SDP p=
+rod) &nbsp;- &nbsp;<span style=3D'background:aqua'>Reigner</span><o:p></o:p=
+></span></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-famil=
+y:"Calibri",sans-serif;color:black'>10mins - dc5-glue1-1-prod (New GLUE and=
+ mysql master prod &nbsp;- &nbsp;) &nbsp;- &nbsp;<span style=3D'background:=
+aqua'>Reigner</span><o:p></o:p></span></p><p class=3DMsoNormal><span style=
+=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>5mins - =
+dc5-api1-1-prod (New API prod) &nbsp; - &nbsp; <span style=3D'background:aq=
+ua'>Reigner</span><o:p></o:p></span></p><p class=3DMsoNormal><span style=3D=
+'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>dc5-mysql1-=
+1-prod (Additional mysql slave &nbsp;- &nbsp;This will be a slave before Ju=
+ne 27) &nbsp;- &nbsp;&nbsp;<span style=3D'background:aqua'>Reigner</span><o=
+:p></o:p></span></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;fo=
+nt-family:"Calibri",sans-serif;color:black'>10mins dc5-mail2-1-prod (New ma=
+il relay server) &nbsp; - &nbsp; <span style=3D'background:yellow'>Armando<=
+/span><o:p></o:p></span></p><p class=3DMsoNormal><span style=3D'font-size:1=
+0.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p></span=
+></p></blockquote><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font=
+-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p></span></p><p cl=
+ass=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-=
+serif;color:black'>10. <b><i>20mins</i></b> - Mount the v009 and v010 image=
+ and modify it to use the ips below -<o:p></o:p></span></p><p class=3DMsoNo=
+rmal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color=
+:black'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span style=3D'fon=
+t-family:"Calibri",sans-serif;color:black'>v009 (New ip - 10.1.48.16) &nbsp=
+;&nbsp;</span><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-se=
+rif;color:black'>&#8211;</span><span style=3D'font-family:"Calibri",sans-se=
+rif;color:black'>&nbsp; &nbsp;</span><span style=3D'font-size:10.5pt;font-f=
+amily:"Calibri",sans-serif;color:black;background:yellow'>Armando</span><sp=
+an style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>=
+<o:p></o:p></span></p><p class=3DMsoNormal><span style=3D'font-family:"Cali=
+bri",sans-serif;color:black'>v010 (New ip - 10.1.48.17) &nbsp;&nbsp;</span>=
+<span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:blac=
+k'>&#8211;</span><span style=3D'font-family:"Calibri",sans-serif;color:blac=
+k'>&nbsp; &nbsp;</span><span style=3D'font-size:10.5pt;font-family:"Calibri=
+",sans-serif;color:black;background:yellow'>Armando</span><span style=3D'fo=
+nt-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p></o:p></s=
+pan></p><div><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-fami=
+ly:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p></span></p></div><blo=
+ckquote style=3D'margin-left:30.0pt;margin-right:0in'><div><div><p class=3D=
+MsoNormal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;=
+color:black'>1. export the vm definition from dc5-hyp1<o:p></o:p></span></p=
+></div><div><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-famil=
+y:"Calibri",sans-serif;color:black'>2. import the vm definition to dc5-hyp1=
+-1-prod<o:p></o:p></span></p></div><div><p class=3DMsoNormal><span style=3D=
+'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>3. start th=
+e vm<o:p></o:p></span></p></div><div><p class=3DMsoNormal><span style=3D'fo=
+nt-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>4. console in =
+the vm<o:p></o:p></span></p></div><div><p class=3DMsoNormal><span style=3D'=
+font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>5. Edit the =
+ip<o:p></o:p></span></p></div><div><p class=3DMsoNormal><span style=3D'font=
+-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>6. Restart<o:p><=
+/o:p></span></p></div><div><p class=3DMsoNormal><span style=3D'font-size:10=
+.5pt;font-family:"Calibri",sans-serif;color:black'>7. Start the app and mys=
+ql<o:p></o:p></span></p></div></div></blockquote><div><p class=3DMsoNormal>=
+<span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:blac=
+k'><o:p>&nbsp;</o:p></span></p></div><div><p class=3DMsoNormal><span style=
+=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nb=
+sp;</o:p></span></p></div><div><p class=3DMsoNormal><span style=3D'color:bl=
+ack'>11. Promote dc5-glue1-1-prod.anaplan-prod.net as the new mysql master =
+&nbsp;- &nbsp;<span style=3D'background:#FF6600'>Brad</span><o:p></o:p></sp=
+an></p><div><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-famil=
+y:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p></span></p></div><div>=
+<p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calibri",=
+sans-serif;color:black'><o:p>&nbsp;</o:p></span></p></div></div><div><p cla=
+ss=3DMsoNormal><span style=3D'font-size:10.5pt;color:black'>12. Modify all =
+the mysql slaves to use&nbsp;</span><span style=3D'color:black'>dc5-glue1-1=
+-prod as the new mysql master &nbsp;- &nbsp;<span style=3D'background:#FF66=
+00'>Brad</span><o:p></o:p></span></p><p class=3DMsoNormal><span style=3D'co=
+lor:black'><o:p>&nbsp;</o:p></span></p></div><p class=3DMsoNormal><span sty=
+le=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&=
+nbsp;</o:p></span></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;=
+font-family:"Calibri",sans-serif;color:black'>13. Transfer the NATs to the =
+new vms hosted in dc5-hyp1-1-prod &nbsp;- &nbsp;<span style=3D'background:#=
+FF6600'>Brad</span><o:p></o:p></span></p><p class=3DMsoNormal><span style=
+=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nb=
+sp;</o:p></span></p><blockquote style=3D'margin-left:30.0pt;margin-right:0i=
+n'><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calibr=
+i",sans-serif;color:black'>sdp.anaplan.com &nbsp;- &nbsp;198.207.221.11 &nb=
+sp;=3D&gt;&nbsp;10.1.48.12<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>api=
+.anaplan.com &nbsp;- &nbsp;198.207.221.32 &nbsp; =3D&gt;&nbsp;10.1.48.13<o:=
+p></o:p></span></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;fon=
+t-family:"Calibri",sans-serif;color:black'>university.anaplan.com &nbsp;- &=
+nbsp;&nbsp;198.207.221.40 &nbsp;=3D&gt;&nbsp;10.1.48.16<o:p></o:p></span></=
+p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calibri=
+",sans-serif;color:black'>community.anaplan.com &nbsp;- &nbsp;198.207.221.4=
+1 &nbsp;=3D&gt; 10.1.48.17<o:p></o:p></span></p><p class=3DMsoNormal><span =
+style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>rel=
+ay.anaplan.com &nbsp;- &nbsp;198.207.221.249 &nbsp;=3D&gt;&nbsp;10.1.48.11<=
+o:p></o:p></span></p></blockquote><p class=3DMsoNormal><span style=3D'font-=
+size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p>=
+</span></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family=
+:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p></span></p><p class=3DM=
+soNormal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;c=
+olor:black'>14.&nbsp;<b><i>5mins</i></b>&nbsp;- Update internal DNS &nbsp;-=
+ &nbsp;<span style=3D'background:aqua'>Reigner</span><o:p></o:p></span></p>=
+</div></div></div></div></div><div><p class=3DMsoNormal><span style=3D'font=
+-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p=
+></span></p></div><div><p class=3DMsoNormal><span style=3D'font-size:10.5pt=
+;font-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p></span></p>=
+</div><div><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family=
+:"Calibri",sans-serif;color:black'>15. Deploy the apps -<o:p></o:p></span><=
+/p></div><div><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-fam=
+ily:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p></span></p></div><di=
+v><blockquote style=3D'margin-left:30.0pt;margin-right:0in'><p class=3DMsoN=
+ormal><span style=3D'color:black'>12.1. <b><i>10mins</i></b> SDP - &nbsp;<s=
+pan style=3D'background:aqua'>Reigner</span><o:p></o:p></span></p><p class=
+=3DMsoNormal><span style=3D'color:black'><o:p>&nbsp;</o:p></span></p><p cla=
+ss=3DMsoNormal><span style=3D'color:black'>12.2. <b><i>5mins</i></b> - Glue=
+ - &nbsp;<span style=3D'background:aqua'>Reigner</span><o:p></o:p></span></=
+p><p class=3DMsoNormal><span style=3D'color:black'><o:p>&nbsp;</o:p></span>=
+</p><p class=3DMsoNormal><span style=3D'color:black'>12.3. <b><i>5mins</i><=
+/b> - API - &nbsp;<span style=3D'background:aqua'>Reigner</span><o:p></o:p>=
+</span></p><p class=3DMsoNormal><span style=3D'color:black'><o:p>&nbsp;</o:=
+p></span></p><p class=3DMsoNormal><span style=3D'color:black'>12.4. <b><i>1=
+0mins</i></b> - Cores &nbsp;- &nbsp;<span style=3D'background:aqua'>Reigner=
+</span><o:p></o:p></span></p><p class=3DMsoNormal><span style=3D'color:blac=
+k'><o:p>&nbsp;</o:p></span></p><blockquote style=3D'margin-left:30.0pt;marg=
+in-right:0in'><p class=3DMsoNormal><span style=3D'color:black'>EU -&nbsp;<a=
+ href=3D"https://rundeck.anaplan.com/project/Anaplan/job/show/73fd4159-95c1=
+-4e34-9ae3-54dfb60effa5">https://rundeck.anaplan.com/project/Anaplan/job/sh=
+ow/73fd4159-95c1-4e34-9ae3-54dfb60effa5</a><o:p></o:p></span></p><p class=
+=3DMsoNormal><span style=3D'color:black'>US -&nbsp;<a href=3D"https://runde=
+ck.anaplan.com/project/Anaplan/job/show/e4f84948-f5d1-4ff7-a474-d6e952e22b7=
+0">https://rundeck.anaplan.com/project/Anaplan/job/show/e4f84948-f5d1-4ff7-=
+a474-d6e952e22b70</a><o:p></o:p></span></p></blockquote><p class=3DMsoNorma=
+l><span style=3D'color:black'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNor=
+mal><span style=3D'color:black'><o:p>&nbsp;</o:p></span></p><p class=3DMsoN=
+ormal><span style=3D'color:black'>12.5. <b>10mins</b> - Excel add-in - &nbs=
+p;<a href=3D"https://anaplansite.atlassian.net/browse/TECHOPS-800">https://=
+anaplansite.atlassian.net/browse/TECHOPS-800</a>&nbsp;&nbsp;- &nbsp;<span s=
+tyle=3D'background:yellow'>Armando</span><o:p></o:p></span></p><p class=3DM=
+soNormal><span class=3Dapple-tab-span><span style=3D'color:black'>&nbsp; </=
+span></span><span style=3D'color:black'><o:p></o:p></span></p></blockquote>=
+</div><div><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family=
+:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p></span></p><p class=3DM=
+soNormal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;c=
+olor:black'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span style=3D=
+'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>16. Testing=
+ phase -<o:p></o:p></span></p><p class=3DMsoNormal><span style=3D'font-size=
+:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p></sp=
+an></p><blockquote style=3D'margin-left:30.0pt;margin-right:0in'><p class=
+=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-ser=
+if;color:black'>16.1. <b><i>10mins</i></b>&nbsp;- Run the check buildstamp =
+&nbsp;- &nbsp;<span style=3D'background:aqua'>Reigner</span><o:p></o:p></sp=
+an></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Ca=
+libri",sans-serif;color:black'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNo=
+rmal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color=
+:black'>16.2. SDP&nbsp;<o:p></o:p></span></p><p class=3DMsoNormal><span sty=
+le=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&=
+nbsp;</o:p></span></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;=
+font-family:"Calibri",sans-serif;color:black'>16.3. Glue<o:p></o:p></span><=
+/p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calibr=
+i",sans-serif;color:black'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal=
+><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:bla=
+ck'>16.4. API<o:p></o:p></span></p><p class=3DMsoNormal><span style=3D'font=
+-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p=
+></span></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-famil=
+y:"Calibri",sans-serif;color:black'>16.5. University &nbsp;<o:p></o:p></spa=
+n></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Cal=
+ibri",sans-serif;color:black'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNor=
+mal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:=
+black'>16.6. Community<o:p></o:p></span></p><p class=3DMsoNormal><span styl=
+e=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&n=
+bsp;</o:p></span></p><p class=3DMsoNormal><span style=3D'font-family:"Calib=
+ri",sans-serif'>16.7.&nbsp;</span><b><i><span style=3D'font-size:10.5pt;fon=
+t-family:"Calibri",sans-serif;color:black'>3mins</span></i></b><span style=
+=3D'font-family:"Calibri",sans-serif'>&nbsp;- Mail Relay &nbsp;&#8211;&nbsp=
+;&nbsp;</span><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-se=
+rif;color:black'>&nbsp;<span style=3D'background:yellow'>Armando</span></sp=
+an><o:p></o:p></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font=
+-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p></span></p></blo=
+ckquote><div><blockquote style=3D'margin-left:30.0pt;margin-right:0in'><p c=
+lass=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans=
+-serif;color:black'><o:p>&nbsp;</o:p></span></p></blockquote><p class=3DMso=
+Normal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;col=
+or:black'>17. <b><i>2mins</i></b> - Enable monitoring - &nbsp;<a href=3D"ht=
+tps://rundeck.anaplan.com/project/Anaplan/job/show/fb0a4000-5e26-46c7-a494-=
+55c12609fe30">https://rundeck.anaplan.com/project/Anaplan/job/show/fb0a4000=
+-5e26-46c7-a494-55c12609fe30</a>&nbsp; - &nbsp;<span style=3D'background:aq=
+ua'>Reigner</span><o:p></o:p></span></p><div><div><div><p class=3DMsoNormal=
+><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:bla=
+ck'><o:p>&nbsp;</o:p></span></p></div><div><div><div><div><div><div><div><d=
+iv><div><div><div><div><div><div><div><div><div><p class=3DMsoNormal><span =
+style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'>18.=
+ <b><i>2mins</i></b> - Bring up the maintenance page through Wpengine&nbsp;=
+</span><span style=3D'font-family:"Calibri",sans-serif;color:black'>&nbsp;-=
+ &nbsp;&nbsp;<span style=3D'background:yellow'>Armando</span></span><span s=
+tyle=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p=
+></o:p></span></p></div></div></div></div></div></div></div></div></div></d=
+iv></div></div></div></div></div></div></div></div></div><div><div><div><di=
+v><div><div><div><div><div><div><div><div><div><div><div><div><div><div><di=
+v><div><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Ca=
+libri",sans-serif;color:black'><o:p>&nbsp;</o:p></span></p></div></div></di=
+v></div></div></div></div></div></div></div></div></div></div></div></div><=
+/div></div></div></div></div></div><p class=3DMsoNormal><span style=3D'font=
+-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:p=
+></span></p><p class=3DMsoNormal><span style=3D'color:black'><o:p>&nbsp;</o=
+:p></span></p><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-fam=
+ily:"Calibri",sans-serif;color:black'>&#8212;&#8212;&#8212;&#8212;&#8212;&#=
+8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;<o:p></o:p></span></p=
+><p class=3DMsoNormal><span style=3D'color:black'><o:p>&nbsp;</o:p></span><=
+/p><p class=3DMsoNormal><span style=3D'color:black'><o:p>&nbsp;</o:p></span=
+></p><p class=3DMsoNormal><b><span style=3D'font-size:10.5pt;font-family:"C=
+alibri",sans-serif;color:black'>Rollback:</span></b><span style=3D'color:bl=
+ack'><o:p></o:p></span></p><div><p class=3DMsoNormal><span style=3D'font-si=
+ze:10.5pt;font-family:"Calibri",sans-serif;color:black'>1. Shutdown the vms=
+ in dc5-hyp1-1-prod<o:p></o:p></span></p></div><div><p class=3DMsoNormal><s=
+pan style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color:black'=
+>2. Bring up the old vms in dc5-hyp1<o:p></o:p></span></p></div><div><p cla=
+ss=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-s=
+erif;color:black'>3. Start v009 and v010 on dc5-hyp1<o:p></o:p></span></p><=
+/div><div><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-family:=
+"Calibri",sans-serif;color:black'>4. Undo the NAT change<o:p></o:p></span><=
+/p></div><div><p class=3DMsoNormal><span style=3D'font-size:10.5pt;font-fam=
+ily:"Calibri",sans-serif;color:black'>5. Verify Sdp, glue, api, university,=
+ community and relay<o:p></o:p></span></p></div></div><div><p class=3DMsoNo=
+rmal><span style=3D'font-size:10.5pt;font-family:"Calibri",sans-serif;color=
+:black'>6. Revert the core builds &nbsp;(<a href=3D"https://anaplansite.atl=
+assian.net/browse/RB-969">https://anaplansite.atlassian.net/browse/RB-969</=
+a>)<o:p></o:p></span></p></div><div><p class=3DMsoNormal><span style=3D'fon=
+t-size:10.5pt;font-family:"Calibri",sans-serif;color:black'><o:p>&nbsp;</o:=
+p></span></p></div><div><div><div><div><div><p class=3DMsoNormal><span styl=
+e=3D'color:black'><o:p>&nbsp;</o:p></span></p><p class=3DMsoNormal><span st=
+yle=3D'color:black'><o:p>&nbsp;</o:p></span></p></div></div></div></div></d=
+iv></div></body></html>=
+
+--_000_2469346B71DE0549AF14420ED1872EC6CFACD7AB62AUSP01VMBX10c_--

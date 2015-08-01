@@ -1,0 +1,61 @@
+Received: from mail6.bemta7.messagelabs.com (10.2.3.198) by
+ in054.collaborationhost.net (10.2.0.168) with Microsoft SMTP Server id
+ 8.3.327.1; Thu, 23 Jul 2015 22:31:58 -0500
+Received: from [216.82.253.99] by server-3.bemta-7.messagelabs.com id
+ DB/46-47069-3B1B1B55; Fri, 24 Jul 2015 03:32:03 +0000
+Received: (qmail 27897 invoked from network); 24 Jul 2015 03:32:03 -0000
+Received: from 94.31.44.33.ipyx-072921-zyo.above.net (HELO
+ am3-app1-uat.anaplan.com) (94.31.44.33)  by
+ server-6.tower-160.messagelabs.com with SMTP; 24 Jul 2015 03:32:03 -0000
+Received: by am3-app1-uat.anaplan.com (Postfix, from userid 0)	id 351B91227AC;
+ Fri, 24 Jul 2015 03:32:02 +0000 (UTC)
+From: root <root@am3-app1-uat.anaplan.com>
+To: Level 3 Support <level3support@anaplan.com>, Anaplan Tech Operations
+	<operations@anaplan.com>
+Date: Thu, 23 Jul 2015 22:32:02 -0500
+Subject: AM3 UAT sanity check results 072415
+Thread-Topic: AM3 UAT sanity check results 072415
+Thread-Index: AdDFwU0gbTpiyZWoR3K8aj+Orxgc+Q==
+Message-ID: <20150724033202.351B91227AC@am3-app1-uat.anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB54.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: 1
+X-MS-Exchange-Organization-PCL: 2
+X-MS-TNEF-Correlator:
+x-viruschecked: Checked
+x-env-sender: root@am3-app1-uat.anaplan.com
+x-msg-ref: server-6.tower-160.messagelabs.com!1437708722!16523877!1
+x-starscan-version: 6.13.16; banners=-,-,-
+x-originating-ip: [94.31.44.33]
+x-spamreason: No, hits=0.0 required=7.0 tests=
+user-agent: Heirloom mailx 12.4 7/29/08
+x-starscan-received:
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+Run Options: ('-a', ''),('-f', '^am3-core'),('-s', '/store'),('-m', 'http:/=
+/am3-glue1-uat.anaplan.com:9090')
+----------------------------------------------------------------
+-----------------------S U M M A R Y----------------------------
+----------------------------------------------------------------
+TOTALS:
+Workspace servers found in SDP:				5
+Workspace servers used from SDP:			3
+Workspaces found in SDP:				239
+Models found in SDP:					1091
+Workspace folders found in /store		256
+Model folders found in workspace folders:		1142
+Workspace disk usage:					usage(total=3D'21.8 GB', used=3D'11.6 GB', free=
+=3D'9.1 GB')
+Workspace folder size:					6.8 GB
+
+EXCEPTION TOTALS:
+WorkspaceGuids IN Model Store but NOT IN SDP	:	17
+WorkspaceGuids IN SDP but NOT IN Model Store	:	0
+ModelGuids IN Workspace Folder but NOT IN SDP	:	51
+ModelGuids IN SDP but NOT IN Workspace Folder	:	0

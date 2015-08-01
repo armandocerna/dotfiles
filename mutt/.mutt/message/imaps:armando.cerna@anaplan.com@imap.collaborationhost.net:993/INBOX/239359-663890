@@ -1,0 +1,99 @@
+Received: from mail6.bemta7.messagelabs.com (10.2.3.199) by
+ in051.collaborationhost.net (10.2.65.63) with Microsoft SMTP Server id
+ 8.3.327.1; Wed, 8 Jul 2015 11:40:58 -0500
+Received: from [216.82.255.3] by server-1.bemta-7.messagelabs.com id
+ E2/89-15928-3C25D955; Wed, 08 Jul 2015 16:41:39 +0000
+Received: (qmail 26720 invoked from network); 8 Jul 2015 16:41:39 -0000
+Received: from unknown (HELO v014.anaplan.com) (198.207.221.248)  by
+ server-14.tower-209.messagelabs.com with SMTP; 8 Jul 2015 16:41:39 -0000
+Received: by v014.anaplan.com (Postfix, from userid 220)	id E8C0A5A0DF0; Wed,
+  8 Jul 2015 16:41:38 +0000 (UTC)
+From: "Reigner S. Yrastorza" <gitlab@git.anaplan.com>
+To: Anaplan Tech Operations <operations@anaplan.com>
+Date: Wed, 8 Jul 2015 11:41:38 -0500
+Subject: chef-repo | TECHOPS-1112, Updating the checkbuildstamp for the new
+ cores
+Thread-Topic: chef-repo | TECHOPS-1112, Updating the checkbuildstamp for the
+ new cores
+Thread-Index: AdC5nN6ja/XQ3z0TTmSU9STrwHzRKg==
+Message-ID: <559d52c2c41a2_332f444d050291c@v014.anaplan.com.mail>
+Reply-To: "noreply@git.anaplan.com" <noreply@git.anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB51.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: 2
+X-MS-Exchange-Organization-PCL: 2
+X-MS-TNEF-Correlator:
+x-viruschecked: Checked
+x-env-sender: gitlab@git.anaplan.com
+x-msg-ref: server-14.tower-209.messagelabs.com!1436373699!14011310!1
+x-starscan-version: 6.13.16; banners=-,-,-
+x-originating-ip: [198.207.221.248]
+x-spamwhitelisted: IP whitelist
+x-starscan-received:
+Content-Type: multipart/alternative;
+	boundary="_000_559d52c2c41a2332f444d050291cv014anaplancommail_"
+MIME-Version: 1.0
+
+--_000_559d52c2c41a2332f444d050291cv014anaplancommail_
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
+
+UmVpZ25lciBTLiBZcmFzdG9yemEgcHVzaGVkIHRvIHJlZnMvaGVhZHMvbWFzdGVyIGF0IHRlY2hv
+cHMgLyBjaGVmLXJlcG88aHR0cHM6Ly9naXQuYW5hcGxhbi5jb20vdGVjaG9wcy9jaGVmLXJlcG8+
+DQpDb21taXRzOg0KDQogKiAgIDI2M2EzNjQ2PGh0dHBzOi8vZ2l0LmFuYXBsYW4uY29tL3RlY2hv
+cHMvY2hlZi1yZXBvL2NvbW1pdC8yNjNhMzY0NmExYjkzZGY5ODM4MDgwMDYwNDAwZDIxZWNlODgw
+NDYyPiBieSBSZWlnbmVyIFMuIFlyYXN0b3J6YQ0KDQpURUNIT1BTLTExMTIsIFVwZGF0aW5nIHRo
+ZSBjaGVja2J1aWxkc3RhbXAgZm9yIHRoZSBuZXcgY29yZXMNCg0KDQpDaGFuZ2VzOg0KICogICBl
+bnZpcm9ubWVudHMvZWMyLnJiDQpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXw0KDQot
+LS0gYS9lbnZpcm9ubWVudHMvZWMyLnJiDQorKysgYi9lbnZpcm9ubWVudHMvZWMyLnJiDQpAQCAt
+MTU4LDcgKzE1OCw3IEBAIGNvb2tib29rX3ZlcnNpb25zKHsNCiAgICJwZXJjb25hIiA9PiAiPSAw
+LjAuMSIsDQogICAicmVkaXMiID0+ICI9IDAuMC4xIiwNCiAgICJya2h1bnRlciIgPT4gIj0gMC4w
+LjEiLA0KLSAgInJ1bmRlY2siID0+ICI9IDAuMi4wIiwNCisgICJydW5kZWNrIiA9PiAiPSAwLjIu
+MSIsDQogICAic3BsdW5rIiA9PiAiPSAwLjAuNCIsDQogICAic3Vtb2xvZ2ljIiA9PiAiPSAwLjAu
+MSIsDQogICAidGNvbGxlY3RvciIgPT4gIj0gMC4wLjEiLA0KDQoNCuKAlA0KWW91J3JlIHJlY2Vp
+dmluZyB0aGlzIG5vdGlmaWNhdGlvbiBiZWNhdXNlIHlvdSBhcmUgYSBtZW1iZXIgb2YgdGhlIHRl
+Y2hvcHMgLyBjaGVmLXJlcG8gcHJvamVjdCB0ZWFtLiBWaWV3IGl0IG9uIEdpdExhYjxodHRwczov
+L2dpdC5hbmFwbGFuLmNvbS90ZWNob3BzL2NoZWYtcmVwby9jb21taXQvMjYzYTM2NDZhMWI5M2Rm
+OTgzODA4MDA2MDQwMGQyMWVjZTg4MDQ2Mj4NCg==
+
+--_000_559d52c2c41a2332f444d050291cv014anaplancommail_
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: base64
+
+PGh0bWwgbGFuZz0nZW4nPg0KPGhlYWQ+DQo8bWV0YSBjb250ZW50PSd0ZXh0L2h0bWw7IGNoYXJz
+ZXQ9dXRmLTgnIGh0dHAtZXF1aXY9J0NvbnRlbnQtVHlwZSc+DQo8dGl0bGU+DQpHaXRMYWINCjwv
+dGl0bGU+DQo8L21ldGE+DQo8L2hlYWQ+DQo8c3R5bGU+DQogIGltZyB7DQogICAgbWF4LXdpZHRo
+OiAxMDAlOw0KICAgIGhlaWdodDogYXV0bzsNCiAgfQ0KICBwLmRldGFpbHMgew0KICAgIGZvbnQt
+c3R5bGU6aXRhbGljOw0KICAgIGNvbG9yOiM3NzcNCiAgfQ0KICAuZm9vdGVyIHAgew0KICAgIGZv
+bnQtc2l6ZTpzbWFsbDsNCiAgICBjb2xvcjojNzc3DQogIH0NCjwvc3R5bGU+DQo8Ym9keT4NCjxk
+aXYgY2xhc3M9J2NvbnRlbnQnPg0KPGgzPlJlaWduZXIgUy4gWXJhc3RvcnphIHB1c2hlZCB0byBy
+ZWZzL2hlYWRzL21hc3RlciBhdCA8YSBocmVmPSJodHRwczovL2dpdC5hbmFwbGFuLmNvbS90ZWNo
+b3BzL2NoZWYtcmVwbyI+dGVjaG9wcyAvIGNoZWYtcmVwbzwvYT48L2gzPg0KPGg0PkNvbW1pdHM6
+PC9oND4NCjx1bD4NCjxsaT4NCjxzdHJvbmc+PGEgaHJlZj0iaHR0cHM6Ly9naXQuYW5hcGxhbi5j
+b20vdGVjaG9wcy9jaGVmLXJlcG8vY29tbWl0LzI2M2EzNjQ2YTFiOTNkZjk4MzgwODAwNjA0MDBk
+MjFlY2U4ODA0NjIiPjI2M2EzNjQ2PC9hPjwvc3Ryb25nPg0KPHNwYW4+YnkgUmVpZ25lciBTLiBZ
+cmFzdG9yemE8L3NwYW4+DQo8cHJlPlRFQ0hPUFMtMTExMiwgVXBkYXRpbmcgdGhlIGNoZWNrYnVp
+bGRzdGFtcCBmb3IgdGhlIG5ldyBjb3Jlcw0KPC9wcmU+DQo8L2xpPg0KPC91bD4NCjxoND5DaGFu
+Z2VzOjwvaDQ+DQo8bGk+DQo8c3Ryb25nPg0KZW52aXJvbm1lbnRzL2VjMi5yYg0KPC9zdHJvbmc+
+DQo8aHI+DQo8cHJlPi0tLSBhL2Vudmlyb25tZW50cy9lYzIucmINCisrKyBiL2Vudmlyb25tZW50
+cy9lYzIucmINCkBAIC0xNTgsNyArMTU4LDcgQEAgY29va2Jvb2tfdmVyc2lvbnMoew0KICAgJnF1
+b3Q7cGVyY29uYSZxdW90OyA9Jmd0OyAmcXVvdDs9IDAuMC4xJnF1b3Q7LA0KICAgJnF1b3Q7cmVk
+aXMmcXVvdDsgPSZndDsgJnF1b3Q7PSAwLjAuMSZxdW90OywNCiAgICZxdW90O3JraHVudGVyJnF1
+b3Q7ID0mZ3Q7ICZxdW90Oz0gMC4wLjEmcXVvdDssDQotICAmcXVvdDtydW5kZWNrJnF1b3Q7ID0m
+Z3Q7ICZxdW90Oz0gMC4yLjAmcXVvdDssDQorICAmcXVvdDtydW5kZWNrJnF1b3Q7ID0mZ3Q7ICZx
+dW90Oz0gMC4yLjEmcXVvdDssDQogICAmcXVvdDtzcGx1bmsmcXVvdDsgPSZndDsgJnF1b3Q7PSAw
+LjAuNCZxdW90OywNCiAgICZxdW90O3N1bW9sb2dpYyZxdW90OyA9Jmd0OyAmcXVvdDs9IDAuMC4x
+JnF1b3Q7LA0KICAgJnF1b3Q7dGNvbGxlY3RvciZxdW90OyA9Jmd0OyAmcXVvdDs9IDAuMC4xJnF1
+b3Q7LDwvcHJlPg0KPGJyPg0KPC9saT4NCg0KPC9kaXY+DQo8ZGl2IGNsYXNzPSdmb290ZXInIHN0
+eWxlPSdtYXJnaW4tdG9wOiAxMHB4Oyc+DQo8cD4NCuKAlA0KPGJyPg0KWW91J3JlIHJlY2Vpdmlu
+ZyB0aGlzIG5vdGlmaWNhdGlvbiBiZWNhdXNlIHlvdSBhcmUgYSBtZW1iZXIgb2YgdGhlIHRlY2hv
+cHMgLyBjaGVmLXJlcG8gcHJvamVjdCB0ZWFtLg0KPGEgaHJlZj0iaHR0cHM6Ly9naXQuYW5hcGxh
+bi5jb20vdGVjaG9wcy9jaGVmLXJlcG8vY29tbWl0LzI2M2EzNjQ2YTFiOTNkZjk4MzgwODAwNjA0
+MDBkMjFlY2U4ODA0NjIiPlZpZXcgaXQgb24gR2l0TGFiPC9hPg0KPC9wPg0KPC9kaXY+DQo8L2Jv
+ZHk+DQo8L2h0bWw+DQo=
+
+--_000_559d52c2c41a2332f444d050291cv014anaplancommail_--

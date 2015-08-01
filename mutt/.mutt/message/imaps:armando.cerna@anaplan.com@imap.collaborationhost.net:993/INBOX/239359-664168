@@ -1,0 +1,207 @@
+Received: from mail6.bemta8.messagelabs.com (10.2.3.200) by
+ in055.collaborationhost.net (10.2.0.163) with Microsoft SMTP Server (TLS) id
+ 8.3.327.1; Thu, 9 Jul 2015 18:45:28 -0500
+Received: from [216.82.242.115] by server-14.bemta-8.messagelabs.com id
+ 32/5D-07016-9C70F955; Thu, 09 Jul 2015 23:46:17 +0000
+Received: (qmail 25102 invoked from network); 9 Jul 2015 23:46:16 -0000
+Received: from smtp14-was3.mta.salesforce.com (HELO
+ smtp14-was3.mta.salesforce.com) (96.43.151.77)  by
+ server-11.tower-132.messagelabs.com with DHE-RSA-AES256-SHA encrypted SMTP; 9
+ Jul 2015 23:46:16 -0000
+Received: from [10.242.65.42] ([10.242.65.42:55812]
+ helo=na18-app2-5-was.ops.sfdc.net)	by mx4-was3.mta.salesforce.com
+ (envelope-from
+ <debbie.heffernan=anaplan.com__0-9y4t03betciqem@8vjgw7yrobieuk.a-hlwqmaw.na18.bnc.salesforce.com>)
+	(ecelerity 3.6.8.47404 r(Core:3.6.8.0)) with ESMTPS (cipher=DES-CBC3-SHA) 	id
+ 20/C5-35219-8C70F955; Thu, 09 Jul 2015 23:46:16 +0000
+Received: from  [208.185.253.10] by na18.salesforce.com via HTTP; Thu, 09 Jul
+ 2015 16:46:16 -0700
+From: Debbie Heffernan <debbie.heffernan@anaplan.com>
+To: Hillary Harnett <Hillary.Harnett@anaplan.com>
+CC: Contracts <contracts@anaplan.com>, AR AMER <AR.AMER@anaplan.com>, Sales
+ Ops <sales.ops@anaplan.com>, Anaplan Tech Operations <operations@anaplan.com>
+Date: Thu, 9 Jul 2015 18:46:16 -0500
+Subject: Closed Won Deal (Upsell/Renewal): Tableau Software
+Thread-Topic: Closed Won Deal (Upsell/Renewal): Tableau Software
+Thread-Index: AdC6oVXvbphQGamTS4uG4goTbkIEUg==
+Message-ID:
+ <V21b3000000000000000000000000000000000000000000000NR8VD400-J_-x-XNR7SyAD1BTxKbIw@sfdc.net>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB55.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: 1
+X-MS-Exchange-Organization-PCL: 2
+X-MS-TNEF-Correlator:
+x-viruschecked: Checked
+x-env-sender: debbie.heffernan=anaplan.com__0-9y4t03betciqem@8vjgw7yrobie
+  uk.a-hlwqmaw.na18.bnc.salesforce.com
+x-msg-ref: server-11.tower-132.messagelabs.com!1436485576!20822364!3
+x-starscan-version: 6.13.16; banners=-,-,-
+x-originating-ip: [96.43.151.77]
+x-sender: postmaster@salesforce.com
+x-spamreason: No, hits=0.0 required=7.0 tests=HTML_MESSAGE
+x-sfdc-binding: 1WrIRBV94myi25uB
+x-sfdc-interface: internal
+x-sfdc-user: 005A0000003acVi
+x-mail_abuse_inquiries: http://www.salesforce.com/company/abuse.jsp
+x-sfdc-lk: 00DA0000000HLwQ
+x-sfdc-tls-norelay: 1
+x-starscan-received:
+x-sfdc-emailcategory: workflowActionAlert
+x-sfdc-entityid: 01WA0000000U9sF
+Content-Type: multipart/alternative;
+	boundary="_000_V21b3000000000000000000000000000000000000000000000NR8VD_"
+MIME-Version: 1.0
+
+--_000_V21b3000000000000000000000000000000000000000000000NR8VD_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+[https://c.na7.content.force.com/servlet/servlet.ImageServer?id=3D015A00000=
+03XwAm&oid=3D00DA0000000HLwQ]
+
+Team,
+
+Hillary Harnett has just a Closed a Deal!
+
+Please review the Deal Details below and initiate your Deal Close Actions I=
+tems.
+
+Here's an overview of the Deal:
+
+Account Details
+- Account/Customer Name: Tableau Software
+- Opportunity Name: Tableau Renewal - Tab20150416B
+- Sales Region:
+- ACV is: USD 6,781.00
+- TCV is: USD 6,781.00
+- Account Executive: Hillary Harnett
+- Workspace Admin:
+
+Tech Ops Details
+- Exact Workspace Name: Tableau
+- Current WS (GB): 65
+- GB to be Added: 20
+- Total WS (GB): 85
+- Default Workspace Enviroment: US Core
+- Notes: No WS required- renewal
+
+Finance Details:
+- Deal Type: Renewal
+- Order Schedule #: TAB20150610
+- Contract Term: 1 Month(s) (May 04, 2018 - Jun 28, 2018)
+- Specific Billing Instructions:
+- Partner: Aviana
+- Partner Fee %:
+
+Here is a link to the SFDC Opportunity Opportunity record <https://na7.sale=
+sforce.com/0061200000SePkv> if you would like more information.
+
+Please contact Hillary Harnett or Sales Ops if you have any questions.
+
+Thank you.
+
+
+
+
+
+
+
+
+
+--_000_V21b3000000000000000000000000000000000000000000000NR8VD_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html><style>p{margin-top:0px; margin-bottom:0px;}</style><body  style=3D" =
+background-color:#CCCCCC; bLabel:body; bEditID:b1st1;"><center ><table id=
+=3D"topTable" height=3D"450" width=3D"500" cellpadding=3D"0" cellspacing=3D=
+"0" ><tr valign=3D"top" ><td  style=3D" vertical-align:middle; height:50; t=
+ext-align:center; background-color:#FFFFFF; bLabel:header; bEditID:r1st1;">=
+<img id=3D"r1sp1" bLabel=3D"headerImage" border=3D"0" bEditID=3D"r1sp1" src=
+=3D"https://c.na7.content.force.com/servlet/servlet.ImageServer?id=3D015A00=
+00003XwAm&oid=3D00DA0000000HLwQ" ></img></td></tr><tr valign=3D"top" ><td  =
+style=3D" height:2; background-color:#0769a8; bLabel:accent1; bEditID:r2st1=
+;"></td></tr><tr valign=3D"top" ><td styleInsert=3D"1" height=3D"300"  styl=
+e=3D" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:=
+arial; bLabel:main; bEditID:r3st1;"><table height=3D"400" width=3D"550" cel=
+lpadding=3D"5" border=3D"0" cellspacing=3D"5" ><tr height=3D"400" valign=3D=
+"top" ><td style=3D" color:#000000; font-size:12pt; background-color:#FFFFF=
+F; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID=3D"c1r1" aEditID=
+=3D"c1r1" locked=3D"0" ><div><font size=3D"2">Team,</font></div><font style=
+=3D"color: rgb(0, 0, 0); font-family: arial;" size=3D"2"><br><b>Hillary Har=
+nett </b>has j<font face=3D"arial">u<font>st a Closed a Deal!&nbsp;</font><=
+/font></font><div style=3D"color: rgb(0, 0, 0); font-family: arial;"><font =
+style=3D"color: rgb(0, 0, 0); font-family: arial;"><font face=3D"arial" siz=
+e=3D"2"><br></font></font></div><div><span style=3D"color: rgb(0, 0, 0); fo=
+nt-family: arial; background-color: rgb(255, 255, 255);"><font color=3D"#ff=
+0000" size=3D"2"><font style=3D"font-family: arial;"><font face=3D"arial"><=
+font>Please review the Deal Details below and&nbsp;</font></font></font><fo=
+nt face=3D"arial">initiate your Deal Close Actions Items.</font></font></sp=
+an><div style=3D"color: rgb(0, 0, 0); font-family: arial;"><font size=3D"2"=
+><br><b>Here's an overview of <font>the Deal:</font></b></font></div><div s=
+tyle=3D"color: rgb(0, 0, 0); font-family: arial;"><b><font size=3D"2"><br><=
+/font></b></div><div style=3D"color: rgb(0, 0, 0); font-family: arial;"><b>=
+<u><font size=3D"2">Account Details</font></u></b></div><div style=3D"color=
+: rgb(0, 0, 0); font-family: arial;"><font size=3D"2">- Account/Customer Na=
+me:&nbsp;<b>Tableau Software&nbsp;</b></font></div><div style=3D"color: rgb=
+(0, 0, 0); font-family: arial;"><font size=3D"2">- Opportunity Name:&nbsp;<=
+b>Tableau Renewal - Tab20150416B&nbsp;</b></font></div><div style=3D"color:=
+ rgb(0, 0, 0); font-family: arial;"><font size=3D"2">- Sales Region:&nbsp;<=
+b><font></font></b></font></div><div style=3D"color: rgb(0, 0, 0); font-fam=
+ily: arial;"><font size=3D"2">- ACV is:&nbsp;<b>USD 6,781.00</b></font></di=
+v><div style=3D"color: rgb(0, 0, 0); font-family: arial;"><font size=3D"2">=
+- TCV is:&nbsp;<b>USD 6,781.00</b></font></div><div style=3D"color: rgb(0, =
+0, 0); font-family: arial;"><font size=3D"2"><font face=3D"arial">- Account=
+ Executive</font><font face=3D"arial">:&nbsp;</font><b>Hillary Harnett</b><=
+/font></div><div style=3D"color: rgb(0, 0, 0); font-family: arial;"><font s=
+ize=3D"2">- Workspace Admin:&nbsp;<b></b></div><div><div style=3D"color: rg=
+b(0, 0, 0); font-family: arial;"><span class=3D"Apple-tab-span" style=3D"wh=
+ite-space: pre;"><font size=3D"2"><br></font></span></div><div style=3D"col=
+or: rgb(0, 0, 0); font-family: arial;"><font size=3D"2"><b><u>Tech Ops Deta=
+ils</u></b><span class=3D"Apple-tab-span" style=3D"white-space:pre">	</span=
+></font></div><div><font size=3D"2"><font face=3D"arial">- Exact Workspace =
+Name:&nbsp;</font></font><font size=3D"2"><b>Tableau</b></font></div><div s=
+tyle=3D"color: rgb(0, 0, 0); font-family: arial;"><font size=3D"2">- Curren=
+t WS (GB):&nbsp;<b>65</b></font></div><div style=3D"color: rgb(0, 0, 0); fo=
+nt-family: arial;"><font size=3D"2">- GB to be Added:&nbsp;<b>20&nbsp;</b><=
+/font></div><div style=3D"color: rgb(0, 0, 0); font-family: arial;"><font s=
+ize=3D"2">-&nbsp;Total WS (GB):<b>&nbsp;85</b></font></div><div style=3D"fo=
+nt-size: 12pt; color: rgb(0, 0, 0); font-family: arial;"><font size=3D"2">-=
+ Default Workspace Enviroment:&nbsp;</font><font size=3D"2"><b>US Core</b><=
+/font></div><div style=3D"font-size: 12pt; color: rgb(0, 0, 0); font-family=
+: arial;"><font face=3D"arial" style=3D"font-size: small;">- Notes</font><f=
+ont face=3D"arial" style=3D"font-size: small;">:&nbsp;</font><b style=3D"fo=
+nt-size: small;">No WS required- renewal&nbsp;</b></div><div style=3D"font-=
+size: 12pt; color: rgb(0, 0, 0); font-family: arial;"><font size=3D"2"><br>=
+</font></div><div style=3D"font-size: 12pt; color: rgb(0, 0, 0); font-famil=
+y: arial;"><b><u><font size=3D"2"><font>Finance</font> Details:</font></u><=
+/b></div><div style=3D"font-size: 12pt; color: rgb(0, 0, 0); font-family: a=
+rial;"><font size=3D"2">- Deal Type:&nbsp;<b>Renewal</b><br>- Order Schedul=
+e #:&nbsp;<b>TAB20150610</b><br>- Contract Term:&nbsp;<b>1 Month(s)  (May 0=
+4, 2018 - Jun 28, 2018)</b><br>- Specific Billing Instructions:&nbsp;<b></b=
+><br>- Partner:&nbsp;<b>Aviana</b><br>- Partner Fee %:&nbsp;<b></b></font><=
+/div><div style=3D"font-size: 12pt; color: rgb(0, 0, 0); font-family: arial=
+;"><font size=3D"2"><br></font></div><div style=3D"font-size: 12pt; color: =
+rgb(0, 0, 0); font-family: arial;"><font size=3D"2">Here is a link to the <=
+b><i>SFDC Opportunity</i></b>&nbsp;<a href=3D" https://na7.salesforce.com/0=
+061200000SePkv">Opportunity record </a>if you would like&nbsp;more informat=
+ion.<br></font></div><div style=3D"font-size: 12pt; color: rgb(0, 0, 0); fo=
+nt-family: arial;"><font size=3D"2"><br></font></div><div style=3D"font-siz=
+e: 12pt; color: rgb(0, 0, 0); font-family: arial;"><font size=3D"2">Please =
+contact Hillary Harnett or Sales Ops if you have any questions.</font></div=
+><div style=3D"font-size: 12pt; color: rgb(0, 0, 0); font-family: arial;"><=
+font size=3D"2"><br></font></div><div style=3D"font-size: 12pt; color: rgb(=
+0, 0, 0); font-family: arial;"><font><font size=3D"2">Thank you.</font><br>=
+</font><br></div></div></div></td></tr></table></td></tr><tr valign=3D"top"=
+ ><td  style=3D" height:2; background-color:#FFFFFF; bLabel:accent2; bEditI=
+D:r4st1;"></td></tr><tr valign=3D"top" ><td  style=3D" vertical-align:middl=
+e; height:100; text-align:center; background-color:#FFFFFF; bLabel:footer; =
+bEditID:r5st1;"></td></tr><tr valign=3D"top" ><td  style=3D" height:2; back=
+ground-color:#0769a8; bLabel:accent3; bEditID:r6st1;"></td></tr></table></c=
+enter><br><br></body></html>=
+
+--_000_V21b3000000000000000000000000000000000000000000000NR8VD_--

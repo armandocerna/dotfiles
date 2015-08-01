@@ -1,0 +1,56 @@
+Received: from mail6.bemta12.messagelabs.com (10.2.3.199) by
+ in052.collaborationhost.net (10.2.65.73) with Microsoft SMTP Server id
+ 8.3.327.1; Wed, 29 Jul 2015 06:42:29 -0500
+Received: from [216.82.250.115] by server-3.bemta-12.messagelabs.com id
+ 9E/A5-10821-C2CB8B55; Wed, 29 Jul 2015 11:42:36 +0000
+Received: (qmail 27272 invoked from network); 29 Jul 2015 11:42:35 -0000
+Received: from unknown (HELO s04.a.anaplan.com) (198.207.221.104)  by
+ server-3.tower-127.messagelabs.com with SMTP; 29 Jul 2015 11:42:35 -0000
+Received: by s04.a.anaplan.com (Postfix, from userid 229)	id 4B5F71A2AEA; Wed,
+ 29 Jul 2015 11:42:35 +0000 (UTC)
+From: "icinga@dc5-icinga.anaplan.com" <icinga@dc5-icinga.anaplan.com>
+To: Site Reliability Ops <applicationops@anaplan.com>
+Date: Wed, 29 Jul 2015 06:42:35 -0500
+Subject: ** PROBLEM Service Alert: core100.anaplan.com/core100.anaplan.com
+ server log - TicketValidationException Error is CRITICAL **
+Thread-Topic: ** PROBLEM Service Alert:
+ core100.anaplan.com/core100.anaplan.com server log -
+ TicketValidationException Error is CRITICAL **
+Thread-Index: AdDJ86a1FKi2gSN7TeGOfGuHlX0C0w==
+Message-ID: <55b8bc2b.7GScmSRjut7Vou1W%icinga@dc5-icinga.anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB52.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: 0
+X-MS-Exchange-Organization-PCL: 2
+X-MS-TNEF-Correlator:
+x-viruschecked: Checked
+x-env-sender: icinga@dc5-icinga.anaplan.com
+x-msg-ref: server-3.tower-127.messagelabs.com!1438170155!17398984!1
+x-starscan-version: 6.13.16; banners=-,-,-
+x-originating-ip: [198.207.221.104]
+user-agent: Heirloom mailx 12.4 7/29/08
+x-spamwhitelisted: IP whitelist
+x-starscan-received:
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+***** Icinga *****
+
+Notification Type: PROBLEM
+
+Service: core100.anaplan.com server log - TicketValidationException Error
+Host: core100.anaplan.com
+Address: core100.anaplan.com
+State: CRITICAL
+
+Date/Time: Wed Jul 29 11:42:35 UTC 2015
+
+Additional Info:
+
+CRITICAL org.jasig.cas.client.validation TicketValidationException is found=
+ in the logs

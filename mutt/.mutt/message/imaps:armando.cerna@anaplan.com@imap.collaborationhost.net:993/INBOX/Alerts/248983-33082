@@ -1,0 +1,56 @@
+Received: from mail6.bemta8.messagelabs.com (10.2.3.196) by
+ in051.collaborationhost.net (10.2.65.63) with Microsoft SMTP Server id
+ 8.3.327.1; Wed, 8 Jul 2015 11:57:26 -0500
+Received: from [216.82.242.115] by server-6.bemta-8.messagelabs.com id
+ 0E/3E-17892-B965D955; Wed, 08 Jul 2015 16:58:03 +0000
+Received: (qmail 4100 invoked from network); 8 Jul 2015 16:58:03 -0000
+Received: from unknown (HELO s04.a.anaplan.com) (198.207.221.104)  by
+ server-10.tower-132.messagelabs.com with SMTP; 8 Jul 2015 16:58:03 -0000
+Received: by s04.a.anaplan.com (Postfix, from userid 229)	id 4610F1A2CC9; Wed,
+  8 Jul 2015 16:58:03 +0000 (UTC)
+From: "icinga@dc5-icinga.anaplan.com" <icinga@dc5-icinga.anaplan.com>
+To: Site Reliability Ops <applicationops@anaplan.com>
+Date: Wed, 8 Jul 2015 11:58:03 -0500
+Subject: ** RECOVERY Service Alert: core123.anaplan.com/core123.anaplan.com
+ server log - TicketValidationException Error is OK **
+Thread-Topic: ** RECOVERY Service Alert:
+ core123.anaplan.com/core123.anaplan.com server log -
+ TicketValidationException Error is OK **
+Thread-Index: AdC5nyuqYAzUUMW1RNG0zolkR4e30Q==
+Message-ID: <559d569b.FRZGI3vqsEiEscWw%icinga@dc5-icinga.anaplan.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB51.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: 0
+X-MS-Exchange-Organization-PCL: 2
+X-MS-TNEF-Correlator:
+x-viruschecked: Checked
+x-env-sender: icinga@dc5-icinga.anaplan.com
+x-msg-ref: server-10.tower-132.messagelabs.com!1436374683!20615758!1
+x-starscan-version: 6.13.16; banners=-,-,-
+x-originating-ip: [198.207.221.104]
+user-agent: Heirloom mailx 12.4 7/29/08
+x-spamwhitelisted: IP whitelist
+x-starscan-received:
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+
+***** Icinga *****
+
+Notification Type: RECOVERY
+
+Service: core123.anaplan.com server log - TicketValidationException Error
+Host: core123.anaplan.com
+Address: core123.anaplan.com
+State: OK
+
+Date/Time: Wed Jul 8 16:58:03 UTC 2015
+
+Additional Info:
+
+OK org.jasig.cas.client.validation TicketValidationException is not found i=
+n the logs

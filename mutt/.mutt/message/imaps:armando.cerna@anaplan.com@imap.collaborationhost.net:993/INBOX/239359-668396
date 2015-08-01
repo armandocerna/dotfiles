@@ -1,0 +1,228 @@
+Received: from mail6.bemta8.messagelabs.com (10.2.3.196) by
+ in052.collaborationhost.net (10.2.65.73) with Microsoft SMTP Server (TLS) id
+ 8.3.327.1; Fri, 31 Jul 2015 20:49:55 -0500
+Received: from [216.82.242.115] by server-2.bemta-8.messagelabs.com id
+ 4C/03-20102-2D52CB55; Sat, 01 Aug 2015 01:50:10 +0000
+Received: (qmail 16610 invoked from network); 1 Aug 2015 01:50:09 -0000
+Received: from smtp15-was3.mta.salesforce.com (HELO
+ smtp15-was3.mta.salesforce.com) (96.43.151.78)  by
+ server-5.tower-132.messagelabs.com with DHE-RSA-AES256-SHA encrypted SMTP; 1
+ Aug 2015 01:50:09 -0000
+Received: from [10.242.65.99] ([10.242.65.99:38236]
+ helo=na18-app1-14-was.ops.sfdc.net)	by mx2-was3.mta.salesforce.com
+ (envelope-from
+ <debbie.heffernan=anaplan.com__0-1bcfvm8j1799ca@6z7rsd1cbjogrw.a-hlwqmaw.na18.bnc.salesforce.com>)
+	(ecelerity 3.6.8.47404 r(Core:3.6.8.0)) with ESMTPS (cipher=DES-CBC3-SHA) 	id
+ CA/4E-24044-0D52CB55; Sat, 01 Aug 2015 01:50:08 +0000
+Received: from  [208.185.253.10] by na18.salesforce.com via HTTP; Fri, 31 Jul
+ 2015 18:50:08 -0700
+From: Debbie Heffernan <debbie.heffernan@anaplan.com>
+To: Anthony Reynolds <anthony.reynolds@anaplan.com>
+CC: Contracts <contracts@anaplan.com>, Anaplan Accounting
+	<Accounting@anaplan.com>, Anaplan Tech Operations <operations@anaplan.com>,
+	Sales Ops <sales.ops@anaplan.com>, AR AMER <AR.AMER@anaplan.com>
+Date: Fri, 31 Jul 2015 20:50:08 -0500
+Subject: New Customer Notification: Fullerton Healthcare
+Thread-Topic: New Customer Notification: Fullerton Healthcare
+Thread-Index: AdDL/F5dN2CC9IVGRFSn6y9WdrW99A==
+Message-ID:
+ <HMYIH000000000000000000000000000000000000000000000NSDRRK00-uBlpq53QICjClZHIT8vow@sfdc.net>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Organization-AuthSource: AUSP01MHUB52.collaborationhost.net
+X-MS-Has-Attach:
+X-Auto-Response-Suppress: DR, OOF, AutoReply
+X-MS-Exchange-Organization-SCL: 0
+X-MS-Exchange-Organization-PCL: 2
+X-MS-TNEF-Correlator:
+x-viruschecked: Checked
+x-env-sender: debbie.heffernan=anaplan.com__0-1bcfvm8j1799ca@6z7rsd1cbjog
+  rw.a-hlwqmaw.na18.bnc.salesforce.com
+x-msg-ref: server-5.tower-132.messagelabs.com!1438393808!23427793!2
+x-starscan-version: 6.13.16; banners=-,-,-
+x-originating-ip: [96.43.151.78]
+x-sender: postmaster@salesforce.com
+x-spamreason: No, hits=0.5 required=7.0 tests=BODY_RANDOM_LONG,  HTML_MESSAGE
+x-sfdc-binding: 1WrIRBV94myi25uB
+x-sfdc-interface: internal
+x-sfdc-user: 005A0000003acVi
+x-mail_abuse_inquiries: http://www.salesforce.com/company/abuse.jsp
+x-sfdc-lk: 00DA0000000HLwQ
+x-sfdc-tls-norelay: 1
+x-starscan-received:
+x-sfdc-emailcategory: workflowActionAlert
+x-sfdc-entityid: 01WA0000000U9Et
+Content-Type: multipart/alternative;
+	boundary="_000_HMYIH000000000000000000000000000000000000000000000NSDRR_"
+MIME-Version: 1.0
+
+--_000_HMYIH000000000000000000000000000000000000000000000NSDRR_
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+[https://c.na7.content.force.com/servlet/servlet.ImageServer?id=3D015A00000=
+03XwAm&oid=3D00DA0000000HLwQ]
+
+Team,
+
+Sheshadri Udupa has just a Closed a Deal!
+
+Please review the Deal Details below and initiate your Deal Close Actions I=
+tems.
+
+Here's an overview of the Deal:
+- Account Name: Fullerton Healthcare
+- Opportunity Name: Fullerton Healthcare -FP&A
+- Sales Region: APAC
+- ACV is: USD 32,288.00
+- TCV is: USD 161,440.00
+- Workspace Amount: 10
+- Primary Contact is: Amy Tan
+- Account Executive: Sheshadri Udupa
+
+Tech Ops Details for Workspace Setup:
+- Set up Workspace called: Fullerton Healthcare -FP&A
+- Total GB to be allocated per OS: 10
+- WS Name/Details attention:
+- Default WS environment: US Core
+
+Sales Ops Details for Workspace Setup:
+- Workspace Admin: Amy Tan
+- Type of Opportunity: New Business
+
+Finance Details for Invoicing:
+- Deal Type: New Business
+- Order Schedule #: FG17062015
+- Contract Term: 5 Year(s) (Aug 01, 2015 - Jul 31, 2020)
+- Specific Billing Instructions:
+- Partner: Abeo Electra
+- Partner Fee: 15
+
+Customer Success Details for Implementation:
+- Set up Welcome Meeting with: Amy Tan
+- Contact Email amy.tan@fullertonhealthcare.com
+- Engage Primary Solution Architect: Umesh Biyani
+
+Here is a link to the SFDC Opportunity Opportunity record <https://na7.sale=
+sforce.com/0061200000Sd3j9> if you would like more information.
+
+Please contact Sheshadri Udupa or Sales Ops if you have any questions.
+
+Thank you.
+
+
+
+
+
+
+
+
+
+--_000_HMYIH000000000000000000000000000000000000000000000NSDRR_
+Content-Type: text/html; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+
+<html><style>p{margin-top:0px; margin-bottom:0px;}</style><body  style=3D" =
+background-color:#FFFFFF; bLabel:body; bEditID:b1st1;"><center ><table id=
+=3D"topTable" height=3D"450" width=3D"500" cellpadding=3D"0" cellspacing=3D=
+"0" ><tr valign=3D"top" ><td  style=3D" vertical-align:middle; height:50; t=
+ext-align:center; background-color:#FFFFFF; bLabel:header; bEditID:r1st1;">=
+<img id=3D"r1sp1" bLabel=3D"headerImage" border=3D"0" bEditID=3D"r1sp1" src=
+=3D"https://c.na7.content.force.com/servlet/servlet.ImageServer?id=3D015A00=
+00003XwAm&oid=3D00DA0000000HLwQ" ></img></td></tr><tr valign=3D"top" ><td  =
+style=3D" height:2; background-color:#0769a8; bLabel:accent1; bEditID:r2st1=
+;"></td></tr><tr valign=3D"top" ><td styleInsert=3D"1" height=3D"300"  styl=
+e=3D" color:#000000; font-size:12pt; background-color:#FFFFFF; font-family:=
+arial; bLabel:main; bEditID:r3st1;"><table height=3D"400" width=3D"550" cel=
+lpadding=3D"5" border=3D"0" cellspacing=3D"5" ><tr height=3D"400" valign=3D=
+"top" ><td style=3D" color:#000000; font-size:12pt; background-color:#FFFFF=
+F; font-family:arial; bLabel:main; bEditID:r3st1;" tEditID=3D"c1r1" aEditID=
+=3D"c1r1" locked=3D"0" ><font style=3D"font-size: 12pt; color: rgb(0, 0, 0)=
+; font-family: arial;" size=3D"2"><font face=3D"arial">Team,</font><br><br>=
+<b>Sheshadri Udupa </b>has j<font face=3D"arial">u<font>st a Closed a Deal!=
+&nbsp;</font></font></font><div style=3D"font-size: 12pt; color: rgb(0, 0, =
+0); font-family: arial;"><font style=3D"color: rgb(0, 0, 0); font-family: a=
+rial;"><font face=3D"arial" size=3D"2"><br></font></font></div><div><span s=
+tyle=3D"font-size: 12pt; color: rgb(0, 0, 0); font-family: arial; backgroun=
+d-color: rgb(255, 255, 255);"><font color=3D"#ff0000" size=3D"2"><font styl=
+e=3D"font-family: arial;"><font face=3D"arial"><font>Please review the Deal=
+ Details below and&nbsp;</font></font></font><font face=3D"arial">initiate =
+your Deal Close Actions Items.</font></font></span><div style=3D"font-size:=
+ 12pt; color: rgb(0, 0, 0); font-family: arial;"><font size=3D"2"><br><b>He=
+re's an overview of <font>the Deal:</font></b></font></div><div style=3D"fo=
+nt-size: 12pt; color: rgb(0, 0, 0); font-family: arial;"><font size=3D"2">-=
+ Account Name:&nbsp;<b>Fullerton Healthcare&nbsp;</b></font></div><div styl=
+e=3D"font-size: 12pt; color: rgb(0, 0, 0); font-family: arial;"><font size=
+=3D"2">- Opportunity Name:&nbsp;<b>Fullerton Healthcare -FP&amp;A&nbsp;</b>=
+</font></div><div style=3D"font-size: 12pt; color: rgb(0, 0, 0); font-famil=
+y: arial;"><font size=3D"2">- Sales Region:&nbsp;<b>APAC</b></font></div><d=
+iv style=3D"font-size: 12pt; color: rgb(0, 0, 0); font-family: arial;"><fon=
+t size=3D"2">- ACV is:&nbsp;<b>USD 32,288.00</b></font></div><div style=3D"=
+font-size: 12pt; color: rgb(0, 0, 0); font-family: arial;"><font size=3D"2"=
+>- TCV is:&nbsp;<b>USD 161,440.00</b></font></div><div style=3D"font-size: =
+12pt; color: rgb(0, 0, 0); font-family: arial;"><font size=3D"2">- Workspac=
+e Amount:&nbsp;<b>10</b></font></div><div style=3D"font-size: 12pt; color: =
+rgb(0, 0, 0); font-family: arial;"><font size=3D"2">- Primary Contact is:&n=
+bsp;<b>Amy Tan</b></font></div><div style=3D"font-size: 12pt; color: rgb(0,=
+ 0, 0); font-family: arial;"><font size=3D"2"><font face=3D"arial">- Accoun=
+t Executive</font><font face=3D"arial">:&nbsp;</font><b>Sheshadri Udupa</b>=
+</font></div><div><div style=3D"font-size: 12pt; color: rgb(0, 0, 0); font-=
+family: arial;"><font size=3D"2"><br></font></div><div style=3D"font-size: =
+12pt; color: rgb(0, 0, 0); font-family: arial;"><b><u><font size=3D"2"><fon=
+t color=3D"#ff0000">Tech Ops </font>Details for Workspace Setup:</font></u>=
+</b></div><div style=3D"font-size: 12pt; color: rgb(0, 0, 0); font-family: =
+arial;"><font size=3D"2">- Set up Workspace called:&nbsp;<b>Fullerton Healt=
+hcare -FP&amp;A</b><br>- Total GB to be allocated per OS:&nbsp;<b>10</b><br=
+></font></div><div style=3D"font-size: 12pt;"><font size=3D"2" style=3D"col=
+or: rgb(0, 0, 0); font-family: arial;"><span style=3D"font-size: 12pt;">-</=
+span><b style=3D"font-size: 12pt;"> </b>WS Name/Details attention:</font><f=
+ont face=3D"arial" size=3D"2"><b></b></font></div><div><font face=3D"arial"=
+><span style=3D"font-size: 12pt;">- </span><font size=3D"2">Default WS envi=
+ronment:</font></font><font face=3D"arial" size=3D"2" style=3D"font-size: 1=
+2pt;">&nbsp;</font><b><font size=3D"2">US Core</font></b></div><div style=
+=3D"font-size: 12pt;"><br></div><div style=3D"font-size: 12pt; color: rgb(0=
+, 0, 0); font-family: arial;"><b><u><font size=3D"2"><font color=3D"#ff0000=
+">Sales Ops&nbsp;</font>Details for Workspace Setup:</font></u></b></div><d=
+iv style=3D"font-size: 12pt; color: rgb(0, 0, 0); font-family: arial;"><spa=
+n style=3D"font-size: small;">- Workspace Admin:&nbsp;</span><b style=3D"fo=
+nt-size: small;">Amy Tan</b><br style=3D"font-size: small;"><span style=3D"=
+font-size: small;">- Type of Opportunity:&nbsp;</span><b style=3D"font-size=
+: small;">New Business</b></div><div style=3D"font-size: 12pt; color: rgb(0=
+, 0, 0); font-family: arial;"><b style=3D"font-size: small;"><br></b></div>=
+<div style=3D"font-size: 12pt; color: rgb(0, 0, 0); font-family: arial;"><b=
+ style=3D"font-size: small;"><u><font color=3D"#ff0000">Finance</font> Deta=
+ils for Invoicing:</u></b></div><div style=3D"font-size: 12pt; color: rgb(0=
+, 0, 0); font-family: arial;"><font size=3D"2">- Deal Type:&nbsp;<b>New Bus=
+iness</b><br>- Order Schedule #:&nbsp;<b>FG17062015</b><br>- Contract Term:=
+&nbsp;<b>5 Year(s) (Aug 01, 2015 - Jul 31, 2020)</b><br>- Specific Billing =
+Instructions:&nbsp;<b></b><br>- Partner:&nbsp;<b>Abeo Electra</b><br>- Part=
+ner Fee:&nbsp;<b>15</b></font></div><div style=3D"font-size: 12pt; color: r=
+gb(0, 0, 0); font-family: arial;"><font size=3D"2"><br></font></div><div st=
+yle=3D"font-size: 12pt; color: rgb(0, 0, 0); font-family: arial;"><font siz=
+e=3D"2"><b><u><font color=3D"#ff0000">Customer Success </font>Details for I=
+mplementation:</u></b></font></div><div style=3D"font-size: 12pt; color: rg=
+b(0, 0, 0); font-family: arial;"><font size=3D"2">- Set up Welcome Meeting =
+with:&nbsp;<b>Amy Tan</b></font></div><div style=3D"font-size: 12pt; color:=
+ rgb(0, 0, 0); font-family: arial;"><font size=3D"2">- Contact Email&nbsp;<=
+b>amy.tan@fullertonhealthcare.com</b><br>- Engage Primary Solution Architec=
+t:&nbsp;<b>Umesh Biyani</b></font></div><div style=3D"font-size: 12pt; colo=
+r: rgb(0, 0, 0); font-family: arial;"><font size=3D"2"><br>Here is a link t=
+o the <b><i>SFDC Opportunity</i></b>&nbsp;<a href=3D" https://na7.salesforc=
+e.com/0061200000Sd3j9">Opportunity record </a>if you would like&nbsp;more i=
+nformation.<br></font></div><div style=3D"font-size: 12pt; color: rgb(0, 0,=
+ 0); font-family: arial;"><font size=3D"2"><br></font></div><div style=3D"f=
+ont-size: 12pt; color: rgb(0, 0, 0); font-family: arial;"><font size=3D"2">=
+Please contact Sheshadri Udupa or Sales Ops if you have any questions.</fon=
+t></div><div style=3D"font-size: 12pt; color: rgb(0, 0, 0); font-family: ar=
+ial;"><font size=3D"2"><br></font></div><div style=3D"font-size: 12pt; colo=
+r: rgb(0, 0, 0); font-family: arial;"><font size=3D"2">Thank you.<br></font=
+><br></div></div></div></td></tr></table></td></tr><tr valign=3D"top" ><td =
+ style=3D" height:2; background-color:#FFFFFF; bLabel:accent2; bEditID:r4st=
+1;"></td></tr><tr valign=3D"top" ><td  style=3D" vertical-align:middle; hei=
+ght:100; text-align:center; background-color:#FFFFFF; bLabel:footer; bEditI=
+D:r5st1;"></td></tr><tr valign=3D"top" ><td  style=3D" height:2; background=
+-color:#0769a8; bLabel:accent3; bEditID:r6st1;"></td></tr></table></center>=
+<br><br></body></html>=
+
+--_000_HMYIH000000000000000000000000000000000000000000000NSDRR_--
