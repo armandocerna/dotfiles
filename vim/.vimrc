@@ -21,7 +21,7 @@ set t_Co=256
 colo CandyPaper
 
 filetype plugin indent on
-set tabstop=4 shiftwidth=4 expandtab
+set tabstop=2 shiftwidth=2 expandtab
 set number
 map <silent> <C-n> :NERDTreeFocus<CR>
 let g:ctrlp_map = '<c-p>'
