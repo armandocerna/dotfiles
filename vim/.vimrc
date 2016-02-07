@@ -20,6 +20,8 @@ set background=dark
 set t_Co=256
 colo CandyPaper
 
+let g:airline#extensions#tabline#enabled = 1
+
 filetype plugin indent on
 set tabstop=2 shiftwidth=2 expandtab
 set number
@@ -37,6 +39,10 @@ set backupdir=~/.tmp/backup/
 " " turn on undo files, put them in a common location
 set undofile
 set undodir=~/.tmp/undo/
+
+" Set clipboard Uncomment this if you want to confuse yourself and use the
+" sytem clipboard
+"set clipboard=unnamed
 
 " Insert into your .vimrc after quick-scope is loaded.
 " Obviously depends on <https://github.com/unblevable/quick-scope> being installed.
