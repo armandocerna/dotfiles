@@ -6,5 +6,4 @@ ln -s ~/dotfiles/vim/colors ~/.vim/colors
 
 ln -s ~/dotfiles/tmux/.tmux.conf ~/.tmux.conf
 
-ln -s ~/dotfiles/xresources/.Xresources ~/.Xresources
 
