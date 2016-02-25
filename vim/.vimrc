@@ -8,6 +8,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
+Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
 Plugin 'unblevable/quick-scope'
@@ -20,6 +21,7 @@ set background=dark
 set t_Co=256
 colo CandyPaper
 
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:airline#extensions#tabline#enabled = 1
 
 filetype plugin indent on
