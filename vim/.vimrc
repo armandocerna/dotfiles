@@ -11,6 +11,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
 Plugin 'unblevable/quick-scope'
+Plugin 'pearofducks/ansible-vim'
 call vundle#end()      
 
 filetype plugin on
