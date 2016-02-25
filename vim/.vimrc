@@ -19,40 +19,29 @@ call vundle#end()
 filetype plugin on
 syntax on
 set background=dark
-"colorscheme solarized
 set t_Co=256
 colo CandyPaper
 
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-let g:airline#extensions#tabline#enabled = 1
 
 filetype plugin indent on
 set tabstop=2 shiftwidth=2 expandtab
 set number
 map <silent> <C-n> :NERDTreeFocus<CR>
+
+" CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-" swap files (.swp) in a common location
-" " // means use the file's full path
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:airline#extensions#tabline#enabled = 1
+
+" Vim temp files outside of working directories
 set dir=~/.tmp/swap/
-"
-" " backup files (~) in a common location if possible
 set backup
 set backupdir=~/.tmp/backup/
-
-" " turn on undo files, put them in a common location
 set undofile
 set undodir=~/.tmp/undo/
 
-" Set clipboard Uncomment this if you want to confuse yourself and use the
-" sytem clipboard
-" set clipboard=unnamed
-
-" Insert into your .vimrc after quick-scope is loaded.
-" Obviously depends on <https://github.com/unblevable/quick-scope> being installed.
-
-" Thanks to @VanLaser for cleaning the code up and expanding capabilities to include e.g. `df`
-
+" Quickscope
 let g:qs_enable = 0
 let g:qs_enable_char_list = [ 'f', 'F', 't', 'T' ]
 
