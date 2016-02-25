@@ -12,6 +12,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
 Plugin 'unblevable/quick-scope'
 Plugin 'pearofducks/ansible-vim'
+
 call vundle#end()      
 
 filetype plugin on
@@ -43,7 +44,7 @@ set undodir=~/.tmp/undo/
 
 " Set clipboard Uncomment this if you want to confuse yourself and use the
 " sytem clipboard
-"set clipboard=unnamed
+" set clipboard=unnamed
 
 " Insert into your .vimrc after quick-scope is loaded.
 " Obviously depends on <https://github.com/unblevable/quick-scope> being installed.
