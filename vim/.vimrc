@@ -13,7 +13,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'bling/vim-airline'
 Plugin 'unblevable/quick-scope'
 Plugin 'pearofducks/ansible-vim'
-
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()      
 
 filetype plugin on
@@ -73,3 +73,9 @@ endfunction
 for i in g:qs_enable_char_list
   execute 'noremap <expr> <silent>' . i . " Quick_scope_selective('". i . "')"
 endfor
+
+" Easier split navigation
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
