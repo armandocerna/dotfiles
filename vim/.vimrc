@@ -1,27 +1,24 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'kien/ctrlp.vim'
-Plugin 'FelikZ/ctrlp-py-matcher'
-Plugin 'tpope/vim-surround'
-Plugin 'bling/vim-airline'
-Plugin 'unblevable/quick-scope'
-Plugin 'pearofducks/ansible-vim'
-"Plugin 'christoomey/vim-tmux-navigator'
-call vundle#end()      
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'kien/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'tpope/vim-surround'
+Plug 'bling/vim-airline'
+Plug 'unblevable/quick-scope'
+Plug 'pearofducks/ansible-vim'
+"Plug 'christoomey/vim-tmux-navigator'
+call plug#end()
 
 filetype plugin on
 syntax on
 set background=dark
 set t_Co=256
 colo CandyPaper
-
 
 filetype plugin indent on
 set tabstop=2 shiftwidth=2 expandtab
@@ -68,3 +65,12 @@ endfor
 "nnoremap <C-K> <C-W><C-K>
 "nnoremap <C-L> <C-W><C-L>
 "nnoremap <C-H> <C-W><C-H>
+
+"inoremap <C-J> <C-W><C-J>
+"inoremap <C-K> <C-W><C-K>
+"inoremap <C-L> <C-W><C-L>
+"inoremap <C-H> <C-W><C-H>
+
+" Align blocks of text and keep them selected
+vmap < <gv
+vmap > >gv
