@@ -5,13 +5,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
 Plug 'bling/vim-airline'
 Plug 'unblevable/quick-scope'
 Plug 'pearofducks/ansible-vim'
-"Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 filetype plugin on
@@ -22,7 +22,7 @@ colo CandyPaper
 
 filetype plugin indent on
 set tabstop=2 shiftwidth=2 expandtab
-set number
+set relativenumber
 map <silent> <C-n> :NERDTreeFocus<CR>
 
 " CtrlP
@@ -60,17 +60,24 @@ for i in g:qs_enable_char_list
   execute 'noremap <expr> <silent>' . i . " Quick_scope_selective('". i . "')"
 endfor
 
-" Easier split navigation
-"nnoremap <C-J> <C-W><C-J>
-"nnoremap <C-K> <C-W><C-K>
-"nnoremap <C-L> <C-W><C-L>
-"nnoremap <C-H> <C-W><C-H>
+" use jj to exit insert mode
+imap jj <Esc>
+"
+" GRAVEYARD
+"
+"
+"
+"
+" Easier split navigation nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
 
-"inoremap <C-J> <C-W><C-J>
-"inoremap <C-K> <C-W><C-K>
-"inoremap <C-L> <C-W><C-L>
-"inoremap <C-H> <C-W><C-H>
-
+" inoremap <C-J> <C-W><C-J>
+" inoremap <C-K> <C-W><C-K>
+" inoremap <C-L> <C-W><C-L>
+" inoremap <C-H> <C-W><C-H>
+"
 " Align blocks of text and keep them selected
-vmap < <gv
-vmap > >gv
+" vmap < <gv
+" vmap > >gsv
