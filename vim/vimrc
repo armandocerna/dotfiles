@@ -26,6 +26,7 @@ colo CandyPaper
 filetype plugin indent on
 set tabstop=2 shiftwidth=2 expandtab
 set relativenumber
+set updatetime=250
 let mapleader = "\<Space>"
 
 " CtrlP
