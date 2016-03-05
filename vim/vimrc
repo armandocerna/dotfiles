@@ -13,6 +13,7 @@ Plug 'tpope/vim-repeat'
 Plug 'bling/vim-airline'
 Plug 'unblevable/quick-scope'
 Plug 'pearofducks/ansible-vim'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 filetype plugin on
