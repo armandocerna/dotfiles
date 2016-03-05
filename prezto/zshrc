@@ -12,9 +12,9 @@ fi
 
 # Customize to your needs...
 export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export FZF_DEFAULT_COMMAND='ag -g ""'
 eval "$(rbenv init -)"
 
-# alias vim="nvim"
 
 # Make ssh-agent forwarding work with tmux
 _ssh_auth_save() {
@@ -22,5 +22,6 @@ _ssh_auth_save() {
 }
 
 alias tmux='_ssh_auth_save ; export HOSTNAME=$(hostname) ; tmux'
+alias vim="nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
