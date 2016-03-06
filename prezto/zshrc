@@ -21,7 +21,8 @@ _ssh_auth_save() {
     ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh-auth-sock.$HOSTNAME"
 }
 
-alias tmux='_ssh_auth_save ; export HOSTNAME=$(hostname) ; tmux'
-alias vim="nvim"
-
+# Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+alias vim="nvim"
+alias dev='ssh dev.cerna.ca -t "_ssh_auth_save ; export HOSTNAME=$(hostname) ; tmux attach"'
