@@ -16,13 +16,21 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 eval "$(rbenv init -)"
 
 
-# Make ssh-agent forwarding work with tmux
-_ssh_auth_save() {
-    ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh-auth-sock.$HOSTNAME"
-}
+# # Make ssh-agent forwarding work with tmux ## NOT BEING USED
+# _ssh_auth_save() {
+#     ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh-auth-sock.$HOSTNAME"
+# }
+
+# function refresh_tmux() {
+#   if [[ -n $TMUX ]]; then
+#     NEW_SSH_AUTH_SOCK=`tmux showenv|grep ^SSH_AUTH_SOCK|cut -d = -f 2`
+#     if [[ -n $NEW_SSH_AUTH_SOCK ]] && [[ -S $NEW_SSH_AUTH_SOCK ]]; then
+#       SSH_AUTH_SOCK=$NEW_SSH_AUTH_SOCK
+#     fi
+#   fi
+# }
 
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias vim="nvim"
-alias dev='ssh dev.cerna.ca -t "_ssh_auth_save ; export HOSTNAME=$(hostname) ; tmux attach"'
