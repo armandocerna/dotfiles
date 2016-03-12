@@ -4,8 +4,6 @@ filetype off                  " required
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/syntastic'
-" Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -29,11 +27,6 @@ set relativenumber
 set updatetime=250
 let mapleader = "\<Space>"
 
-" CtrlP
-" let g:ctrlp_map = '<c-p>'
-" let g:ctrlp_cmd = 'CtrlP'
-" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-" let g:airline#extensions#tabline#enabled = 1
 
 " Vim temp files outside of working directories
 set dir=~/.tmp/swap/
@@ -41,6 +34,9 @@ set backup
 set backupdir=~/.tmp/backup/
 set undofile
 set undodir=~/.tmp/undo/
+
+" Enable Airline
+let g:airline#extensions#tabline#enabled = 1
 
 " Quickscope
 let g:qs_enable = 0
