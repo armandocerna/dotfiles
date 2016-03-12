@@ -15,6 +15,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tomasr/molokai'
+Plug 'wellle/targets.vim'
+
 call plug#end()
 
 filetype plugin on
@@ -43,6 +45,7 @@ set undodir=~/.tmp/undo/
 " Enable Airline
 let g:airline#extensions#tabline#enabled = 0
 let g:airline_theme='wombat'
+let g:airline_powerline_fonts = 1
 
 " Quickscope
 " let g:qs_enable = 1
