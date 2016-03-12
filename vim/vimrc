@@ -8,18 +8,23 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'unblevable/quick-scope'
 Plug 'pearofducks/ansible-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'tomasr/molokai'
 call plug#end()
 
 filetype plugin on
 syntax on
 set background=dark
 set t_Co=256
-colo CandyPaper
+colo molokai
+" Clear background color from loaded theme
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
 
 filetype plugin indent on
 set tabstop=2 shiftwidth=2 expandtab
@@ -37,6 +42,7 @@ set undodir=~/.tmp/undo/
 
 " Enable Airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='wombat'
 
 " Quickscope
 let g:qs_enable = 0
@@ -62,6 +68,7 @@ endfor
 
 " use jj to exit insert mode
 imap jj <Esc>
+
 " FZF
 " Mapping selecting mappings
 nmap <leader><tab> <plug>(fzf-maps-n)
