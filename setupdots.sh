@@ -10,6 +10,7 @@ ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/dotfiles/vim/vimrc ~/.config/nvim/init.vim
 ln -s ~/dotfiles/vim/colors ~/.vim/colors
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+ln -sf ~/dotfiles/tmux/tmux-theme.conf ~/.tmux-theme.conf
 ln -sf ~/dotfiles/prezto/zlogin ~/.zlogin
 ln -sf ~/dotfiles/prezto/zlogout ~/.zlogout
 ln -sf ~/dotfiles/prezto/zpreztorc ~/.zpreztorc
