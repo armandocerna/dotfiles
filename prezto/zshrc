@@ -33,4 +33,5 @@ eval "$(rbenv init -)"
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-alias vim="nvim"
+# Source aliases
+source ~/aliases.sh

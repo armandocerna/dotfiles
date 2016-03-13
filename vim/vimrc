@@ -33,6 +33,7 @@ highlight nonText ctermbg=NONE
 filetype plugin indent on
 set tabstop=2 shiftwidth=2 expandtab
 set relativenumber
+set number
 set updatetime=250
 let mapleader = "\<Space>"
 
