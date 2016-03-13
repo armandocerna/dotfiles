@@ -24,6 +24,8 @@ syntax on
 set background=dark
 set t_Co=256
 colo molokai
+" Disable mouse click position change
+set mouse-=a
 " Clear background color from loaded theme
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
