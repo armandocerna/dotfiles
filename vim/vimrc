@@ -91,22 +91,3 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 nnoremap <silent> <C-p> :Files<cr>
 nnoremap <silent> <leader>ag :Ag<space>
 nnoremap <silent> <leader>p :Files<cr>
-"
-" GRAVEYARD
-"
-"
-"
-"
-" Easier split navigation nnoremap <C-J> <C-W><C-J>
-" nnoremap <C-K> <C-W><C-K>
-" nnoremap <C-L> <C-W><C-L>
-" nnoremap <C-H> <C-W><C-H>
-
-" inoremap <C-J> <C-W><C-J>
-" inoremap <C-K> <C-W><C-K>
-" inoremap <C-L> <C-W><C-L>
-" inoremap <C-H> <C-W><C-H>
-"
-" Align blocks of text and keep them selected
-" vmap < <gv
-" vmap > >gsv
