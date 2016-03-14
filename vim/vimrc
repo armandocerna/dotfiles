@@ -33,6 +33,7 @@ highlight nonText ctermbg=NONE
 filetype plugin indent on
 set tabstop=2 shiftwidth=2 expandtab
 set relativenumber
+set number
 set updatetime=250
 let mapleader = "\<Space>"
 
@@ -45,7 +46,7 @@ set undofile
 set undodir=~/.tmp/undo/
 
 " Enable Airline
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='wombat'
 let g:airline_powerline_fonts = 1
 
