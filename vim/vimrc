@@ -46,7 +46,7 @@ set undofile
 set undodir=~/.tmp/undo/
 
 " Enable Airline
-let g:airline#extensions#tabline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='wombat'
 let g:airline_powerline_fonts = 1
 
@@ -92,3 +92,6 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 nnoremap <silent> <C-p> :Files<cr>
 nnoremap <silent> <leader>ag :Ag<space>
 nnoremap <silent> <leader>p :Files<cr>
+
+" Toggle between normal and relative numbering.
+nnoremap <leader>ln :set rnu!<cr>
