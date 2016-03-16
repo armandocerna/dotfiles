@@ -34,4 +34,4 @@ eval "$(rbenv init -)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Source aliases
-source ~/aliases.sh
+source ~/.aliases.sh
