@@ -91,7 +91,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 nnoremap <silent> <C-p> :Files<cr>
-nnoremap <silent> <leader>ag :Ag<space>
+nnoremap <silent> <leader>/ :Ag<space>
 nnoremap <silent> <leader>p :Files<cr>
 nnoremap <silent> <leader>db :!terminal docker-compose build && docker-compose down && docker-compose up<cr>
 

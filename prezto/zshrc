@@ -10,28 +10,16 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
-export FZF_DEFAULT_COMMAND='ag -g ""'
-eval "$(rbenv init -)"
-
-
-# # Make ssh-agent forwarding work with tmux ## NOT BEING USED
-# _ssh_auth_save() {
-#     ln -sf "$SSH_AUTH_SOCK" "$HOME/.ssh/ssh-auth-sock.$HOSTNAME"
-# }
-
-# function refresh_tmux() {
-#   if [[ -n $TMUX ]]; then
-#     NEW_SSH_AUTH_SOCK=`tmux showenv|grep ^SSH_AUTH_SOCK|cut -d = -f 2`
-#     if [[ -n $NEW_SSH_AUTH_SOCK ]] && [[ -S $NEW_SSH_AUTH_SOCK ]]; then
-#       SSH_AUTH_SOCK=$NEW_SSH_AUTH_SOCK
-#     fi
-#   fi
-# }
+# A command to launch a new, anonymous Chrome session for testing.
+chrome() {
+  mkdir -p /tmp/chrome$1
+  ~/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=/tmp/chrome$1
+}
 
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+
 # Source aliases
 source ~/.aliases.sh
+source ~/.work.sh
