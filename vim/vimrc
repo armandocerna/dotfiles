@@ -24,7 +24,7 @@ filetype plugin on
 syntax on
 set background=dark
 set t_Co=256
-colo molokai
+colo CandyPaper
 " Disable mouse click position change
 set mouse-=a
 " Clear background color from loaded theme
@@ -93,6 +93,7 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 nnoremap <silent> <C-p> :Files<cr>
 nnoremap <silent> <leader>ag :Ag<space>
 nnoremap <silent> <leader>p :Files<cr>
+nnoremap <silent> <leader>db :!terminal docker-compose build && docker-compose down && docker-compose up<cr>
 
 " Toggle between normal and relative numbering.
 nnoremap <leader>ln :set rnu!<cr>
