@@ -17,6 +17,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tomasr/molokai'
 Plug 'wellle/targets.vim'
+Plug 'bronson/vim-trailing-whitespace'
 
 call plug#end()
 
@@ -24,7 +25,7 @@ filetype plugin on
 syntax on
 set background=dark
 set t_Co=256
-colo CandyPaper
+colo Tomorrow-Night-Eighties
 " Disable mouse click position change
 set mouse-=a
 " Clear background color from loaded theme
@@ -48,7 +49,7 @@ set undodir=~/.tmp/undo/
 
 " Enable Airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='wombat'
+let g:airline_theme='base16_eighties'
 let g:airline_powerline_fonts = 1
 
 " Quickscope
@@ -93,6 +94,7 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 nnoremap <silent> <C-p> :Files<cr>
 nnoremap <silent> <leader>/ :Ag<space>
 nnoremap <silent> <leader>p :Files<cr>
+nnoremap <silent> <leader>ws :FixWhitespace<cr>
 nnoremap <silent> <leader>db :!terminal docker-compose build && docker-compose down && docker-compose up<cr>
 
 " Toggle between normal and relative numbering.
