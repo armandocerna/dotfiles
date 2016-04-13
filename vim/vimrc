@@ -8,6 +8,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-endwise'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'unblevable/quick-scope'
@@ -18,6 +19,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tomasr/molokai'
 Plug 'wellle/targets.vim'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'nathanaelkane/vim-indent-guides'
 
 call plug#end()
 
