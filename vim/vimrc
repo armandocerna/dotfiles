@@ -36,11 +36,13 @@ highlight nonText ctermbg=NONE
 
 filetype plugin indent on
 set tabstop=2 shiftwidth=2 expandtab
-set relativenumber
 set number
 set updatetime=250
 let mapleader = "\<Space>"
 
+" Speed up redraw
+set ttyfast
+set lazyredraw
 
 " Vim temp files outside of working directories
 set dir=~/.tmp/swap/
@@ -95,7 +97,8 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 nnoremap <silent> <C-p> :Files<cr>
 nnoremap <silent> <leader>/ :Ag<space>
-nnoremap <silent> <leader>p :Files<cr>
+nnoremap <silent> <leader>f :Files<cr>
+nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>ws :FixWhitespace<cr>
 nnoremap <silent> <leader>db :!terminal docker-compose build && docker-compose down && docker-compose up<cr>
 
