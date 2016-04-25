@@ -18,6 +18,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tomasr/molokai'
 Plug 'wellle/targets.vim'
+Plug 'derekwyatt/vim-scala'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'nathanaelkane/vim-indent-guides'
 
@@ -36,6 +37,7 @@ highlight nonText ctermbg=NONE
 
 filetype plugin indent on
 set tabstop=2 shiftwidth=2 expandtab
+set relativenumber
 set number
 set updatetime=250
 let mapleader = "\<Space>"
@@ -98,6 +100,8 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 nnoremap <silent> <C-p> :Files<cr>
 nnoremap <silent> <leader>/ :Ag<space>
 nnoremap <silent> <leader>f :Files<cr>
+nnoremap <silent> <leader>gdo :Files ~/workspace/devops<cr>
+nnoremap <silent> <leader>gml :Files ~/workspace/mavenlink<cr>
 nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>ws :FixWhitespace<cr>
 nnoremap <silent> <leader>db :!terminal docker-compose build && docker-compose down && docker-compose up<cr>
