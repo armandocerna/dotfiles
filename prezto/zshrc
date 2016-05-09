@@ -20,6 +20,8 @@ chrome() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
+unsetopt AUTO_NAME_DIRS
+
 # Source aliases
 source ~/.aliases.sh
 source ~/.work.sh
