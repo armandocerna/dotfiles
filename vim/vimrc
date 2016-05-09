@@ -21,6 +21,7 @@ Plug 'wellle/targets.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
@@ -80,7 +81,6 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 "   execute 'noremap <expr> <silent>' . i . " Quick_scope_selective('". i . "')"
 " endfor
 
-" use jj to exit insert mode
 imap jj <Esc>
 
 " FZF
