@@ -16,20 +16,22 @@ Plug 'pearofducks/ansible-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'tomasr/molokai'
 Plug 'wellle/targets.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tomasr/molokai'
+Plug 'whatyouhide/vim-gotham'
+Plug 'edkolev/tmuxline.vim'
 
 call plug#end()
 
 filetype plugin on
 syntax on
 set background=dark
-set t_Co=256
-colo Tomorrow-Night-Eighties
+" set t_Co=256
+colo gotham
 " Disable mouse click position change
 set mouse-=a
 " Clear background color from loaded theme
@@ -37,7 +39,7 @@ highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 
 filetype plugin indent on
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set relativenumber
 set number
 set updatetime=250
@@ -56,7 +58,7 @@ set undodir=~/.tmp/undo/
 
 " Enable Airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='base16_eighties'
+let g:airline_theme='gotham'
 let g:airline_powerline_fonts = 1
 
 " Quickscope
