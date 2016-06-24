@@ -26,6 +26,7 @@ Plug 'whatyouhide/vim-gotham'
 Plug 'edkolev/tmuxline.vim'
 Plug 'kassio/neoterm'
 Plug 'chriskempson/base16-vim'
+Plug 'BufOnly.vim'
 
 call plug#end()
 
@@ -106,11 +107,13 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 nnoremap <silent> <C-p> :Files<cr>
-nnoremap <silent> <leader>/ :Ag<space>
+nnoremap <leader>/ :Ag<space>
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>gdo :Files ~/workspace/devops<cr>
 nnoremap <silent> <leader>gml :Files ~/workspace/mavenlink<cr>
 nnoremap <silent> <leader>b :Buffers<cr>
+nnoremap <silent> <leader>dab :1,$bd<cr>
+nnoremap <silent> <leader>dob :BufOnly<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>ws :FixWhitespace<cr>
 nnoremap <silent> <leader>db :!terminal docker-compose build && docker-compose down && docker-compose up<cr>
