@@ -16,20 +16,25 @@ Plug 'pearofducks/ansible-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'tomasr/molokai'
 Plug 'wellle/targets.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'tomasr/molokai'
+Plug 'whatyouhide/vim-gotham'
+Plug 'edkolev/tmuxline.vim'
+Plug 'kassio/neoterm'
+Plug 'chriskempson/base16-vim'
+Plug 'BufOnly.vim'
 
 call plug#end()
 
 filetype plugin on
 syntax on
 set background=dark
-set t_Co=256
-colo Tomorrow-Night-Eighties
+" set t_Co=256
+colo CandyPaper
 " Disable mouse click position change
 set mouse-=a
 " Clear background color from loaded theme
@@ -37,7 +42,7 @@ highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 
 filetype plugin indent on
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set relativenumber
 set number
 set updatetime=250
@@ -46,6 +51,10 @@ let mapleader = "\<Space>"
 " Speed up redraw
 set ttyfast
 set lazyredraw
+
+" nvimux
+"
+let g:nvimux_prefix='<C-a>'
 
 " Vim temp files outside of working directories
 set dir=~/.tmp/swap/
@@ -56,7 +65,7 @@ set undodir=~/.tmp/undo/
 
 " Enable Airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='base16_eighties'
+let g:airline_theme='dark'
 let g:airline_powerline_fonts = 1
 
 " Quickscope
@@ -98,11 +107,14 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Advanced customization using autoload functions
 inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 nnoremap <silent> <C-p> :Files<cr>
-nnoremap <silent> <leader>/ :Ag<space>
+nnoremap <leader>/ :Ag<space>
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>gdo :Files ~/workspace/devops<cr>
 nnoremap <silent> <leader>gml :Files ~/workspace/mavenlink<cr>
 nnoremap <silent> <leader>b :Buffers<cr>
+nnoremap <silent> <leader>dab :1,$bd<cr>
+nnoremap <silent> <leader>dob :BufOnly<cr>
+nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>ws :FixWhitespace<cr>
 nnoremap <silent> <leader>db :!terminal docker-compose build && docker-compose down && docker-compose up<cr>
 
