@@ -5,6 +5,7 @@ mkdir -p ~/.config
 ln -sf ~/.vim ~/.config/nvim
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
 ln -sf ~/dotfiles/vim/vimrc ~/.config/nvim/init.vim
