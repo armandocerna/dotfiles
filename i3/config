@@ -89,6 +89,8 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 # split in horizontal orientation
 bindsym $mod+- split h
 
@@ -146,6 +148,18 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+# Shutdown menu
+mode "(P)ower off / (R)eboot / (L)og out / (S)uspend?"
+{
+    bindsym p exec systemctl poweroff
+    bindsym r exec systemctl reboot
+    bindsym l exec i3-msg exit
+    bindsym s exec systemctl suspend
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+p mode "(P)ower off / (R)eboot / (L)og out / (S)uspend?"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -192,6 +206,7 @@ for_window [class="xfce4-terminal"] border none
 for_window [class="Xfce4-terminal"] border none
 
 # Exec
+exec --no-startup-id xrdb -merge ~/.Xresources
 exec --no-startup-id keyboard_shit.sh
 exec --no-startup-id compton -b --backend glx --vsync opengl-swc
 exec --no-startup-id feh --randomize --bg-fill ~/Pictures/wallpaper/*
