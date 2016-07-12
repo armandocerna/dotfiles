@@ -35,7 +35,7 @@ filetype plugin on
 syntax on
 set background=dark
 " set t_Co=256
-colo CandyPaper
+colo molokai
 " Disable mouse click position change
 set mouse-=a
 " Clear background color from loaded theme
@@ -66,7 +66,7 @@ set undodir=~/.tmp/undo/
 
 " Enable Airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='base16_google'
+let g:airline_theme='molokai'
 let g:airline_powerline_fonts = 1
 
 " Quickscope
