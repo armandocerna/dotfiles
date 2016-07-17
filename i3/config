@@ -52,7 +52,8 @@ gaps outer $default_gaps_outer
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -65,7 +66,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+space exec --no-startup-id rofi -show run
 bindsym $mod+Shift+space exec --no-startup-id rofi -show window
-bindsym $mod+c exec firefox
+bindsym $mod+c exec google-chrome-stable
 
 # change focus
 bindsym $mod+h focus left
@@ -84,6 +85,12 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
+# move workspace to monitor
+bindsym $mod+Shift+Ctrl+h move workspace to output left
+bindsym $mod+Shift+Ctrl+j move workspace to output down
+bindsym $mod+Shift+Ctrl+k move workspace to output up
+bindsym $mod+Shift+Ctrl+l move workspace to output right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -108,7 +115,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+# bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 # bindsym $mod+space focus mode_toggle
@@ -211,4 +218,6 @@ for_window [class="Xfce4-terminal"] border none
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec --no-startup-id keyboard_shit.sh
 exec --no-startup-id compton -b --backend glx --vsync opengl-swc
-exec --no-startup-id feh --randomize --bg-fill ~/Pictures/wallpaper/*
+exec --no-startup-id feh --randomize --bg-fill ~/.wallpaper/*
+exec --no-startup-id nm-applet
+exec --no-startup-id volumeicon
