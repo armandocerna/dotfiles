@@ -64,6 +64,12 @@ set backupdir=~/.tmp/backup/
 set undofile
 set undodir=~/.tmp/undo/
 
+if has('nvim')
+    nmap <silent><BS> :<C-u>TmuxNavigateLeft<CR>
+else
+    nmap <C-h> <C-w>h
+endif
+
 " Enable Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='molokai'
