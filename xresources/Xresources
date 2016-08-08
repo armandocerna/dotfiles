@@ -1,7 +1,7 @@
 Xcursor.size: 12
 URxvt.termName: screen-256color
 URxvt.imLocale: en_US.UTF-8
-URxvt.font: xft:Anonymous Pro for Powerline:pixelsize=14
+URxvt.font: xft:Ubuntu Mono derivative Powerline:pixelsize=12
 URxvt.letterSpace: -1
 URxvt.meta8: true
 URxvt.depth: 32
@@ -18,4 +18,4 @@ URxvt.keysym.C-C: perl:clipboard:copy
 URxvt.keysym.C-V: perl:clipboard:paste
 URxvt.keysym.C-A-V: perl:clipboard:paste_escaped
 
-#include ".Xresources.d/base16/base16-londontube.dark.256.xresources"
+#include ".Xresources.d/base16/base16-londontube.dark.xresources"
