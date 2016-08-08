@@ -30,8 +30,11 @@ Plug 'BufOnly.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'fatih/vim-go'
 Plug 'zchee/deoplete-go'
-Plug 'Shougo/deoplete.nvim'
 Plug 'neomake/neomake'
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 call plug#end()
 
@@ -61,7 +64,7 @@ set lazyredraw
 let g:deoplete#enable_at_startup = 1
 
 " neomake
-autocmd! BufWritePost * Neomake!
+" autocmd! BufWritePost * Neomake!
 let g:neomake_open_list = 2
 
 " nvimux
@@ -73,6 +76,11 @@ set backup
 set backupdir=~/.tmp/backup/
 set undofile
 set undodir=~/.tmp/undo/
+
+" Remember last position
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 if has('nvim')
     nmap <silent><BS> :<C-u>TmuxNavigateLeft<CR>
@@ -135,6 +143,7 @@ nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gr :GoRun<cr>
 nnoremap <silent> <leader>gb :GoBuild<cr>
 nnoremap <silent> <leader>ws :FixWhitespace<cr>
+nnoremap <silent> <leader>vim :e ~/.vimrc<cr>
 nnoremap <silent> <leader>db :!terminal docker-compose build && docker-compose down && docker-compose up<cr>
 
 " Toggle between normal and relative numbering.
