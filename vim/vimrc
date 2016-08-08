@@ -29,12 +29,12 @@ Plug 'chriskempson/base16-vim'
 Plug 'BufOnly.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'fatih/vim-go'
-Plug 'zchee/deoplete-go'
 Plug 'neomake/neomake'
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'zchee/deoplete-go'
 
 call plug#end()
 
