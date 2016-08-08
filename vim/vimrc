@@ -38,7 +38,7 @@ call plug#end()
 filetype plugin on
 syntax on
 set background=dark
-" set t_Co=256
+set t_Co=256
 colo CandyPaper
 " Disable mouse click position change
 set mouse-=a
@@ -61,7 +61,7 @@ set lazyredraw
 let g:deoplete#enable_at_startup = 1
 
 " neomake
-autocmd! BufWritePost,BufEnter * Neomake
+autocmd! BufWritePost * Neomake!
 let g:neomake_open_list = 2
 
 " nvimux
@@ -132,6 +132,8 @@ nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>dab :1,$bd<cr>
 nnoremap <silent> <leader>dob :BufOnly<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
+nnoremap <silent> <leader>gr :GoRun<cr>
+nnoremap <silent> <leader>gb :GoBuild<cr>
 nnoremap <silent> <leader>ws :FixWhitespace<cr>
 nnoremap <silent> <leader>db :!terminal docker-compose build && docker-compose down && docker-compose up<cr>
 
