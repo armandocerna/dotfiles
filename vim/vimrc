@@ -28,6 +28,10 @@ Plug 'kassio/neoterm'
 Plug 'chriskempson/base16-vim'
 Plug 'BufOnly.vim'
 Plug 'justinmk/vim-sneak'
+Plug 'fatih/vim-go'
+Plug 'zchee/deoplete-go'
+Plug 'Shougo/deoplete.nvim'
+Plug 'neomake/neomake'
 
 call plug#end()
 
@@ -35,7 +39,7 @@ filetype plugin on
 syntax on
 set background=dark
 " set t_Co=256
-colo molokai
+colo CandyPaper
 " Disable mouse click position change
 set mouse-=a
 " Clear background color from loaded theme
@@ -53,8 +57,14 @@ let mapleader = "\<Space>"
 set ttyfast
 set lazyredraw
 
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
+" neomake
+autocmd! BufWritePost,BufEnter * Neomake
+let g:neomake_open_list = 2
+
 " nvimux
-"
 let g:nvimux_prefix='<C-a>'
 
 " Vim temp files outside of working directories
@@ -72,7 +82,7 @@ endif
 
 " Enable Airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='molokai'
+let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
 
 " Quickscope
