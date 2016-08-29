@@ -18,7 +18,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'wellle/targets.vim'
 Plug 'derekwyatt/vim-scala'
-Plug 'bronson/vim-trailing-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tomasr/molokai'
@@ -142,7 +142,7 @@ nnoremap <silent> <leader>dob :BufOnly<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gr :GoRun<cr>
 nnoremap <silent> <leader>gb :GoBuild<cr>
-nnoremap <silent> <leader>ws :FixWhitespace<cr>
+nnoremap <silent> <leader>ws :StripWhitespace<cr>
 nnoremap <silent> <leader>vim :e ~/.vimrc<cr>
 nnoremap <silent> <leader>db :!terminal docker-compose build && docker-compose down && docker-compose up<cr>
 
