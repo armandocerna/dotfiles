@@ -37,10 +37,10 @@ signal=10
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
-[memory]
-label=MEM
-separator=false
-interval=30
+# [memory]
+# label=MEM
+# separator=false
+# interval=30
 
 # Disk usage
 #
@@ -52,9 +52,9 @@ interval=30
 instance=/
 interval=30
 
-[bandwidth]
-command=~/.config/i3blocks-contrib/bandwidth/bandwidth
-interval=persist
+# [bandwidth]
+# command=~/.config/i3blocks-contrib/bandwidth/bandwidth
+# interval=persist
 
 ## CPU usage
 ##
@@ -78,7 +78,7 @@ interval=10
 # Date Time
 #
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
+command=date '+%Y-%m-%d %I:%M:%S'
 interval=5
 
 [batterybar]
