@@ -25,10 +25,10 @@ new_window pixel 4
 new_float pixel 4
 
 ### Gaps ###
-set $default_gaps_inner 12
-set $default_gaps_outer 0
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
+# set $default_gaps_inner 12
+# set $default_gaps_outer 0
+# gaps inner $default_gaps_inner
+# gaps outer $default_gaps_outer
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -58,8 +58,8 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+space exec --no-startup-id rofi -show run
-bindsym $mod+Shift+space exec --no-startup-id rofi -show window
+# bindsym $mod+space exec --no-startup-id rofi -show run
+# bindsym $mod+Shift+space exec --no-startup-id rofi -show window
 bindsym $mod+c exec chromium
 
 # change focus
@@ -116,10 +116,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-# bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-# bindsym $mod+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -212,17 +212,18 @@ bar {
 }
 # exec --no-startup-id i3bar --bar_id bar-0
 
-for_window [class="google-chrome"] border none
-for_window [class="chromium"] border none
-for_window [class="Firefox"] border none
-for_window [class="Kodi"] border none
-for_window [class="Gnome-terminal"] border none
-for_window [class="Caprine"] border none
-for_window [class="Termite"] border none
+# for_window [class="google-chrome"] border none
+# for_window [class="chromium"] border none
+# for_window [class="Firefox"] border none
+# for_window [class="Kodi"] border none
+# for_window [class="Gnome-terminal"] border none
+# for_window [class="Caprine"] border none
+# for_window [class="Termite"] border none
+for_window [class="mpv"] floating enable
 
 # Exec
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec --no-startup-id keyboard_shit.sh
-exec --no-startup-id display_shit.sh
+exec --no-startup-id dock.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
