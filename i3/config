@@ -219,6 +219,7 @@ bar {
 # for_window [class="Gnome-terminal"] border none
 # for_window [class="Caprine"] border none
 # for_window [class="Termite"] border none
+for_window [class="plexmediaplayer"] floating enable
 for_window [class="mpv"] floating enable
 
 # Exec
