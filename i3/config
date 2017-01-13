@@ -241,5 +241,6 @@ exec --no-startup-id dock.rb
 # exec --no-startup-id /usr/bin/compton --xrender-sync-fence --xrender-sync --backend xr_glx_hybrid --vsync opengl-swc -b
 exec --no-startup-id /usr/bin/compton -b
 # exec --no-startup-id /usr/bin/compton --backend=glx --glx-swap-method=buffer-age
+exec --no-startup-id /usr/local/bin/keyboard_shit.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id volumeicon
