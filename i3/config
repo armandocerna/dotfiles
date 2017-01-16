@@ -49,7 +49,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec mate-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -202,9 +202,9 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Pulse Audio controls
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% #increase sound volume
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% #decrease sound volume
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
@@ -241,6 +241,7 @@ exec --no-startup-id dock.rb
 # exec --no-startup-id /usr/bin/compton --xrender-sync-fence --xrender-sync --backend xr_glx_hybrid --vsync opengl-swc -b
 exec --no-startup-id /usr/bin/compton -b
 # exec --no-startup-id /usr/bin/compton --backend=glx --glx-swap-method=buffer-age
-exec --no-startup-id /usr/local/bin/keyboard_shit.sh
+exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
+exec --no-startup-id xset r rate 200
 exec --no-startup-id nm-applet
-exec --no-startup-id volumeicon
+# exec --no-startup-id volumeicon
