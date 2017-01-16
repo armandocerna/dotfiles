@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 docked = system("lsusb | grep Lenovo")
-system("xrandr --output eDP1 --scale .7x.7")
+# system("xrandr --output eDP1 --scale .7x.7")
 
 if docked
   # Above
@@ -12,4 +12,4 @@ else
   system("xrandr --output VIRTUAL1 --off --output eDP1 --mode 2560x1440 --pos 0x0 --rotate normal --output DP1 --off --output DP2-1 --off --output DP2-2 --off --output DP2-3 --off --output HDMI2 --off --output HDMI1 --off --output DP2 --off")
 end
 
-system("wall.sh")
+system("feh --randomize --bg-fill ~/.wallpaper/*")
