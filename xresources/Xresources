@@ -1,22 +1,4 @@
-Xcursor.size: 12
-URxvt.termName: screen-256color
-URxvt.imLocale: en_US.UTF-8
-URxvt.font: xft:Ubuntu Mono derivative Powerline:pixelsize=12
-URxvt.letterSpace: -1
-URxvt.meta8: true
-URxvt.depth: 32
-URxvt.intensityStyles: false
-URxvt.internalBorder: 0
-URxvt.scrollBar: false
-URxvt.borderless: true
-
-URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select
-URxvt.url-select.launcher: google-chrome-stable
-URxvt.url-select.underline: true
-
-URxvt.keysym.C-C: perl:clipboard:copy
-URxvt.keysym.C-V: perl:clipboard:paste
-URxvt.keysym.C-A-V: perl:clipboard:paste_escaped
+Xcursor.size: 16
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
