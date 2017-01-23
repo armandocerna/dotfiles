@@ -10,19 +10,26 @@ font pango:DejaVu Sans Mono, Awesome 8
 
 ### THEME ###
 
-set $FOCUS #989898
-set $UNFOCUS #3c3b37
+client.focused		 	#607d8b #607d8b #DFDFDF  #dddddd   #607d8b
+client.focused_inactive 	#263238 #263238 #9a9b9c  #111111   #263238
+client.unfocused 		#455a64 #455a64 #a1a1a1  #bfbfbf   #455a64
+client.urgent   		#4a4b4c #4a4b4c #fdfdfd  #fbfbfb   #4a4c4b
+client.placeholder     		#000000 #0c0c0c #ffffff  #000000   #0c0c0c
 
-# Layout colors 	    bord 	bg 		text    indicator (split)
-client.focused 			$FOCUS $FOCUS $FOCUS $FOCUS
-client.focused_inactive $UNFOCUS $UNFOCUS $UNFOCUS $UNFOCUS
-client.unfocused 		$UNFOCUS $UNFOCUS $UNFOCUS $UNFOCUS
-client.urgent 			$FOCUS $FOCUS $FOCUS $FOCUS
-client.background 		$UNFOCUS
+client.background       	#111111
+# set $FOCUS #989898
+# set $UNFOCUS #3c3b37
+
+# # Layout colors 	    bord 	bg 		text    indicator (split)
+# client.focused 			$FOCUS $FOCUS $FOCUS $FOCUS
+# client.focused_inactive $UNFOCUS $UNFOCUS $UNFOCUS $UNFOCUS
+# client.unfocused 		$UNFOCUS $UNFOCUS $UNFOCUS $UNFOCUS
+# client.urgent 			$FOCUS $FOCUS $FOCUS $FOCUS
+# client.background 		$UNFOCUS
 
 ### Borders ###
-new_window pixel 2
-new_float pixel 2
+new_window pixel 1
+new_float pixel 1
 
 workspace 1 output eDP1
 workspace 5 output DP2-2
@@ -61,10 +68,10 @@ bindsym $mod+Shift+q kill
 # installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+space exec --no-startup-id rofi -show run
-bindsym Mod1+space exec --no-startup-id BROWSER=google-chrome-stable rofi-surfraw
+bindsym Mod1+space exec --no-startup-id BROWSER=firefox rofi-surfraw
 
 # bindsym $mod+Shift+space exec --no-startup-id rofi -show window
-bindsym $mod+c exec google-chrome-stable
+bindsym $mod+c exec firefox
 bindsym $mod+Shift+Ctrl+s exec --no-startup-id gnome-screenshot -a
 # change focus
 bindsym $mod+h focus left
@@ -96,8 +103,9 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
+# bindsym $mod+Tab workspace next
+# bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Tab workspace back_and_forth
 # split in horizontal orientation
 bindsym $mod+z split h
 
@@ -218,10 +226,22 @@ bindsym $mod+minus scratchpad show
 
 # Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 bar {
+        output DP2-2
         mode hide
         hidden_state hide
         modifier $mod
         status_command i3blocks
+        font pango:DejaVu Sans Mono 10
+}
+
+bar {
+        output eDP1
+        tray_output eDP1
+        mode hide
+        hidden_state hide
+        modifier $mod
+        status_command i3blocks
+        font pango:DejaVu Sans Mono 14
 }
 # exec --no-startup-id i3bar --bar_id bar-0
 
