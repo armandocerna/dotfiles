@@ -215,8 +215,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -257,9 +257,6 @@ bar {
 # Exec
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec --no-startup-id dock.rb
-# exec --no-startup-id /usr/bin/compton --xrender-sync-fence --xrender-sync --backend xr_glx_hybrid --vsync opengl-swc -b
-exec --no-startup-id /usr/bin/compton -b
-# exec --no-startup-id /usr/bin/compton --backend=glx --glx-swap-method=buffer-age
 exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
 exec --no-startup-id xset r rate 200
 exec --no-startup-id nm-applet
