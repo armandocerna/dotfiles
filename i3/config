@@ -236,6 +236,7 @@ bar {
 
 bar {
         output eDP-1
+        tray_output eDP-1
         mode hide
         hidden_state hide
         modifier $mod
