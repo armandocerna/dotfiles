@@ -1,4 +1,6 @@
 #!/usr/bin/env ruby
+require 'yaml'
+require 'fileutils'
 
 dothome = "#{ENV["HOME"]}/dotfiles"
 home = ENV["HOME"]
@@ -10,7 +12,7 @@ $dots = {
   },
   :tmux => {
     "#{dothome}/tmux/tmux.conf" => "#{home}/.tmux.conf",
-    "#{dothome}/vim/tmux-theme.conf" => "#{home}/.tmux-theme.conf"
+    "#{dothome}/tmux/tmux-theme.conf" => "#{home}/.tmux-theme.conf"
   },
   :xresources => {
     "#{dothome}/xresources/Xresources" => "#{home}/.Xresources"
@@ -20,6 +22,9 @@ $dots = {
   },
   :scripts => {
     "#{dothome}/scripts/dock.rb" => "/usr/local/bin/dock.rb"
+  },
+  :test => {
+    "#{dothome}/" => "/tmp/foobar"
   },
   :zsh => {
     "#{dothome}/prezto/zlogin" => "#{home}/.zlogin",
@@ -43,13 +48,16 @@ module OS
 end
 
 def link(name)
-  puts $dots[name].inspect
+  $dots[name].each do |source,dest|
+    FileUtils.ln_sf(source,dest)
+  end
 end
 
 if OS.linux?
   puts "Linux!"
   # puts $dots[:vim].inspect
-  link(:vim)
+  link(:test)
+  # puts YAML.dump($dots)
 elsif OS.mac?
   puts "Apple =("
 else
