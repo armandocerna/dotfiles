@@ -103,9 +103,9 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# bindsym $mod+Tab workspace next
-# bindsym $mod+Shift+Tab workspace prev
-bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+grave workspace back_and_forth
 # split in horizontal orientation
 bindsym $mod+z split h
 
@@ -252,7 +252,7 @@ bar {
 # for_window [class="Caprine"] border none
 # for_window [class="Termite"] border none
 # for_window [class="plexmediaplayer"] floating enable
-# for_window [class="mpv"] floating enable
+for_window [class="mpv"] floating enable
 
 # Exec
 exec --no-startup-id xrdb -merge ~/.Xresources
