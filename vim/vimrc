@@ -23,7 +23,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'tomasr/molokai'
 Plug 'whatyouhide/vim-gotham'
-" Plug 'edkolev/tmuxline.vim'
+Plug 'edkolev/tmuxline.vim'
 Plug 'kassio/neoterm'
 Plug 'chriskempson/base16-vim'
 Plug 'BufOnly.vim'
@@ -90,7 +90,7 @@ endif
 
 " Enable Airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='murmur'
+let g:airline_theme='hybridline'
 let g:airline_powerline_fonts = 1
 
 " Quickscope
