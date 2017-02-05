@@ -14,4 +14,5 @@ end
 
 system("feh --randomize --bg-fill ~/.wallpaper/*")
 system("pkill -f compton")
+# system("compton -b")
 system("compton -b --backend=glx")
