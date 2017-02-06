@@ -33,6 +33,7 @@ new_float pixel 1
 
 workspace 1 output eDP-1
 workspace 5 output DP-2-2
+workspace 10 output DP-2-2
 ### Gaps ###
 # set $default_gaps_inner 12
 # set $default_gaps_outer 0
@@ -252,7 +253,8 @@ bar {
 # for_window [class="Gnome-terminal"] border none
 # for_window [class="Caprine"] border none
 # for_window [class="Termite"] border none
-# for_window [class="plexmediaplayer"] floating enable
+for_window [class="plexmediaplayer"] move container to workspace 10
+for_window [class="plexmediaplayer"] border none
 for_window [class="mpv"] floating enable
 
 # Exec
