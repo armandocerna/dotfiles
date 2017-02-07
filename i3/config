@@ -35,10 +35,10 @@ workspace 1 output eDP-1
 workspace 5 output DP-2-2
 workspace 10 output DP-2-2
 ### Gaps ###
-# set $default_gaps_inner 12
-# set $default_gaps_outer 0
-# gaps inner $default_gaps_inner
-# gaps outer $default_gaps_outer
+set $default_gaps_inner 12
+set $default_gaps_outer 0
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -246,13 +246,13 @@ bar {
 }
 # exec --no-startup-id i3bar --bar_id bar-0
 
-# for_window [class="google-chrome"] border none
-# for_window [class="chromium"] border none
-# for_window [class="Firefox"] border none
-# for_window [class="Kodi"] border none
-# for_window [class="Gnome-terminal"] border none
-# for_window [class="Caprine"] border none
-# for_window [class="Termite"] border none
+for_window [class="google-chrome"] border none
+for_window [class="chromium"] border none
+for_window [class="Firefox"] border none
+for_window [class="Kodi"] border none
+for_window [class="Gnome-terminal"] border none
+for_window [class="Caprine"] border none
+for_window [class="Termite"] border none
 for_window [class="plexmediaplayer"] move container to workspace 10
 for_window [class="plexmediaplayer"] border none
 for_window [class="mpv"] floating enable
