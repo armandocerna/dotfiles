@@ -27,7 +27,6 @@ source ~/.aliases.sh
 
 source /home/armando/.rvm/scripts/rvm
 source <(kubectl completion zsh)
-export BROWSER="google-chrome-stable"
 export GOPATH=~/workspace/go
 export PATH=$PATH:$GOPATH/bin
 

@@ -69,10 +69,10 @@ bindsym $mod+Shift+q kill
 # installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+space exec --no-startup-id rofi -show run
-bindsym Mod1+space exec --no-startup-id BROWSER=firefox rofi-surfraw
+bindsym Mod1+space exec --no-startup-id BROWSER=chromium rofi-surfraw
 
 # bindsym $mod+Shift+space exec --no-startup-id rofi -show window
-bindsym $mod+c exec firefox
+bindsym $mod+c exec chromium
 bindsym $mod+Shift+Ctrl+s exec --no-startup-id gnome-screenshot -a
 # change focus
 bindsym $mod+h focus left
@@ -248,8 +248,8 @@ bar {
 }
 # exec --no-startup-id i3bar --bar_id bar-0
 
-for_window [class="google-chrome"] border none
-for_window [class="chromium"] border none
+for_window [class="Google-chrome"] border none
+for_window [class="Chromium"] border none
 for_window [class="Firefox"] border none
 for_window [class="Kodi"] border none
 for_window [class="Gnome-terminal"] border none
@@ -262,7 +262,8 @@ for_window [class="mpv"] floating enable
 # Exec
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec --no-startup-id dock.rb
-exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Device Enabled" 0
+exec --no-startup-id xinput --disable "SynPS/2 Synaptics TouchPad"
 exec --no-startup-id xset r rate 200
+exec --no-startup-id echo 25 | sudo tee /sys/devices/platform/i8042/serio1/serio2/drift_time
 exec --no-startup-id nm-applet
 # exec --no-startup-id volumeicon
