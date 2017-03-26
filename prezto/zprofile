@@ -75,3 +75,9 @@ fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
 
+# Sway
+export XKB_DEFAULT_OPTIONS=ctrl:nocaps
+
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+  exec sway
+fi

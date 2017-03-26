@@ -224,6 +224,8 @@ bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
+bindsym Mod1+Shift+4 exec gnome-screenshot -a
+
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
@@ -253,17 +255,24 @@ for_window [class="Chromium"] border none
 for_window [class="Firefox"] border none
 for_window [class="Kodi"] border none
 for_window [class="Gnome-terminal"] border none
+for_window [class="Caprine"] move container to workspace 3
 for_window [class="Caprine"] border none
 for_window [class="Termite"] border none
 for_window [class="plexmediaplayer"] move container to workspace 10
+for_window [class="Slack"] move container to workspace 3
 for_window [class="plexmediaplayer"] border none
 for_window [class="mpv"] floating enable
+for_window [title="^floatme$"] floating enable
+for_window [title="^scratchpad$"] move window to scratchpad
 
 # Exec
 exec --no-startup-id xrdb -merge ~/.Xresources
-exec --no-startup-id dock.rb
+# exec --no-startup-id dock.rb
 exec --no-startup-id xinput --disable "SynPS/2 Synaptics TouchPad"
+# exec --no-startup-id xinput set-prop 'TPPS/2 IBM TrackPoint' 300 0
 exec --no-startup-id xset r rate 200
 exec --no-startup-id echo 25 | sudo tee /sys/devices/platform/i8042/serio1/serio2/drift_time
-exec --no-startup-id nm-applet
-# exec --no-startup-id volumeicon
+exec --no-startup-id redshift
+
+exec_always --no-startup-id dock.rb
+exec_always --no-startup-id nm-applet
