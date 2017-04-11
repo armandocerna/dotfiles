@@ -228,6 +228,7 @@ bindsym Mod1+Shift+4 exec gnome-screenshot -a
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
+bindsym Mod1+minus scratchpad show
 
 # Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 bar {
@@ -241,7 +242,7 @@ bar {
 
 bar {
         output eDP-1
-        tray_output eDP-1
+        tray_output primary
         mode hide
         hidden_state hide
         modifier $mod
