@@ -29,6 +29,7 @@ source /home/armando/.rvm/scripts/rvm
 source <(kubectl completion zsh)
 export GOPATH=~/workspace/go
 export PATH=$PATH:$GOPATH/bin
+export KUBECONFIG=$HOME/admin.conf
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 source <(kubectl completion zsh)
