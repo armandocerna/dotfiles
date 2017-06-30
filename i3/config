@@ -75,7 +75,7 @@ bindsym Mod1+space exec --no-startup-id BROWSER=chromium rofi-surfraw
 bindsym $mod+c exec chromium
 bindsym $mod+m exec xclip -o | xargs mpv
 
-bindsym $mod+Shift+Ctrl+s exec --no-startup-id gnome-screenshot -a
+bindsym $mod+Shift+Ctrl+s exec --no-startup-id xfce4-screenshooter -r
 bindsym $mod+Delete exec --no-startup-id i3lock-fancy
 
 # change focus
@@ -228,7 +228,7 @@ bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
-bindsym Mod1+Shift+4 exec gnome-screenshot -a
+bindsym Mod1+Shift+4 exec xfce4-screenshooter -r
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
@@ -237,8 +237,8 @@ bindsym Mod1+minus scratchpad show
 # Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 bar {
         output DP-2-2
-        # mode hide
-        # hidden_state hide
+        mode hide
+        hidden_state hide
         modifier $mod
         status_command i3blocks
         font pango:DejaVu Sans Mono 10
@@ -247,8 +247,8 @@ bar {
 bar {
         output eDP-1
         tray_output primary
-        # mode hide
-        # hidden_state hide
+        mode hide
+        hidden_state hide
         modifier $mod
         status_command i3blocks
         font pango:DejaVu Sans Mono 14
@@ -282,4 +282,3 @@ exec --no-startup-id echo 25 | sudo tee /sys/devices/platform/i8042/serio1/serio
 exec --no-startup-id redshift
 
 exec_always --no-startup-id dock.rb
-exec_always --no-startup-id nm-applet

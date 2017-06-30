@@ -24,7 +24,7 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=/usr/lib/i3blocks/$BLOCK_NAME
+command=~/.config/i3-blocks/blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
@@ -40,6 +40,26 @@ markup=none
 # #instance=PCM
 # interval=once
 # signal=10
+
+[wanip]
+color=#FFFFFF
+interval=300
+separator=true
+
+[iface]
+instance=wlp4s0
+color=#FFFFFF
+interval=10
+separator=true
+
+[ssid]
+interval=60
+separator=false
+
+[wifi]
+instance=wlp4s0
+interval=10
+separator=true
 
 [load_average]
 interval=10
