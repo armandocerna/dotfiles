@@ -24,7 +24,7 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=~/.config/i3-blocks/blocks/$BLOCK_NAME
+command=/usr/share/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
@@ -41,58 +41,91 @@ markup=none
 # interval=once
 # signal=10
 
-[wanip]
-color=#FFFFFF
-interval=300
-separator=true
+# Memory usage
+#
+# The type defaults to "mem" if the instance is not specified.
+# [memory]
+# label=MEM
+# separator=false
+# interval=30
 
-[iface]
-instance=wlp4s0
-color=#FFFFFF
-interval=10
-separator=true
+# [memory]
+# label=SWAP
+# instance=swap
+# separator=false
+# interval=30
 
-[ssid]
-interval=60
-separator=false
+# Disk usage
+#
+# The directory defaults to $HOME if the instance is not specified.
+# The script may be called with a optional argument to set the alert
+# (defaults to 10 for 10%).
+# [disk]
+# label=HOME
+# #instance=/mnt/data
+# interval=30
 
-[wifi]
-instance=wlp4s0
-interval=10
-separator=true
+# Network interface monitoring
+#
+# If the instance is not specified, use the interface used for default route.
+# The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
+# [iface]
+# #instance=wlan0
+# color=#00FF00
+# interval=10
+# separator=false
+
+# [wifi]
+# instance=wlp4s0
+# interval=10
+# separator=false
+
+# [bandwidth]
+# #instance=eth0
+# interval=5
+
+# CPU usage
+#
+# The script may be called with -w and -c switches to specify thresholds,
+# see the script for details.
+# [cpu_usage]
+# label=CPU
+# interval=10
+# min_width=CPU: 100.00%
+#separator=false
 
 [load_average]
 interval=10
 
-# Generic media player support
-#
-# This displays "ARTIST - SONG" if a music is playing.
-# Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
-# [mediaplayer]
-# instance=spotify
-# interval=5
-# signal=10
 
 # Battery indicator
 #
 # The battery instance defaults to 0.
 [battery]
-# label=BAT
-label=⚡
-#instance=1
+# label=⚡
+# instance=1
 interval=30
 
 [battery]
-# label=BAT
-label=⚡
+# label=⚡
 instance=1
 interval=30
+
 
 # Date Time
 #
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
+command=date '+%Y-%m-%d %I:%M:%S'
 interval=5
+
+# Generic media player support
+#
+# This displays "ARTIST - SONG" if a music is playing.
+# Supported players are: spotify, vlc, audacious, xmms2, mplayer, and others.
+#[mediaplayer]
+#instance=spotify
+#interval=5
+#signal=10
 
 # OpenVPN support
 #
