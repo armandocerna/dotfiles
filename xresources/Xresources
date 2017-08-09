@@ -10,3 +10,40 @@ rofi.color-normal: #393939, #ffffff, #393939, #268bd2, #ffffff
 rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
 rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
 
+
+URxvt.scrollBar: false
+
+URxvt*background: #000000
+URxvt*foreground: #CCCCCC
+
+URxvt*color0: #000000
+URxvt*color1: #CC0000
+URxvt*color2: #4E9A06
+URxvt*color3: #C4A000
+URxvt*color4: #3465A4
+URxvt*color5: #75507B
+URxvt*color6: #06989A
+URxvt*color7: #D3D7CF
+URxvt*color8: #555753
+URxvt*color9: #EF2929
+URxvt*color10: #8AE234
+URxvt*color11: #FCE94F
+URxvt*color12: #729FCF
+URxvt*color13: #AD7FA8
+URxvt*color14: #34E2E2
+URxvt*color15: #EEEEEC
+
+URxvt*font: xft:InconsolataForPowerline Nerd Font:regular:size=12, \
+            xft:DejaVu Sans Mono:style=Book:antialias=false:size=12, \
+            xft:Monospace:size=12
+URxvt*boldFont: xft:InconsolataForPowerline Nerd Font:bold:size=12, \
+            xft:DejaVu Sans Mono:style=Book:antialias=false:size=12, \
+            xft:Monospace:bold:size=12
+
+URxvt*keysym.Home: \033[1~
+URxvt*keysym.End: \033[4~
+
+URxvt*xftAutoHint: true
+
+URxvt*transparent: true
+URxvt*shading: 15
