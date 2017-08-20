@@ -11,6 +11,7 @@ rofi.color-active: #393939, #268bd2, #393939, #268bd2, #205171
 rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
 
 
+URxvt.perl-ext-common: font-size
 URxvt.scrollBar: false
 
 URxvt*background: #000000
@@ -33,17 +34,26 @@ URxvt*color13: #AD7FA8
 URxvt*color14: #34E2E2
 URxvt*color15: #EEEEEC
 
-URxvt*font: xft:InconsolataForPowerline Nerd Font:regular:size=12, \
-            xft:DejaVu Sans Mono:style=Book:antialias=false:size=12, \
-            xft:Monospace:size=12
-URxvt*boldFont: xft:InconsolataForPowerline Nerd Font:bold:size=12, \
-            xft:DejaVu Sans Mono:style=Book:antialias=false:size=12, \
-            xft:Monospace:bold:size=12
+URxvt*font: xft:Inconsolata for Powerline:Medium:size=13, \
+            xft:DejaVu Sans Mono:style=Book:antialias=false:size=13, \
+            xft:Monospace:size=13
+URxvt*boldFont: xft:Inconsolata for Powerline:BoldForPowerline:size=13, \
+            xft:DejaVu Sans Mono:style=Book:antialias=false:size=13, \
+            xft:Monospace:bold:size=13
 
 URxvt*keysym.Home: \033[1~
 URxvt*keysym.End: \033[4~
 
 URxvt*xftAutoHint: true
-
 URxvt*transparent: true
 URxvt*shading: 15
+
+URxvt.iso14755: true
+URxvt.iso14755_52: false
+URxvt.keysym.C-plus:     font-size:increase
+URxvt.keysym.C-minus:   font-size:decrease
+/* URxvt.keysym.C-S-Up:   font-size:incglobal */
+/* URxvt.keysym.C-S-Down: font-size:decglobal */
+URxvt.keysym.C-equal:  font-size:reset
+/* URxvt.keysym.C-slash:  font-size:show */
+URxvt.letterSpace: -1
