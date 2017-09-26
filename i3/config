@@ -10,25 +10,15 @@ font pango:DejaVu Sans Mono, Awesome 8
 
 ### THEME ###
 
-client.focused		 	#607d8b #607d8b #DFDFDF  #dddddd   #607d8b
-client.focused_inactive 	#263238 #263238 #9a9b9c  #111111   #263238
-client.unfocused 		#455a64 #455a64 #a1a1a1  #bfbfbf   #455a64
-client.urgent   		#4a4b4c #4a4b4c #fdfdfd  #fbfbfb   #4a4c4b
-client.placeholder     		#000000 #0c0c0c #ffffff  #000000   #0c0c0c
-
-client.background       	#111111
-# set $FOCUS #989898
-# set $UNFOCUS #3c3b37
-
-# # Layout colors 	    bord 	bg 		text    indicator (split)
-# client.focused 			$FOCUS $FOCUS $FOCUS $FOCUS
-# client.focused_inactive $UNFOCUS $UNFOCUS $UNFOCUS $UNFOCUS
-# client.unfocused 		$UNFOCUS $UNFOCUS $UNFOCUS $UNFOCUS
-# client.urgent 			$FOCUS $FOCUS $FOCUS $FOCUS
-# client.background 		$UNFOCUS
+#color class		border  bg	text	indicator
+client.focused          #1A1A1A #8C8587 #1A1A1A #8C8587
+client.focused_inactive #1A1A1A #1A1A1A #1A1A1A #1A1A1A
+client.unfocused        #1A1A1A #1A1A1A #77438F #1A1A1A
+client.urgent           #3B89B5 #3B89B5 #a5a5a5 #1A1A1A
+client.background       #1A1A1A
 
 ### Borders ###
-new_window pixel 1
+new_window pixel 3
 new_float pixel 1
 
 workspace 1 output eDP-1
@@ -69,11 +59,16 @@ bindsym $mod+Shift+q kill
 # installed.
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+space exec --no-startup-id rofi -show run
-bindsym Mod1+space exec --no-startup-id BROWSER=chromium rofi-surfraw
+# bindsym $mod+space exec --no-startup-id rofi -combi-modi window,run -show combi
+bindsym Mod1+space exec --no-startup-id BROWSER=google-chrome-stable rofi-surfraw
 
 # bindsym $mod+Shift+space exec --no-startup-id rofi -show window
-bindsym $mod+c exec chromium
-bindsym $mod+Shift+Ctrl+s exec --no-startup-id gnome-screenshot -a
+bindsym $mod+c exec google-chrome-stable
+bindsym $mod+m exec xclip -o | xargs mpv
+
+bindsym $mod+Shift+Ctrl+s exec --no-startup-id xfce4-screenshooter -r
+bindsym $mod+Delete exec --no-startup-id i3lock-fancy
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -117,7 +112,7 @@ bindsym $mod+v split v
 bindsym $mod+Shift+Ctrl+d exec dock.rb
 
 # Change wallpaper
-bindsym $mod+Shift+Ctrl+w exec --no-startup-id wall.sh
+# bindsym $mod+Shift+Ctrl+c exec wal -i ~/.wallpaper -t
 # bindsym $mod+Shift+Ctrl+l exec --no-startup-id 'i3lock-fancy'
 
 # enter fullscreen mode for the focused container
@@ -224,7 +219,7 @@ bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
-bindsym Mod1+Shift+4 exec gnome-screenshot -a
+bindsym Mod1+Shift+4 exec xfce4-screenshooter -r
 
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
@@ -232,9 +227,9 @@ bindsym Mod1+minus scratchpad show
 
 # Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 bar {
-        output DP-1
-        mode hide
-        hidden_state hide
+        output DP-2-2
+        # mode hide
+        # hidden_state hide
         modifier $mod
         status_command i3blocks
         font pango:DejaVu Sans Mono 10
@@ -242,32 +237,40 @@ bar {
 
 bar {
         output eDP-1
-        tray_output primary
-        mode hide
-        hidden_state hide
+        tray_output eDP-1
+        # mode hide
+        # hidden_state hide
         modifier $mod
         status_command i3blocks
         font pango:DejaVu Sans Mono 14
 }
-# exec --no-startup-id i3bar --bar_id bar-0
 
-for_window [class="Google-chrome"] border none
-for_window [class="Chromium"] border none
-for_window [class="Firefox"] border none
-for_window [class="Kodi"] border none
-for_window [class="Gnome-terminal"] border none
+# for_window [class="Google-chrome"] border none
+# for_window [class="Chromium"] border none
+# for_window [class="Firefox"] border none
+# for_window [class="Kodi"] border none
+# for_window [class="plexmediaplayer"] border none
+# for_window [class="Gnome-terminal"] border none
+# for_window [class="Caprine"] border none
+# for_window [class="Termite"] border none
+# for_window [class="mpv"] border none
 for_window [class="Caprine"] move container to workspace 3
-for_window [class="Caprine"] border none
-for_window [class="Termite"] border none
 for_window [class="plexmediaplayer"] move container to workspace 10
 for_window [class="Slack"] move container to workspace 3
-for_window [class="plexmediaplayer"] border none
 for_window [class="mpv"] floating enable
+for_window [class="mpv"] fullscreen enable
 for_window [title="^floatme$"] floating enable
 for_window [title="^scratchpad$"] move window to scratchpad
 
-# Exec
 exec --no-startup-id xrdb -merge ~/.Xresources
+# exec --no-startup-id pgrep urxvtd || urxvtd -f
+exec --no-startup-id xinput --disable "SynPS/2 Synaptics TouchPad"
+# exec --no-startup-id xinput set-prop 'TPPS/2 IBM TrackPoint' 300 0
 exec --no-startup-id xset r rate 200
-exec --no-startup-id redshift
+exec --no-startup-id echo 25 | sudo tee /sys/devices/platform/i8042/serio1/serio2/drift_time
+# exec --no-startup-id sudo chmod o+w /sys/class/backlight/intel_backlight/brightness
 
+exec --no-startup-id redshift
+exec --no-startup-id nm-applet
+
+exec_always --no-startup-id dock.rb

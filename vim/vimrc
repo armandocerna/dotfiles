@@ -26,10 +26,11 @@ Plug 'whatyouhide/vim-gotham'
 Plug 'edkolev/tmuxline.vim'
 Plug 'kassio/neoterm'
 Plug 'chriskempson/base16-vim'
-Plug 'BufOnly.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'fatih/vim-go'
 Plug 'neomake/neomake'
+Plug 'dylanaraps/wal.vim'
+
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
@@ -42,7 +43,7 @@ filetype plugin on
 syntax on
 set background=dark
 set t_Co=256
-colo CandyPaper
+colo wal
 " Disable mouse click position change
 set mouse-=a
 " Clear background color from loaded theme
@@ -138,7 +139,6 @@ nnoremap <silent> <leader>gdo :Files ~/workspace/devops<cr>
 nnoremap <silent> <leader>gml :Files ~/workspace/mavenlink<cr>
 nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>dab :1,$bd<cr>
-nnoremap <silent> <leader>dob :BufOnly<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gr :GoRun<cr>
 nnoremap <silent> <leader>gb :GoBuild<cr>
