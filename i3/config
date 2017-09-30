@@ -18,11 +18,11 @@ client.urgent           #3B89B5 #3B89B5 #a5a5a5 #1A1A1A
 client.background       #1A1A1A
 
 ### Borders ###
-new_window pixel 3
+new_window pixel 2
 new_float pixel 1
 
 workspace 1 output eDP-1
-workspace 5 output DP-2-2
+workspace 5 output DP-2-1
 workspace 10 output DP-2-2
 ### Gaps ###
 set $default_gaps_inner 12
@@ -227,9 +227,18 @@ bindsym Mod1+minus scratchpad show
 
 # Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 bar {
+        output DP-2-1
+        mode hide
+        hidden_state hide
+        modifier $mod
+        status_command i3blocks
+        font pango:DejaVu Sans Mono 10
+}
+
+bar {
         output DP-2-2
-        # mode hide
-        # hidden_state hide
+        mode hide
+        hidden_state hide
         modifier $mod
         status_command i3blocks
         font pango:DejaVu Sans Mono 10
@@ -238,8 +247,8 @@ bar {
 bar {
         output eDP-1
         tray_output eDP-1
-        # mode hide
-        # hidden_state hide
+        mode hide
+        hidden_state hide
         modifier $mod
         status_command i3blocks
         font pango:DejaVu Sans Mono 14
