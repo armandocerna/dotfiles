@@ -29,6 +29,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'justinmk/vim-sneak'
 Plug 'fatih/vim-go'
 Plug 'neomake/neomake'
+Plug 'dylanaraps/wal.vim'
+
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
@@ -41,7 +43,7 @@ filetype plugin on
 syntax on
 set background=dark
 set t_Co=256
-colo CandyPaper
+colo wal
 " Disable mouse click position change
 set mouse-=a
 " Clear background color from loaded theme
