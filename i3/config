@@ -31,14 +31,14 @@ client.background       	#111111
 new_window pixel 1
 new_float pixel 1
 
-workspace 1 output eDP-1
+workspace 1 output LVDS-1
 workspace 5 output DP-2-2
 workspace 10 output DP-2-2
-### Gaps ###
-set $default_gaps_inner 12
-set $default_gaps_outer 0
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
+# ### Gaps ###
+# set $default_gaps_inner 12
+# set $default_gaps_outer 0
+# gaps inner $default_gaps_inner
+# gaps outer $default_gaps_outer
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -235,23 +235,23 @@ bindsym $mod+minus scratchpad show
 bindsym Mod1+minus scratchpad show
 
 # Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
-bar {
-        output DP-2-2
-        # mode hide
-        # hidden_state hide
-        modifier $mod
-        status_command i3blocks
-        font pango:DejaVu Sans Mono 10
-}
+# bar {
+#         output DP-2-2
+#         # mode hide
+#         # hidden_state hide
+#         modifier $mod
+#         status_command i3blocks
+#         font pango:DejaVu Sans Mono 10
+# }
 
 bar {
-        output eDP-1
+        output LVDS-1
         tray_output primary
         # mode hide
         # hidden_state hide
         modifier $mod
         status_command i3blocks
-        font pango:DejaVu Sans Mono 14
+        font pango:DejaVu Sans Mono 9
 }
 # exec --no-startup-id i3bar --bar_id bar-0
 
@@ -284,3 +284,6 @@ exec --no-startup-id redshift
 exec --no-startup-id nm-applet
 
 exec_always --no-startup-id dock.rb
+exec_always --no-startup-id feh --randomize --bg-fill ~/.wallpaper/*
+exec_always --no-startup-id pkill -f compton
+exec_always --no-startup-id compton -b --backend=glx
