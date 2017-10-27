@@ -30,4 +30,4 @@ export GOPATH=~/workspace/go
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$GOPATH/bin
 
-(wal -r &)
+# (wal -r &)
