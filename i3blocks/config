@@ -44,10 +44,10 @@ markup=none
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
-# [memory]
-# label=MEM
-# separator=false
-# interval=30
+[memory]
+label=👻
+separator=true
+interval=30
 
 # [memory]
 # label=SWAP
@@ -61,8 +61,8 @@ markup=none
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 # [disk]
-# label=HOME
-# #instance=/mnt/data
+# label=/
+# instance=/
 # interval=30
 
 # Network interface monitoring
@@ -88,13 +88,14 @@ markup=none
 #
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-# [cpu_usage]
-# label=CPU
-# interval=10
+[cpu_usage]
+label=🛸
+interval=10
 # min_width=CPU: 100.00%
-#separator=false
+separator=true
 
 [load_average]
+label=🙈
 interval=10
 
 
@@ -102,12 +103,12 @@ interval=10
 #
 # The battery instance defaults to 0.
 [battery]
-# label=⚡
+label=⚡
 # instance=1
 interval=30
 
 [battery]
-# label=⚡
+label=⚡
 instance=1
 interval=30
 
@@ -115,7 +116,8 @@ interval=30
 # Date Time
 #
 [time]
-command=date '+%a %Y-%m-%d %I:%M:%S'
+# command=date '+%A, %B'
+command=date '+%a %b %e%l:%M:%S'
 interval=5
 
 # Generic media player support
