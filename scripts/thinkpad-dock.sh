@@ -35,16 +35,7 @@ function switch_to_local {
   export XAUTHORITY=/home/$username/.Xauthority
   logger -t DOCKING "Switching off all inputs but laptop"
   su $username -c '
-    /usr/bin/xrandr \
-      --output eDP1 --auto \
-      --output DP1 --off \
-      --output DP2 --off \
-      --output DP2-1 --off \
-      --output DP2-2 --off \
-      --output DP2-3 --off \
-      --output HDMI1 --off \
-      --output HDMI2 --off \
-      --output VIRTUAL1 --off \
+    xrandr --output DP-2-1 --off --output DP-2-2 --off --output DP-2-3 --off --output eDP-1 --primary --mode 1920x1080 --pos 328x1440 --rotate normal --output HDMI-2 --off --output HDMI-1 --off --output DP-2 --off --output DP-1 --off
     '
 }
 
@@ -56,16 +47,7 @@ function switch_to_external {
   logger -t DOCKING "Switching off LVDS1 and switching on HDMI2/3"
 
   su $username -c '
-    /usr/bin/xrandr \
-      --output eDP1 --auto --pos 0x1080 --primary \
-      --output DP1 --off \
-      --output DP2 --off \
-      --output DP2-1 --auto --pos 0x0 \
-      --output DP2-2 --off \
-      --output DP2-3 --off \
-      --output HDMI1 --off \
-      --output HDMI2 --off \
-      --output VIRTUAL1 --off \
+    xrandr --output DP-2-1 --mode 2560x1440 --pos 0x0 --rotate normal --output DP-2-2 --off --output DP-2-3 --off --output eDP-1 --primary --mode 1920x1080 --pos 328x1440 --rotate normal --output HDMI-2 --off --output HDMI-1 --off --output DP-2 --off --output DP-1 --off
     '
 }
 
