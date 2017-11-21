@@ -3,21 +3,42 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $qutebrowser qutebrowser --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4
+set $wallpaper feh --randomize --bg-fill ~/wallpaper/*
 
 # Set Default Font
 font pango:DejaVu Sans Mono, Awesome 8
 
 ### THEME ###
 
-#color class		border  bg	text	indicator
-client.focused          #1A1A1A #8C8587 #1A1A1A #8C8587
-client.focused_inactive #1A1A1A #1A1A1A #1A1A1A #1A1A1A
-client.unfocused        #1A1A1A #1A1A1A #77438F #1A1A1A
-client.urgent           #3B89B5 #3B89B5 #a5a5a5 #1A1A1A
-client.background       #1A1A1A
+# Tempus winter
+# Tempus themes: https://github.com/protesilaos/tempus-themes
+# By Protesilaos Stavrou https://protesilaos.com
+set $col0 #202427
+set $col1 #ca7162
+set $col2 #589584
+set $col3 #988b21
+set $col4 #2b92c8
+set $col5 #b572b6
+set $col6 #4f91b5
+set $col7 #888a8a
+set $col8 #1b2431
+set $col9 #c47818
+set $col10 #2c9a81
+set $col11 #a2864b
+set $col12 #6987d7
+set $col13 #987dc2
+set $col14 #1f96b0
+set $col15 #798ba5
+
+client.focused $col8 $col0 $col15 $col5 $col10
+client.unfocused $col0 $col8 $col7 $col7 $col0
+client.focused_inactive $col0 $col8 $col7 $col7 $col0
+client.urgent $col1 $col1 $col8 $col1 $col1
+client.background $col8
 
 ### Borders ###
-new_window pixel 2
+new_window pixel 4
 new_float pixel 1
 
 # Set workspace outputs per display
@@ -25,10 +46,10 @@ workspace 1 output eDP-1
 workspace 10 output DP-2-1
 
 ### Gaps ###
-# set $default_gaps_inner 12
-# set $default_gaps_outer 0
-# gaps inner $default_gaps_inner
-# gaps outer $default_gaps_outer
+set $default_gaps_inner 12
+set $default_gaps_outer 0
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
 
 
 # Floating modifier
@@ -39,7 +60,9 @@ bindsym $mod+Return exec termite
 
 bindsym $mod+Shift+q kill
 # Rofi
-bindsym $mod+space exec --no-startup-id rofi -show run
+bindsym $mod+space exec --no-startup-id "rofi -combi-modi window,drun,run -show combi -modi combi -display-combi ''"
+
+# bindsym $mod+space exec --no-startup-id rofi -show run
 bindsym Mod1+space exec --no-startup-id BROWSER=chromium rofi-surfraw
 
 # Web
@@ -80,7 +103,7 @@ bindsym $mod+z split h
 bindsym $mod+v split v
 
 # Attach/Detach Display
-bindsym $mod+Shift+Ctrl+d exec feh --randomize --bg-fill ~/wallpaper/*
+bindsym $mod+Shift+Ctrl+d exec --no-startup-id $wallpaper
 
 # Lock screen
 bindsym $mod+Shift+Ctrl+q exec i3lock-fancy
@@ -184,6 +207,7 @@ bindsym $mod+Mod1+l resize grow width 5 px or 5 ppt
 
 # bindsym $mod+r mode "resize"
 
+
 # Pulse Audio controls
 set $sink `pacmd list-sinks | grep -e 'name:' -e 'index' | grep -e '*' | awk '{print $3}'`
 
@@ -248,13 +272,15 @@ exec --no-startup-id xinput --disable "SynPS/2 Synaptics TouchPad"
 exec --no-startup-id xset r rate 200
 
 # Why did my trackpoint get so fast?
-exec_always --no-startup-id echo 50 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
-exec_always --no-startup-id echo 90 | sudo tee /sys/bus/serio/devices/serio2/sensitivity
+#exec_always --no-startup-id echo 50 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
+#exec_always --no-startup-id echo 90 | sudo tee /sys/bus/serio/devices/serio2/sensitivity
+exec_always --no-startup-id xset s off -dpms
 exec_always --no-startup-id xmodmap -e "keycode 107 = Super_L"
 
 exec --no-startup-id compton -b --backend glx --paint-on-overlay
 exec --no-startup-id (lsusb | grep Lenovo) && sudo ACTION=add /etc/sbin/thinkpad-dock.sh
 exec --no-startup-id redshift
+exec --no-startup-id $wallpaper
 exec --no-startup-id nm-applet
 
 # Graveyard
