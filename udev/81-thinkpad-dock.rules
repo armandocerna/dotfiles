@@ -1,0 +1,2 @@
+# ThinkPad Ultra Dock
+ACTION=="add|remove", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ENV{PRODUCT}=="17ef/1010/*", RUN+="/etc/sbin/thinkpad-dock.sh"

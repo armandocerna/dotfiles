@@ -14,32 +14,32 @@ rofi.color-urgent: #393939, #f3843d, #393939, #268bd2, #ffc39c
 URxvt.perl-ext-common: font-size
 URxvt.scrollBar: false
 
-URxvt*background: #000000
-URxvt*foreground: #CCCCCC
+!URxvt*background: #000000
+!URxvt*foreground: #CCCCCC
 
-URxvt*color0: #000000
-URxvt*color1: #CC0000
-URxvt*color2: #4E9A06
-URxvt*color3: #C4A000
-URxvt*color4: #3465A4
-URxvt*color5: #75507B
-URxvt*color6: #06989A
-URxvt*color7: #D3D7CF
-URxvt*color8: #555753
-URxvt*color9: #EF2929
-URxvt*color10: #8AE234
-URxvt*color11: #FCE94F
-URxvt*color12: #729FCF
-URxvt*color13: #AD7FA8
-URxvt*color14: #34E2E2
-URxvt*color15: #EEEEEC
+!URxvt*color0: #000000
+!URxvt*color1: #CC0000
+!URxvt*color2: #4E9A06
+!URxvt*color3: #C4A000
+!URxvt*color4: #3465A4
+!URxvt*color5: #75507B
+!URxvt*color6: #06989A
+!URxvt*color7: #D3D7CF
+!URxvt*color8: #555753
+!URxvt*color9: #EF2929
+!URxvt*color10: #8AE234
+!URxvt*color11: #FCE94F
+!URxvt*color12: #729FCF
+!URxvt*color13: #AD7FA8
+!URxvt*color14: #34E2E2
+!URxvt*color15: #EEEEEC
 
-URxvt*font: xft:Inconsolata for Powerline:Medium:size=13, \
-            xft:DejaVu Sans Mono:style=Book:antialias=false:size=13, \
-            xft:Monospace:size=13
-URxvt*boldFont: xft:Inconsolata for Powerline:BoldForPowerline:size=13, \
-            xft:DejaVu Sans Mono:style=Book:antialias=false:size=13, \
-            xft:Monospace:bold:size=13
+URxvt*font: xft:Inconsolata for Powerline:Medium:size=14, \
+            xft:DejaVu Sans Mono:style=Book:antialias=false:size=14, \
+            xft:Monospace:size=14
+URxvt*boldFont: xft:Inconsolata for Powerline:BoldForPowerline:size=14, \
+            xft:DejaVu Sans Mono:style=Book:antialias=false:size=14, \
+            xft:Monospace:bold:size=12
 
 URxvt*keysym.Home: \033[1~
 URxvt*keysym.End: \033[4~
@@ -48,8 +48,11 @@ URxvt*xftAutoHint: true
 URxvt*transparent: true
 URxvt*shading: 15
 
-URxvt.iso14755: true
-URxvt.iso14755_52: false
+!URxvt.iso14755: true
+!URxvt.iso14755_52: false
+URxvt*iso1475552: false
+URxvt*iso14755: false
+
 URxvt.keysym.C-plus:     font-size:increase
 URxvt.keysym.C-minus:   font-size:decrease
 /* URxvt.keysym.C-S-Up:   font-size:incglobal */
@@ -57,3 +60,41 @@ URxvt.keysym.C-minus:   font-size:decrease
 URxvt.keysym.C-equal:  font-size:reset
 /* URxvt.keysym.C-slash:  font-size:show */
 URxvt.letterSpace: -1
+
+! special
+*.foreground:   #a8a19f
+*.background:   #1b1918
+*.cursorColor:  #a8a19f
+
+! black
+*.color0:       #1b1918
+*.color8:       #766e6b
+
+! red
+*.color1:       #f22c40
+*.color9:       #f22c40
+
+! green
+*.color2:       #5ab738
+*.color10:      #5ab738
+
+! yellow
+*.color3:       #d5911a
+*.color11:      #d5911a
+
+! blue
+*.color4:       #407ee7
+*.color12:      #407ee7
+
+! magenta
+*.color5:       #6666ea
+*.color13:      #6666ea
+
+! cyan
+*.color6:       #00ad9c
+*.color14:      #00ad9c
+
+! white
+*.color7:       #a8a19f
+*.color15:      #f1efee
+
