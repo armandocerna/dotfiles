@@ -37,6 +37,7 @@ endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'fishbullet/deoplete-ruby'
+Plug 'zchee/deoplete-jedi'
 
 call plug#end()
 

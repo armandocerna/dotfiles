@@ -4,6 +4,7 @@
 
 set $mod Mod4
 set $qutebrowser qutebrowser --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4
+set $screenshot maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
 set $wallpaper feh --randomize --bg-fill ~/wallpaper/*
 
 # Set Default Font
@@ -46,10 +47,10 @@ workspace 1 output eDP-1
 workspace 10 output DP-2-1
 
 ### Gaps ###
-set $default_gaps_inner 12
-set $default_gaps_outer 0
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
+# set $default_gaps_inner 12
+# set $default_gaps_outer 0
+# gaps inner $default_gaps_inner
+# gaps outer $default_gaps_outer
 
 
 # Floating modifier
@@ -67,8 +68,9 @@ bindsym Mod1+space exec --no-startup-id BROWSER=chromium rofi-surfraw
 
 # Web
 bindsym $mod+c exec chromium
-bindsym $mod+Shift+Ctrl+p exec chromium --app=https://plex.cerna.ca/web/index.html
-bindsym $mod+Shift+Ctrl+s exec chromium --app=https://mavenlink.slack.com/messages/ops/
+bindsym $mod+q exec $qutebrowser
+# bindsym $mod+Shift+Ctrl+p exec chromium --app=https://plex.cerna.ca/web/index.html
+# bindsym $mod+Shift+Ctrl+s exec chromium --app=https://mavenlink.slack.com/messages/ops/
 
 bindsym $mod+m exec --no-startup-id urxvt -name musicscratch -e ncmpcpp
 
@@ -104,6 +106,9 @@ bindsym $mod+v split v
 
 # Attach/Detach Display
 bindsym $mod+Shift+Ctrl+d exec --no-startup-id $wallpaper
+
+# Screenshot to clipboard
+bindsym $mod+Shift+Ctrl+s exec --no-startup-id $screenshot
 
 # Lock screen
 bindsym $mod+Shift+Ctrl+q exec i3lock-fancy
@@ -211,8 +216,8 @@ bindsym $mod+Mod1+l resize grow width 5 px or 5 ppt
 # Pulse Audio controls
 set $sink `pacmd list-sinks | grep -e 'name:' -e 'index' | grep -e '*' | awk '{print $3}'`
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $sink +2% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $sink -2% #decrease sound volume
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $sink +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $sink -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute $sink toggle # mute sound
 
 # Sreen brightness controls
@@ -258,7 +263,9 @@ for_window [class="Caprine"] move container to workspace 3
 for_window [class="plexmediaplayer"] move container to workspace 10
 for_window [class="Slack"] move container to workspace 3
 for_window [class="mpv"] floating enable
-for_window [class="mpv"] fullscreen enable
+for_window [class="feh"] floating enable
+# for_window [class="qutebrowser"] floating enable
+# for_window [class="mpv"] fullscreen enable
 for_window [class="Kodi"] move container to workspace 10
 for_window [class="Kodi"] fullscreen enable
 for_window [class="Pavucontrol"] floating enable
@@ -274,6 +281,8 @@ exec --no-startup-id xset r rate 200
 # Why did my trackpoint get so fast?
 #exec_always --no-startup-id echo 50 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
 #exec_always --no-startup-id echo 90 | sudo tee /sys/bus/serio/devices/serio2/sensitivity
+
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id xset s off -dpms
 exec_always --no-startup-id xmodmap -e "keycode 107 = Super_L"
 
