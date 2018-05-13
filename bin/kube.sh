@@ -2,6 +2,8 @@
 
 case $1 in
   "up")
+    sudo swapoff -a
+    sudo sysctl net.bridge.bridge-nf-call-iptables=1
     sudo kubeadm init
     mkdir -p $HOME/.kube
     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
