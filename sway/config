@@ -3,72 +3,78 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $qutebrowser qutebrowser --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4
+set $screenshot maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
+set $wallpaper feh --randomize --bg-fill ~/wallpaper/*
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
+# Set Default Font
 font pango:DejaVu Sans Mono, Awesome 8
 
 ### THEME ###
 
-#color class		border  bg	text	indicator
-client.focused          #1A1A1A #8C8587 #1A1A1A #8C8587
-client.focused_inactive #1A1A1A #1A1A1A #1A1A1A #1A1A1A
-client.unfocused        #1A1A1A #1A1A1A #77438F #1A1A1A
-client.urgent           #3B89B5 #3B89B5 #a5a5a5 #1A1A1A
-client.background       #1A1A1A
+# Tempus winter
+# Tempus themes: https://github.com/protesilaos/tempus-themes
+# By Protesilaos Stavrou https://protesilaos.com
+set $col0 #202427
+set $col1 #ca7162
+set $col2 #589584
+set $col3 #988b21
+set $col4 #2b92c8
+set $col5 #b572b6
+set $col6 #4f91b5
+set $col7 #888a8a
+set $col8 #1b2431
+set $col9 #c47818
+set $col10 #2c9a81
+set $col11 #a2864b
+set $col12 #6987d7
+set $col13 #987dc2
+set $col14 #1f96b0
+set $col15 #798ba5
+
+client.focused $col8 $col0 $col15 $col5 $col10
+client.unfocused $col0 $col8 $col7 $col7 $col0
+client.focused_inactive $col0 $col8 $col7 $col7 $col0
+client.urgent $col1 $col1 $col8 $col1 $col1
+client.background $col8
 
 ### Borders ###
-# new_window pixel 2
-# new_float pixel 1
+new_window pixel 4
+new_float pixel 1
 
-default_border none
-
+# Set workspace outputs per display
 workspace 1 output eDP-1
-workspace 5 output DP-2-1
-workspace 10 output DP-2-2
+workspace 10 output DP-2-1
+
 ### Gaps ###
-set $default_gaps_inner 12
-set $default_gaps_outer 0
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
+# set $default_gaps_inner 12
+# set $default_gaps_outer 0
+# gaps inner $default_gaps_inner
+# gaps outer $default_gaps_outer
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
 
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
-
-set $Locker i3lock -c 000000 && sleep 1
-# Use Mouse+$mod to drag floating windows to their wanted position
+# Floating modifier
 floating_modifier $mod
 
-# start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
+# Start Terminal
 bindsym $mod+Return exec termite
 
-# kill focused window
 bindsym $mod+Shift+q kill
+# Rofi
+bindsym $mod+space exec --no-startup-id "rofi -combi-modi window,drun,run -show combi -modi combi -display-combi ''"
 
-# start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+space exec --no-startup-id rofi -show run
-# bindsym $mod+space exec --no-startup-id rofi -combi-modi window,run -show combi
-bindsym Mod1+space exec --no-startup-id BROWSER=google-chrome-stable rofi-surfraw
+# bindsym $mod+space exec --no-startup-id rofi -show run
+bindsym Mod1+space exec --no-startup-id BROWSER=chromium rofi-surfraw
 
-# bindsym $mod+Shift+space exec --no-startup-id rofi -show window
-bindsym $mod+c exec google-chrome-stable
-bindsym $mod+m exec xclip -o | xargs mpv
+# Web
+bindsym $mod+c exec chromium
+bindsym $mod+q exec $qutebrowser
+# bindsym $mod+Shift+Ctrl+p exec chromium --app=https://plex.cerna.ca/web/index.html
+# bindsym $mod+Shift+Ctrl+s exec chromium --app=https://mavenlink.slack.com/messages/ops/
 
-bindsym $mod+Shift+Ctrl+s exec --no-startup-id xfce4-screenshooter -r
+bindsym $mod+m exec --no-startup-id urxvt -name musicscratch -e ncmpcpp
+
+# Lockscreen
 bindsym $mod+Delete exec --no-startup-id i3lock-fancy
 
 # change focus
@@ -76,12 +82,6 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -95,12 +95,6 @@ bindsym $mod+Shift+Ctrl+j move workspace to output down
 bindsym $mod+Shift+Ctrl+k move workspace to output up
 bindsym $mod+Shift+Ctrl+l move workspace to output right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+grave workspace back_and_forth
@@ -111,11 +105,16 @@ bindsym $mod+z split h
 bindsym $mod+v split v
 
 # Attach/Detach Display
-bindsym $mod+Shift+Ctrl+d exec dock.rb
+bindsym $mod+Shift+Ctrl+d exec --no-startup-id $wallpaper
 
-# Change wallpaper
-# bindsym $mod+Shift+Ctrl+c exec wal -i ~/.wallpaper -t
-# bindsym $mod+Shift+Ctrl+l exec --no-startup-id 'i3lock-fancy'
+# Screenshot to clipboard
+bindsym $mod+Shift+Ctrl+s exec --no-startup-id $screenshot
+
+# Lock screen
+bindsym $mod+Shift+Ctrl+q exec i3lock-fancy
+
+# Suspend
+bindsym $mod+Shift+Ctrl+delete exec sudo systemctl suspend
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -166,34 +165,53 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exit
 # Lock
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+# Shutdown menu
+# mode "(P)ower off / (R)eboot / (L)og out / (S)uspend?"
+# {
+#     bindsym p exec systemctl poweroff
+#     bindsym r exec systemctl reboot
+#     bindsym l exec i3-msg exit
+#     bindsym s exec systemctl suspend
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+# }
+# bindsym $mod+p mode "(P)ower off / (R)eboot / (L)og out / (S)uspend?"
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym j resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+bindsym $mod+Mod1+h resize shrink width 5 px or 5 ppt
+bindsym $mod+Mod1+k resize grow height 5 px or 5 ppt
+bindsym $mod+Mod1+j resize shrink height 5 px or 5 ppt
+bindsym $mod+Mod1+l resize grow width 5 px or 5 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
+# # resize window (you can also use the mouse for that)
+# mode "resize" {
+#         # These bindings trigger as soon as you enter the resize mode
 
-bindsym $mod+r mode "resize"
+#         # Pressing left will shrink the window’s width.
+#         # Pressing right will grow the window’s width.
+#         # Pressing up will shrink the window’s height.
+#         # Pressing down will grow the window’s height.
+#         bindsym h resize shrink width 10 px or 10 ppt
+#         bindsym k resize grow height 10 px or 10 ppt
+#         bindsym j resize shrink height 10 px or 10 ppt
+#         bindsym l resize grow width 10 px or 10 ppt
+
+#         # same bindings, but for the arrow keys
+#         bindsym Left resize shrink width 10 px or 10 ppt
+#         bindsym Down resize grow height 10 px or 10 ppt
+#         bindsym Up resize shrink height 10 px or 10 ppt
+#         bindsym Right resize grow width 10 px or 10 ppt
+
+#         # back to normal: Enter or Escape
+#         bindsym Return mode "default"
+#         bindsym Escape mode "default"
+# }
+
+# bindsym $mod+r mode "resize"
+
 
 # Pulse Audio controls
 set $sink `pacmd list-sinks | grep -e 'name:' -e 'index' | grep -e '*' | awk '{print $3}'`
@@ -209,24 +227,12 @@ bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
 
-bindsym Mod1+Shift+4 exec xfce4-screenshooter -r
-
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
-bindsym Mod1+minus scratchpad show
 
 # Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 bar {
         output DP-2-1
-        mode hide
-        hidden_state hide
-        modifier $mod
-        status_command i3blocks
-        font pango:DejaVu Sans Mono 10
-}
-
-bar {
-        output DP-2-2
         mode hide
         hidden_state hide
         modifier $mod
@@ -241,7 +247,7 @@ bar {
         hidden_state hide
         modifier $mod
         status_command i3blocks
-        font pango:DejaVu Sans Mono 14
+        font pango:DejaVu Sans Mono 12
 }
 
 # for_window [class="Google-chrome"] border none
@@ -257,19 +263,32 @@ for_window [class="Caprine"] move container to workspace 3
 for_window [class="plexmediaplayer"] move container to workspace 10
 for_window [class="Slack"] move container to workspace 3
 for_window [class="mpv"] floating enable
-for_window [class="mpv"] fullscreen enable
+for_window [class="feh"] floating enable
+# for_window [class="qutebrowser"] floating enable
+# for_window [class="mpv"] fullscreen enable
+for_window [class="Kodi"] move container to workspace 10
+for_window [class="Kodi"] fullscreen enable
+for_window [class="Pavucontrol"] floating enable
 for_window [title="^floatme$"] floating enable
 for_window [title="^scratchpad$"] move window to scratchpad
+for_window [instance="musicscratch"] move window to scratchpad, scratchpad show
+
 
 exec --no-startup-id xrdb -merge ~/.Xresources
-# exec --no-startup-id pgrep urxvtd || urxvtd -f
-exec --no-startup-id xinput --disable "SynPS/2 Synaptics TouchPad"
-# exec --no-startup-id xinput set-prop 'TPPS/2 IBM TrackPoint' 300 0
 exec --no-startup-id xset r rate 200
-exec --no-startup-id echo 25 | sudo tee /sys/devices/platform/i8042/serio1/serio2/drift_time
-# exec --no-startup-id sudo chmod o+w /sys/class/backlight/intel_backlight/brightness
 
-exec --no-startup-id redshift
-exec --no-startup-id nm-applet
+# Why did my trackpoint get so fast?
+exec_always --no-startup-id echo 50 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
+exec_always --no-startup-id echo 90 | sudo tee /sys/bus/serio/devices/serio2/sensitivity
 
-exec_always --no-startup-id dock.rb
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id xset s off -dpms
+exec_always --no-startup-id xmodmap -e "keycode 107 = Super_L"
+
+exec --no-startup-id $wallpaper
+
+# Graveyard
+# exec --no-startup-id pgrep urxvtd || urxvtd -f
+# exec --no-startup-id echo 2 | sudo tee /sys/devices/platform/i8042/serio1/serio2/drift_time
+# exec --no-startup-id xinput set-prop 'TPPS/2 IBM TrackPoint' 300 0
+# exec_always --no-startup-id dock.rb

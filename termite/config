@@ -1,5 +1,6 @@
 [options]
-font = Inconsolata for Powerline 12
+font = Source Code Pro 10
+scrollback_lines= -1
 
 [colors]
 
