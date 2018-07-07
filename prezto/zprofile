@@ -81,5 +81,5 @@ export WLC_REPEAT_DELAY=200
 export WLC_REPEAT_RATE=50
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-  exec startx
+  ssh-agent startx
 fi
