@@ -1,5 +1,5 @@
 [options]
-font = Source Code Pro 10
+font = Ubuntu Mono derivative Powerline 12
 scrollback_lines= -1
 
 [colors]

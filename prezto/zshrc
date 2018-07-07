@@ -35,6 +35,12 @@ export PATH=$PATH:$GOPATH/bin
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.gem/ruby/2.4.0/bin"
 
+# kube custer/namespace in prompet
+autoload -U colors; colors
+source $HOME/.zsh-kubectl-prompt/kubectl.zsh
+# RPROMPT='%{$fg[blue]%}($ZSH_KUBECTL_PROMPT)%{$reset_color%}'
+
+
 cpstat () {
   tar cf - "$1" | pv | (cd "$2";tar xf -)
 }
