@@ -39,7 +39,7 @@ client.urgent $col1 $col1 $col8 $col1 $col1
 client.background $col8
 
 ### Borders ###
-new_window pixel 4
+new_window pixel 1
 new_float pixel 1
 
 # Set workspace outputs per display
