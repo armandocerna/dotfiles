@@ -24,7 +24,7 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=/usr/lib/i3blocks/$BLOCK_NAME
+command=/usr/share/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
@@ -49,7 +49,7 @@ instance=Master
 #instance=PCM
 interval=5
 signal=10
-command=/usr/lib/i3blocks/volume 5 pulse
+command=/usr/share/i3blocks/volume 5 pulse
 
 # Memory usage
 #

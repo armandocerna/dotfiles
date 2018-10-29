@@ -39,7 +39,7 @@ client.urgent $col1 $col1 $col8 $col1 $col1
 client.background $col8
 
 ### Borders ###
-new_window pixel 4
+new_window pixel 1
 new_float pixel 1
 
 # Set workspace outputs per display
@@ -57,17 +57,17 @@ workspace 10 output DP2-1
 floating_modifier $mod
 
 # Start Terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec gnome-terminal
 
 bindsym $mod+Shift+q kill
 # Rofi
 bindsym $mod+space exec --no-startup-id "rofi -combi-modi window,drun,run -show combi -modi combi -display-combi ''"
 
 # bindsym $mod+space exec --no-startup-id rofi -show run
-bindsym Mod1+space exec --no-startup-id BROWSER=chromium rofi-surfraw
+bindsym Mod1+space exec --no-startup-id BROWSER=google-chrome-stable rofi-surfraw
 
 # Web
-bindsym $mod+c exec chromium
+bindsym $mod+c exec google-chrome-stable
 bindsym $mod+q exec $qutebrowser
 # bindsym $mod+Shift+Ctrl+p exec chromium --app=https://plex.cerna.ca/web/index.html
 # bindsym $mod+Shift+Ctrl+s exec chromium --app=https://mavenlink.slack.com/messages/ops/
@@ -232,19 +232,19 @@ bindsym $mod+minus scratchpad show
 
 # Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 bar {
-        output DP2-1
-        mode hide
-        hidden_state hide
+        output HDMI-2
+        # mode hide
+        # hidden_state hide
         modifier $mod
         status_command i3blocks
         font pango:DejaVu Sans Mono 10
 }
 
 bar {
-        output eDP1
-        tray_output eDP1
-        mode hide
-        hidden_state hide
+        output eDP-1
+        tray_output eDP-1
+        # mode hide
+        # hidden_state hide
         modifier $mod
         status_command i3blocks
         font pango:DejaVu Sans Mono 12
@@ -272,11 +272,13 @@ for_window [class="Pavucontrol"] floating enable
 for_window [title="^floatme$"] floating enable
 for_window [title="^scratchpad$"] move window to scratchpad
 for_window [instance="musicscratch"] move window to scratchpad, scratchpad show
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
+for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 
 
-# exec --no-startup-id xrdb -merge ~/.Xresources
-# exec --no-startup-id xinput --disable "SynPS/2 Synaptics TouchPad"
-# exec --no-startup-id xset r rate 200
+exec --no-startup-id xrdb -merge ~/.Xresources
+exec --no-startup-id xinput --disable "SynPS/2 Synaptics TouchPad"
+exec --no-startup-id xset r rate 200
 
 # # Why did my trackpoint get so fast?
 # exec_always --no-startup-id echo 50 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
@@ -285,10 +287,10 @@ for_window [instance="musicscratch"] move window to scratchpad, scratchpad show
 # # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # exec_always --no-startup-id xset s off -dpms
 # exec_always --no-startup-id setxkbmap -option ctrl:nocaps
-# exec_always --no-startup-id xmodmap -e "keycode 107 = Super_L"
+exec_always --no-startup-id xmodmap -e "keycode 107 = Super_L"
 
-# exec --no-startup-id compton -b --backend glx --paint-on-overlay
-# exec --no-startup-id redshift
+exec --no-startup-id compton -b --backend glx --paint-on-overlay
+exec --no-startup-id redshift
 # exec --no-startup-id $wallpaper
 
 # Graveyard
