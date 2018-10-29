@@ -30,6 +30,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'fatih/vim-go'
 Plug 'neomake/neomake'
 Plug 'dfxyz/CandyPaper.vim'
+Plug 'dhruvasagar/vim-zoom'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -96,6 +97,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='hybridline'
 let g:airline_powerline_fonts = 1
 
+set autowrite " Write file on :make
+
 " Quickscope
 " let g:qs_enable = 1
 " let g:qs_enable_char_list = [ 'f', 'F', 't', 'T' ]
@@ -139,7 +142,6 @@ nnoremap <leader>/ :Ag<space>
 nnoremap <silent> <leader>f :Files<cr>
 nnoremap <silent> <leader>gdo :Files ~/workspace/devops<cr>
 nnoremap <silent> <leader>gml :Files ~/workspace/mavenlink<cr>
-nnoremap <silent> <leader>b :Buffers<cr>
 nnoremap <silent> <leader>dab :1,$bd<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>gr :GoRun<cr>
@@ -150,3 +152,28 @@ nnoremap <silent> <leader>db :!terminal docker-compose build && docker-compose d
 
 " Toggle between normal and relative numbering.
 nnoremap <leader>ln :set rnu!<cr>
+
+" Close quickfix
+nnoremap <leader>a :cclose<CR>
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+let g:go_fmt_command = "goimports"
+let g:go_addtags_transform = "camelcase"
+let g:go_highlight_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
