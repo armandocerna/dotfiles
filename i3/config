@@ -4,7 +4,8 @@
 
 set $mod Mod4
 set $qutebrowser qutebrowser --qt-flag ignore-gpu-blacklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4
-set $screenshot maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
+# set $screenshot maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
+set $screenshot import png:- | xclip -selection c -t image/png
 set $wallpaper feh --randomize --bg-fill ~/wallpaper/*
 
 # Set Default Font
@@ -57,7 +58,7 @@ workspace 10 output DP2-1
 floating_modifier $mod
 
 # Start Terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec urxvt
 
 bindsym $mod+Shift+q kill
 # Rofi
@@ -69,8 +70,7 @@ bindsym Mod1+space exec --no-startup-id BROWSER=google-chrome-stable rofi-surfra
 # Web
 bindsym $mod+c exec google-chrome-stable
 bindsym $mod+q exec $qutebrowser
-# bindsym $mod+Shift+Ctrl+p exec chromium --app=https://plex.cerna.ca/web/index.html
-# bindsym $mod+Shift+Ctrl+s exec chromium --app=https://mavenlink.slack.com/messages/ops/
+# bindsym $mod+shift+Control+l exec "google-chrome-stable --app=https://mavenlink.slack.com"
 
 bindsym $mod+m exec --no-startup-id urxvt -name musicscratch -e ncmpcpp
 
@@ -108,7 +108,7 @@ bindsym $mod+v split v
 bindsym $mod+Shift+Ctrl+d exec --no-startup-id $wallpaper
 
 # Screenshot to clipboard
-bindsym $mod+Shift+Ctrl+s exec --no-startup-id $screenshot
+bindsym --release $mod+Shift+Ctrl+s exec --no-startup-id $screenshot
 
 # Lock screen
 bindsym $mod+Shift+Ctrl+q exec i3lock-fancy
@@ -232,6 +232,15 @@ bindsym $mod+minus scratchpad show
 
 # Start i3bar to display a workspace bar (plus the system information i3status finds out, if available)
 bar {
+        output DP-1
+        # mode hide
+        # hidden_state hide
+        modifier $mod
+        status_command i3blocks
+        font pango:DejaVu Sans Mono 10
+}
+
+bar {
         output HDMI-2
         # mode hide
         # hidden_state hide
@@ -282,16 +291,16 @@ exec --no-startup-id xset r rate 200
 
 # # Why did my trackpoint get so fast?
 # exec_always --no-startup-id echo 50 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
-# exec_always --no-startup-id echo 90 | sudo tee /sys/bus/serio/devices/serio2/sensitivity
+exec_always --no-startup-id echo 75 | sudo tee /sys/bus/serio/devices/serio2/sensitivity
 
 # # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # exec_always --no-startup-id xset s off -dpms
 # exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 exec_always --no-startup-id xmodmap -e "keycode 107 = Super_L"
 
-exec --no-startup-id compton -b --backend glx --paint-on-overlay
+# exec --no-startup-id compton -b --backend glx --paint-on-overlay
 exec --no-startup-id redshift
-# exec --no-startup-id $wallpaper
+exec --no-startup-id $wallpaper
 
 # Graveyard
 # exec --no-startup-id (lsusb | grep Lenovo) && sudo ACTION=add /etc/sbin/thinkpad-dock.sh

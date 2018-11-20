@@ -34,12 +34,18 @@ URxvt.scrollBar: false
 !URxvt*color14: #34E2E2
 !URxvt*color15: #EEEEEC
 
+URxvt.inputMethod: ibus
+URxvt.preeditType: OverTheSpot
 URxvt*font: xft:Inconsolata for Powerline:Medium:size=14, \
             xft:DejaVu Sans Mono:style=Book:antialias=false:size=14, \
             xft:Monospace:size=14
 URxvt*boldFont: xft:Inconsolata for Powerline:BoldForPowerline:size=14, \
             xft:DejaVu Sans Mono:style=Book:antialias=false:size=14, \
             xft:Monospace:bold:size=12
+
+URxvt.perl-ext:	  default,matcher
+URxvt.url-launcher: google-chrome
+URxvt.matcher.button: 1
 
 URxvt*keysym.Home: \033[1~
 URxvt*keysym.End: \033[4~
