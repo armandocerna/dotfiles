@@ -47,18 +47,20 @@ new_float pixel 1
 workspace 1 output eDP1
 workspace 10 output DP2-1
 
-### Gaps ###
+# ### Gaps ###
 # set $default_gaps_inner 12
 # set $default_gaps_outer 0
 # gaps inner $default_gaps_inner
 # gaps outer $default_gaps_outer
+# smart_borders on
+# smart_gaps on
 
 
 # Floating modifier
 floating_modifier $mod
 
 # Start Terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec xfce4-terminal
 
 bindsym $mod+Shift+q kill
 # Rofi
@@ -234,8 +236,10 @@ bindsym $mod+minus scratchpad show
 bar {
         output HDMI-2
         output DP-1
+        output DP-2
         output HDMI2
         output DP1
+        output eDP-1-1
         # mode hide
         # hidden_state hide
         modifier $mod
@@ -276,12 +280,25 @@ for_window [title="^floatme$"] floating enable
 for_window [title="^scratchpad$"] move window to scratchpad
 for_window [instance="musicscratch"] move window to scratchpad, scratchpad show
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
+for_window [class="^jetbrains-.+"] move container to workspace 8
 for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 
+# Steam
+for_window [class="^Steam$"] move container to workspace 10
+for_window [class="^Steam$" title="^Friends$"] floating enable
+for_window [class="^Steam$" title="Steam - News"] floating enable
+for_window [class="^Steam$" title=".* - Chat"] floating enable
+for_window [class="^Steam$" title="^Settings$"] floating enable
+for_window [class="^Steam$" title=".* - event started"] floating enable
+for_window [class="^Steam$" title=".* CD key"] floating enable
+for_window [class="^Steam$" title="^Steam - Self Updater$"] floating enable
+for_window [class="^Steam$" title="^Screenshot Uploader$"] floating enable
+for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Required$"] floating enable
+for_window [title="^Steam Keyboard$"] floating enable
 
 exec --no-startup-id xrdb -merge ~/.Xresources
-exec --no-startup-id xinput --disable "SynPS/2 Synaptics TouchPad"
-exec --no-startup-id xset r rate 200
+# exec --no-startup-id xinput --disable "ETPS/2 Elantech Touchpad"
+exec --no-startup-id xset r rate 250 15
 
 # # Why did my trackpoint get so fast?
 # exec_always --no-startup-id echo 50 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
@@ -291,10 +308,11 @@ exec --no-startup-id xset r rate 200
 # exec_always --no-startup-id xset s off -dpms
 # exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 exec_always --no-startup-id xmodmap -e "keycode 107 = Super_L"
+exec_always --no-startup-id libinput-gestures
 
 # exec --no-startup-id compton -b --backend glx --paint-on-overlay
 exec --no-startup-id compton -b
-exec --no-startup-id redshift
+exec --no-startup-id redshift -l 37:-122
 exec --no-startup-id $wallpaper
 
 # Graveyard

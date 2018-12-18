@@ -42,6 +42,9 @@ markup=none
 # The first parameter sets the step (and units to display)
 # The second parameter overrides the mixer selection
 # See the script for details.
+# [openvpn]
+# interval=30
+
 [volume]
 label=VOL
 label=♪
@@ -116,17 +119,6 @@ interval=5
 label=⚡
 # instance=1
 interval=30
-
-[battery]
-label=⚡
-instance=1
-interval=30
-
-[battery]
-label=⚡
-instance=2
-interval=30
-
 
 # Date Time
 #
