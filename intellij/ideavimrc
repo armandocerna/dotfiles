@@ -1,0 +1,72 @@
+" set gdefault                      " substitute all occurrences in line per default
+set history=10000                  " keep x lines of command line history
+set hlsearch                      " highlight search occurrences
+set ignorecase                    " ignore case in search patterns
+set smartcase                     " no ignore case when pattern is uppercase
+set incsearch                     " show search results while typing
+set wrapscan                      " searches wrap around the end of the file
+set number                        " line numbers
+set scrolloff=5 sidescrolloff=10  " keep some lines before and after the cursor visible
+" set clipboard=unnamedplus,unnamed " integrate with system clipboard
+set surround                      " emulate vim-surround plugin
+
+" set <leader> to <space>
+let mapleader = " "
+
+
+" edit ideavim config
+nnoremap <leader>vv :e ~/.ideavimrc<CR>
+nnoremap <leader>vr :source ~/.ideavimrc<CR>
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fix some vim annoyances
+
+
+" " don't overwrite register when pasting over selection
+" vnoremap p pgvy
+
+" " paste over rest of line
+" " nnoremap <leader>p v$<Left>pgvy
+" nnoremap <leader>p v$<Left>p
+
+" don't lose selection when indenting
+vnoremap < <gv
+vnoremap > >gv
+vnoremap = =gv
+
+" delete/edit whole word backwards
+" (can confilict with multiple cursors)
+" nnoremap db xdb
+" nnoremap cb xcb
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""
+" IDEA specific
+nmap <leader>? :action GotoAction<CR>
+
+" change font size
+nmap + :action EditorIncreaseFontSize<CR>
+nmap - :action EditorDecreaseFontSize<CR>
+nmap <leader>= :action EditorResetFontSize<CR>
+
+" code navigation
+nmap <leader>f :action GotoFile<CR>
+nmap <leader>/ :action FindInPath<CR>
+nmap <leader>r :action RecentFiles<CR>
+
+nmap ]b :action NextTab<CR>
+nmap [b :action PreviousTab<CR>
+
+nmap <C-o> :action Back<CR>
+nmap <C-i> :action Forward<CR>
+nmap gD :action GotoImplementation<CR>
+nmap <leader>u :action ShowUsages<CR>
+nmap <leader>U :action FindUsages<CR>
+nmap <leader>n :action GotoNextError<CR>
+" nmap <leader>n :action NextOccurence<CR>
+
+" editing / refactoring
+nmap gcc Vgc
+vnoremap gc :<bs><bs><bs><bs><bs>action VimVisualSwapSelections<cr>:action CommentByLineComment<cr>
+nmap <leader>m :action ReformatCode<CR>
+

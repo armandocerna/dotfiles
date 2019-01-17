@@ -25,6 +25,7 @@ ln -sf ~/dotfiles/prezto/aliases.sh ~/.aliases.sh
 ln -sf ~/dotfiles/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
 ln -sf ~/dotfiles/i3/config ~/.config/i3/config
 ln -sf ~/dotfiles/i3blocks/config ~/.i3blocks.conf
-ln -s ~/dotfiles/xmodmap/xmodmap ~/.Xmodmap
+ln -sf ~/dotfiles/xmodmap/xmodmap ~/.Xmodmap
+ln -sf ~/dotfiles/intellij/ideavimrc ~/.ideavimrc
 
 sudo ln -sf ~/dotfiles/scripts/dock.rb /usr/local/bin/dock.rb
