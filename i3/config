@@ -108,6 +108,9 @@ bindsym $mod+v split v
 
 # Attach/Detach Display
 bindsym $mod+Shift+Ctrl+d exec --no-startup-id $wallpaper
+bindsym --release $mod+Shift+Ctrl+1 exec --no-startup-id ~/.screenlayout/laptop.sh
+bindsym --release $mod+Shift+Ctrl+2 exec --no-startup-id ~/.screenlayout/work.sh
+bindsym --release $mod+Shift+Ctrl+3 exec --no-startup-id ~/.screenlayout/pair.sh
 
 # Screenshot to clipboard
 bindsym --release $mod+Shift+Ctrl+s exec --no-startup-id $screenshot
@@ -235,13 +238,15 @@ bindsym $mod+minus scratchpad show
 
 bar {
         output HDMI-2
+        output HDMI-0
+        output DP-0
         output DP-1
         output DP-2
         output HDMI2
         output DP1
         output eDP-1-1
-        # mode hide
-        # hidden_state hide
+        mode hide
+        hidden_state hide
         modifier $mod
         status_command i3blocks
         font pango:DejaVu Sans Mono 10
@@ -250,8 +255,8 @@ bar {
 bar {
         output eDP-1
         output eDP1
-        # mode hide
-        # hidden_state hide
+        mode hide
+        hidden_state hide
         modifier $mod
         status_command i3blocks
         font pango:DejaVu Sans Mono 12
@@ -297,8 +302,9 @@ for_window [class="^Steam$" title="^Steam Guard - Computer Authorization Require
 for_window [title="^Steam Keyboard$"] floating enable
 
 exec --no-startup-id xrdb -merge ~/.Xresources
-# exec --no-startup-id xinput --disable "ETPS/2 Elantech Touchpad"
-exec --no-startup-id xset r rate 250 15
+exec --no-startup-id xinput --disable "ETPS/2 Elantech Touchpad"
+# exec --no-startup-id xset r rate 250 15
+exec --no-startup-id xset r rate 200
 
 # # Why did my trackpoint get so fast?
 # exec_always --no-startup-id echo 50 | sudo tee /sys/devices/platform/i8042/serio1/serio2/speed
@@ -313,6 +319,7 @@ exec_always --no-startup-id libinput-gestures
 # exec --no-startup-id compton -b --backend glx --paint-on-overlay
 exec --no-startup-id compton -b
 exec --no-startup-id redshift -l 37:-122
+exec --no-startup-id autorandr common
 exec --no-startup-id $wallpaper
 
 # Graveyard

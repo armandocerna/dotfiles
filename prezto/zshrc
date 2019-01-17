@@ -24,6 +24,7 @@ unsetopt AUTO_NAME_DIRS
 
 # Source aliases
 source ~/.aliases.sh
+source ~/.docker-envs
 
 source <(kubectl completion zsh)
 export GOPATH=~/workspace/go
@@ -31,6 +32,7 @@ export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 export PATH=$PATH:/opt/goland/bin
 export PATH=$PATH:$HOME/workspace/blackbox/bin
+export PATH=$PATH:/snap/bin
 export GIT_DUET_CO_AUTHORED_BY=1
 # export KUBECONFIG=$KUBECONFIG:~/.kube/kubeadm_config
 
