@@ -19,6 +19,8 @@ chrome() {
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+
 
 unsetopt AUTO_NAME_DIRS
 
