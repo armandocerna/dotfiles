@@ -53,6 +53,7 @@ nmap <leader>= :action EditorResetFontSize<CR>
 nmap <leader>f :action GotoFile<CR>
 nmap <leader>/ :action FindInPath<CR>
 nmap <leader>r :action RecentFiles<CR>
+nmap <leader>b :action MovetoPreviousTab<CR>
 
 nmap ]b :action NextTab<CR>
 nmap [b :action PreviousTab<CR>

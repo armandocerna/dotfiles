@@ -13,38 +13,36 @@ font pango:DejaVu Sans Mono, Awesome 8
 
 ### THEME ###
 
-# Tempus winter
-# Tempus themes: https://github.com/protesilaos/tempus-themes
-# By Protesilaos Stavrou https://protesilaos.com
-set $col0 #202427
-set $col1 #ca7162
-set $col2 #589584
-set $col3 #988b21
-set $col4 #2b92c8
-set $col5 #b572b6
-set $col6 #4f91b5
-set $col7 #888a8a
-set $col8 #1b2431
-set $col9 #c47818
-set $col10 #2c9a81
-set $col11 #a2864b
-set $col12 #6987d7
-set $col13 #987dc2
-set $col14 #1f96b0
-set $col15 #798ba5
+set $bg-color            #0b6488
+set $inactive-bg-color   #042633
+set $text-color          #dfdfdf
+set $inactive-text-color #afafaf
+set $urgent-bg-color     #FFFFFF
+set $indicator-color     #a0a0a0
 
-client.focused $col8 $col0 $col15 $col5 $col10
-client.unfocused $col0 $col8 $col7 $col7 $col0
-client.focused_inactive $col0 $col8 $col7 $col7 $col0
-client.urgent $col1 $col1 $col8 $col1 $col1
-client.background $col8
+# set window colors
+#                       border             background         text                 indicator
+client.focused          $bg-color          $bg-color          $text-color          $indicator-color
+client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
+client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
+client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $indicator-color
+
+# Set up gaps
+smart_gaps on
+# smart_borders on
+
+for_window [class="^.*"] border pixel 2
+
+gaps inner 8
 
 ### Borders ###
-new_window pixel 1
-new_float pixel 1
+# new_window pixel 1
+# new_float pixel 1
+# thin borders
+hide_edge_borders both
 
 # Set workspace outputs per display
-workspace 1 output eDP1
+
 workspace 10 output DP2-1
 
 # ### Gaps ###
@@ -315,11 +313,12 @@ exec --no-startup-id xset r rate 200
 # exec_always --no-startup-id setxkbmap -option ctrl:nocaps
 exec_always --no-startup-id xmodmap -e "keycode 107 = Super_L"
 exec_always --no-startup-id libinput-gestures
+exec_always --no-startup-id numlockx on
 
 # exec --no-startup-id compton -b --backend glx --paint-on-overlay
 exec --no-startup-id compton -b
 exec --no-startup-id redshift -l 37:-122
-exec --no-startup-id autorandr common
+# exec --no-startup-id autorandr common
 exec --no-startup-id $wallpaper
 
 # Graveyard
