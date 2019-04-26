@@ -28,12 +28,12 @@ client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-col
 client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $indicator-color
 
 # Set up gaps
-smart_gaps on
+# smart_gaps on
 # smart_borders on
 
 for_window [class="^.*"] border pixel 2
 
-gaps inner 8
+# gaps inner 8
 
 ### Borders ###
 # new_window pixel 1
@@ -243,8 +243,8 @@ bar {
         output HDMI2
         output DP1
         output eDP-1-1
-        mode hide
-        hidden_state hide
+        # mode hide
+        # hidden_state hide
         modifier $mod
         status_command i3blocks
         font pango:DejaVu Sans Mono 10
@@ -253,8 +253,8 @@ bar {
 bar {
         output eDP-1
         output eDP1
-        mode hide
-        hidden_state hide
+        # mode hide
+        # hidden_state hide
         modifier $mod
         status_command i3blocks
         font pango:DejaVu Sans Mono 12
@@ -283,7 +283,7 @@ for_window [title="^floatme$"] floating enable
 for_window [title="^scratchpad$"] move window to scratchpad
 for_window [instance="musicscratch"] move window to scratchpad, scratchpad show
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
-for_window [class="^jetbrains-.+"] move container to workspace 8
+# for_window [class="^jetbrains-.+"] move container to workspace 8
 for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 
 # Steam
