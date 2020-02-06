@@ -31,14 +31,18 @@ Plug 'fatih/vim-go'
 Plug 'neomake/neomake'
 Plug 'dfxyz/CandyPaper.vim'
 Plug 'dhruvasagar/vim-zoom'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'fishbullet/deoplete-ruby'
-Plug 'zchee/deoplete-jedi'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+
+" function! DoRemote(arg)
+"   UpdateRemotePlugins
+" endfunction
+" Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+" Plug 'zchee/deoplete-go', { 'do': 'make'}
+" Plug 'fishbullet/deoplete-ruby'
+" Plug 'zchee/deoplete-jedi'
 
 call plug#end()
 
@@ -46,9 +50,9 @@ filetype plugin on
 syntax on
 set background=dark
 set t_Co=256
-colo CandyPaper
+colo dracula
 " Disable mouse click position change
-set mouse-=a
+set mouse=a
 " Clear background color from loaded theme
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
@@ -64,8 +68,11 @@ let mapleader = "\<Space>"
 set ttyfast
 set lazyredraw
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " neomake
 " autocmd! BufWritePost * Neomake!
@@ -94,7 +101,7 @@ endif
 
 " Enable Airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='hybridline'
+let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
 
 set autowrite " Write file on :make
