@@ -35,16 +35,9 @@ export PATH=$PATH:$HOME/workspace/blackbox/bin
 
 # (wal -r &)
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.gem/ruby/2.4.0/bin"
-
 cpstat () {
   tar cf - "$1" | pv | (cd "$2";tar xf -)
 }
 
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent >! ~/.ssh-agent-thing
-fi
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval "$(<~/.ssh-agent-thing)" > /dev/null
-  fi
+eval "$(rbenv init -)"
+
