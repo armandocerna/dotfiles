@@ -45,9 +45,9 @@ vnoremap = =gv
 nmap <leader>? :action GotoAction<CR>
 
 " change font size
-nmap + :action EditorIncreaseFontSize<CR>
-nmap - :action EditorDecreaseFontSize<CR>
-nmap <leader>= :action EditorResetFontSize<CR>
+" nmap + :action EditorIncreaseFontSize<CR>
+" nmap - :action EditorDecreaseFontSize<CR>
+" nmap <leader>= :action EditorResetFontSize<CR>
 
 " code navigation
 nmap <leader>f :action GotoFile<CR>
