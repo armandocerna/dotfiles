@@ -1,6 +1,4 @@
 alias vim="nvim"
-alias pbcopy="xsel -ib"
-alias pbpaste="xsel -b"
 alias ws="cd ~/workspace"
 alias ops="cd ~/workspace/devops"
 alias dots="cd ~/dotfiles"
