@@ -22,8 +22,8 @@ ln -sf ~/dotfiles/prezto/zshrc ~/.zshrc
 ln -sf ~/dotfiles/prezto/aliases.sh ~/.aliases.sh
 ln -sf ~/dotfiles/intellij/ideavimrc ~/.ideavimrc
 
-# Darwin Specific things
-if [[ "$OSTYPE" == "darwin"* ]]; then
+# Linux Specific things
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     mkdir -p ~/.config/fontconfig
     mkdir -p ~/.config/i3
     ln -sf ~/dotfiles/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
