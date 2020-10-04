@@ -1,20 +1,10 @@
 #
 # Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
 
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
-
-# A command to launch a new, anonymous Chrome session for testing.
-chrome() {
-  mkdir -p /tmp/chrome$1
-  ~/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=/tmp/chrome$1
-}
 
 # Load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -35,16 +25,9 @@ export PATH=$PATH:$HOME/workspace/blackbox/bin
 
 # (wal -r &)
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.gem/ruby/2.4.0/bin"
-
 cpstat () {
   tar cf - "$1" | pv | (cd "$2";tar xf -)
 }
 
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent >! ~/.ssh-agent-thing
-fi
-if [[ "$SSH_AGENT_PID" == "" ]]; then
-    eval "$(<~/.ssh-agent-thing)" > /dev/null
-  fi
+eval "$(rbenv init -)"
+
