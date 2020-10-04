@@ -30,16 +30,6 @@ Plug 'tomasr/molokai'
 Plug 'whatyouhide/vim-gotham'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'dracula/vim', { 'as': 'dracula' }
-
-
-" function! DoRemote(arg)
-"   UpdateRemotePlugins
-" endfunction
-" Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-" Plug 'zchee/deoplete-go', { 'do': 'make'}
-" Plug 'fishbullet/deoplete-ruby'
-" Plug 'zchee/deoplete-jedi'
-
 call plug#end()
 
 filetype plugin on
@@ -54,8 +44,7 @@ highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 
 filetype plugin indent on
-set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-set relativenumber
+set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 set number
 set updatetime=250
 let mapleader = "\<Space>"
@@ -100,25 +89,7 @@ set autowrite " Write file on :make
 
 " Quickscope
 " let g:qs_enable = 1
-" let g:qs_enable_char_list = [ 'f', 'F', 't', 'T' ]
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-" function! Quick_scope_selective(movement)
-"     let needs_disabling = 0
-"     if !g:qs_enable
-"         QuickScopeToggle
-"         redraw
-"         let needs_disabling = 1
-"     endif
-"     let letter = nr2char(getchar())
-"     if needs_disabling
-"         QuickScopeToggle
-"     endif
-"     return a:movement . letter
-" endfunction
-
-" for i in g:qs_enable_char_list
-"   execute 'noremap <expr> <silent>' . i . " Quick_scope_selective('". i . "')"
-" endfor
 
 imap jj <Esc>
 
@@ -139,15 +110,9 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 nnoremap <silent> <C-p> :Files<cr>
 nnoremap <leader>/ :Ag<space>
 nnoremap <silent> <leader>f :Files<cr>
-nnoremap <silent> <leader>gdo :Files ~/workspace/devops<cr>
-nnoremap <silent> <leader>gml :Files ~/workspace/mavenlink<cr>
 nnoremap <silent> <leader>dab :1,$bd<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
-nnoremap <silent> <leader>gr :GoRun<cr>
-nnoremap <silent> <leader>gb :GoBuild<cr>
 nnoremap <silent> <leader>ws :StripWhitespace<cr>
-nnoremap <silent> <leader>vim :e ~/.vimrc<cr>
-nnoremap <silent> <leader>db :!terminal docker-compose build && docker-compose down && docker-compose up<cr>
 
 " Toggle between normal and relative numbering.
 nnoremap <leader>ln :set rnu!<cr>
@@ -155,7 +120,58 @@ nnoremap <leader>ln :set rnu!<cr>
 " Close quickfix
 nnoremap <leader>a :cclose<CR>
 
-" run :GoBuild or :GoTestCompile based on the go file
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
+let g:go_addtags_transform = "camelcase"
+let g:go_highlight_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_def_mapping_enabled = 0
+
+augroup go
+  autocmd!
+
+  " Show by default 4 spaces for a tab
+  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+  " :GoBuild and :GoTestCompile
+  autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
+  " :GoTest
+  autocmd FileType go nmap <leader>t  <Plug>(go-test)
+
+  " :GoRun
+  autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+  " :GoDoc
+  autocmd FileType go nmap <Leader>d <Plug>(go-doc)
+
+  " :GoCoverageToggle
+  autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+  " :GoInfo
+  autocmd FileType go nmap <Leader>i <Plug>(go-info)
+
+  " :GoMetaLinter
+  autocmd FileType go nmap <Leader>l <Plug>(go-metalinter)
+
+  " :GoDef but opens in a vertical split
+  autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
+  " :GoDef but opens in a horizontal split
+  autocmd FileType go nmap <Leader>s <Plug>(go-def-split)
+
+  " :GoAlternate  commands :A, :AV, :AS and :AT
+  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+  autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+augroup END
+
+" build_go_files is a custom function that builds or compiles the test file.
+" It calls :GoBuild if its a Go file, or :GoTestCompile if it's a test file
 function! s:build_go_files()
   let l:file = expand('%')
   if l:file =~# '^\f\+_test\.go$'
@@ -164,20 +180,6 @@ function! s:build_go_files()
     call go#cmd#Build(0)
   endif
 endfunction
-
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-
-let g:go_fmt_command = "goimports"
-let g:go_addtags_transform = "camelcase"
-let g:go_highlight_types = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_build_constraints = 1
-let g:go_def_mapping_enabled = 0
-
 
 " -------------------------------------------------------------------------------------------------
 " coc.nvim default settings
