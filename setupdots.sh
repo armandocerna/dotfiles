@@ -2,8 +2,6 @@
 mkdir -p ~/.tmp/{undo,backup,swap}
 mkdir -p ~/.vim
 mkdir -p ~/.config
-mkdir -p ~/.config/fontconfig
-mkdir -p ~/.config/i3
 ln -sf ~/.vim ~/.config/nvim
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -22,10 +20,14 @@ ln -sf ~/dotfiles/prezto/zprofile ~/.zprofile
 ln -sf ~/dotfiles/prezto/zshenv ~/.zshenv
 ln -sf ~/dotfiles/prezto/zshrc ~/.zshrc
 ln -sf ~/dotfiles/prezto/aliases.sh ~/.aliases.sh
-ln -sf ~/dotfiles/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
-ln -sf ~/dotfiles/i3/config ~/.config/i3/config
-ln -sf ~/dotfiles/i3blocks/config ~/.i3blocks.conf
-ln -sf ~/dotfiles/xmodmap/xmodmap ~/.Xmodmap
 ln -sf ~/dotfiles/intellij/ideavimrc ~/.ideavimrc
 
-sudo ln -sf ~/dotfiles/scripts/dock.rb /usr/local/bin/dock.rb
+# Darwin Specific things
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    mkdir -p ~/.config/fontconfig
+    mkdir -p ~/.config/i3
+    ln -sf ~/dotfiles/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
+    ln -sf ~/dotfiles/i3/config ~/.config/i3/config
+    ln -sf ~/dotfiles/i3blocks/config ~/.i3blocks.conf
+    ln -sf ~/dotfiles/xmodmap/xmodmap ~/.Xmodmap
+fi

@@ -3,59 +3,48 @@ filetype off                  " required
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-endwise'
 Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'unblevable/quick-scope'
 Plug 'pearofducks/ansible-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'wellle/targets.vim'
-Plug 'derekwyatt/vim-scala'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'christoomey/vim-tmux-navigator'
+" Plug 'edkolev/tmuxline.vim'
+Plug 'justinmk/vim-sneak'
+Plug 'dhruvasagar/vim-zoom'
+Plug 'fatih/vim-go'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+" Themes
+Plug 'dfxyz/CandyPaper.vim'
+Plug 'chriskempson/base16-vim'
 Plug 'tomasr/molokai'
 Plug 'whatyouhide/vim-gotham'
-Plug 'edkolev/tmuxline.vim'
-Plug 'kassio/neoterm'
-Plug 'chriskempson/base16-vim'
-Plug 'justinmk/vim-sneak'
-Plug 'fatih/vim-go'
-Plug 'neomake/neomake'
-Plug 'dfxyz/CandyPaper.vim'
-Plug 'dhruvasagar/vim-zoom'
-
-function! DoRemote(arg)
-  UpdateRemotePlugins
-endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'fishbullet/deoplete-ruby'
-Plug 'zchee/deoplete-jedi'
-
+Plug 'vim-airline/vim-airline-themes'
+Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 
 filetype plugin on
 syntax on
 set background=dark
 set t_Co=256
-colo CandyPaper
+colo dracula
 " Disable mouse click position change
-set mouse-=a
+set mouse=a
 " Clear background color from loaded theme
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 
 filetype plugin indent on
-set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-set relativenumber
+set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 set number
 set updatetime=250
 let mapleader = "\<Space>"
@@ -64,12 +53,11 @@ let mapleader = "\<Space>"
 set ttyfast
 set lazyredraw
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
-
-" neomake
-" autocmd! BufWritePost * Neomake!
-let g:neomake_open_list = 2
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " nvimux
 let g:nvimux_prefix='<C-a>'
@@ -94,32 +82,14 @@ endif
 
 " Enable Airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='hybridline'
+let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
 
 set autowrite " Write file on :make
 
 " Quickscope
 " let g:qs_enable = 1
-" let g:qs_enable_char_list = [ 'f', 'F', 't', 'T' ]
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-" function! Quick_scope_selective(movement)
-"     let needs_disabling = 0
-"     if !g:qs_enable
-"         QuickScopeToggle
-"         redraw
-"         let needs_disabling = 1
-"     endif
-"     let letter = nr2char(getchar())
-"     if needs_disabling
-"         QuickScopeToggle
-"     endif
-"     return a:movement . letter
-" endfunction
-
-" for i in g:qs_enable_char_list
-"   execute 'noremap <expr> <silent>' . i . " Quick_scope_selective('". i . "')"
-" endfor
 
 imap jj <Esc>
 
@@ -140,15 +110,9 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 nnoremap <silent> <C-p> :Files<cr>
 nnoremap <leader>/ :Ag<space>
 nnoremap <silent> <leader>f :Files<cr>
-nnoremap <silent> <leader>gdo :Files ~/workspace/devops<cr>
-nnoremap <silent> <leader>gml :Files ~/workspace/mavenlink<cr>
 nnoremap <silent> <leader>dab :1,$bd<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
-nnoremap <silent> <leader>gr :GoRun<cr>
-nnoremap <silent> <leader>gb :GoBuild<cr>
 nnoremap <silent> <leader>ws :StripWhitespace<cr>
-nnoremap <silent> <leader>vim :e ~/.vimrc<cr>
-nnoremap <silent> <leader>db :!terminal docker-compose build && docker-compose down && docker-compose up<cr>
 
 " Toggle between normal and relative numbering.
 nnoremap <leader>ln :set rnu!<cr>
@@ -156,7 +120,58 @@ nnoremap <leader>ln :set rnu!<cr>
 " Close quickfix
 nnoremap <leader>a :cclose<CR>
 
-" run :GoBuild or :GoTestCompile based on the go file
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
+let g:go_addtags_transform = "camelcase"
+let g:go_highlight_types = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_def_mapping_enabled = 0
+
+augroup go
+  autocmd!
+
+  " Show by default 4 spaces for a tab
+  autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
+
+  " :GoBuild and :GoTestCompile
+  autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+
+  " :GoTest
+  autocmd FileType go nmap <leader>t  <Plug>(go-test)
+
+  " :GoRun
+  autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+  " :GoDoc
+  autocmd FileType go nmap <Leader>d <Plug>(go-doc)
+
+  " :GoCoverageToggle
+  autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
+  " :GoInfo
+  autocmd FileType go nmap <Leader>i <Plug>(go-info)
+
+  " :GoMetaLinter
+  autocmd FileType go nmap <Leader>l <Plug>(go-metalinter)
+
+  " :GoDef but opens in a vertical split
+  autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
+  " :GoDef but opens in a horizontal split
+  autocmd FileType go nmap <Leader>s <Plug>(go-def-split)
+
+  " :GoAlternate  commands :A, :AV, :AS and :AT
+  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+  autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
+augroup END
+
+" build_go_files is a custom function that builds or compiles the test file.
+" It calls :GoBuild if its a Go file, or :GoTestCompile if it's a test file
 function! s:build_go_files()
   let l:file = expand('%')
   if l:file =~# '^\f\+_test\.go$'
@@ -166,14 +181,70 @@ function! s:build_go_files()
   endif
 endfunction
 
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+" -------------------------------------------------------------------------------------------------
+" coc.nvim default settings
+" -------------------------------------------------------------------------------------------------
 
-let g:go_fmt_command = "goimports"
-let g:go_addtags_transform = "camelcase"
-let g:go_highlight_types = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_build_constraints = 1
+" if hidden is not set, TextEdit might fail.
+set hidden
+" Better display for messages
+set cmdheight=2
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use U to show documentation in preview window
+nnoremap <silent> U :call <SID>show_documentation()<CR>
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+" vmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
+
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
