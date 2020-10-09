@@ -19,6 +19,7 @@ ln -sf ~/dotfiles/prezto/zpreztorc ~/.zpreztorc
 ln -sf ~/dotfiles/prezto/zprofile ~/.zprofile
 ln -sf ~/dotfiles/prezto/zshenv ~/.zshenv
 ln -sf ~/dotfiles/prezto/zshrc ~/.zshrc
+ln -sf ~/dotfiles/prezto/p10k.zsh ~/.p10k.zsh
 ln -sf ~/dotfiles/prezto/aliases.sh ~/.aliases.sh
 ln -sf ~/dotfiles/intellij/ideavimrc ~/.ideavimrc
 
