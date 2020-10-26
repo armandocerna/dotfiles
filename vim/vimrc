@@ -92,6 +92,9 @@ set autowrite " Write file on :make
 " let g:qs_enable = 1
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
+"Jsonnet
+let g:jsonnet_fmt_on_save = 0
+
 imap jj <Esc>
 
 " FZF
