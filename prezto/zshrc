@@ -33,6 +33,8 @@ export PATH=$PATH:$HOME/workspace/blackbox/bin
 
 
 # (wal -r &)
+[ -f ~/dotfiles/aliases/kubectl ] && source ~/dotfiles/aliases/kubectl
+
 
 cpstat () {
   tar cf - "$1" | pv | (cd "$2";tar xf -)
