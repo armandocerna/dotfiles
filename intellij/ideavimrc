@@ -9,6 +9,8 @@ set number                        " line numbers
 set scrolloff=5 sidescrolloff=10  " keep some lines before and after the cursor visible
 " set clipboard=unnamedplus,unnamed " integrate with system clipboard
 set surround                      " emulate vim-surround plugin
+set visualbell
+set noerrorbells
 
 " set <leader> to <space>
 let mapleader = " "
