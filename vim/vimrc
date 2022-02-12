@@ -45,7 +45,7 @@ highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 
 filetype plugin indent on
-set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+set tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 set number
 set updatetime=250
 let mapleader = "\<Space>"
@@ -114,6 +114,8 @@ inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
 nnoremap <silent> <C-p> :Files<cr>
 nnoremap <leader>/ :Ag<space>
 nnoremap <silent> <leader>f :Files<cr>
+nnoremap <silent> <leader>b :Buffers<cr>
+" nnoremap <silent> <leader>dob :%bdelete|edit #<cr>
 nnoremap <silent> <leader>dab :1,$bd<cr>
 nnoremap <silent> <leader>gs :Gstatus<cr>
 nnoremap <silent> <leader>ws :StripWhitespace<cr>
@@ -142,7 +144,7 @@ augroup go
   autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
   " :GoBuild and :GoTestCompile
-  autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+  " autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
   " :GoTest
   autocmd FileType go nmap <leader>t  <Plug>(go-test)
