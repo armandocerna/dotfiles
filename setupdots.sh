@@ -1,16 +1,11 @@
 #!/bin/bash
-mkdir -p ~/.tmp/{undo,backup,swap}
-mkdir -p ~/.vim
 mkdir -p ~/.config
-ln -sf ~/.vim ~/.config/nvim
 
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\
+ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-ln -sf ~/dotfiles/vim/vimrc ~/.vimrc
-ln -sf ~/dotfiles/vim/vimrc ~/.config/nvim/init.vim
-ln -sf ~/dotfiles/vim/colors ~/.vim/colors
-ln -sf ~/dotfiles/xresources/Xresources ~/.Xresources
+ln -sf ~/dotfiles/nvim ~/.config/nvim
 ln -sf ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/tmux/tmux-theme.conf ~/.tmux-theme.conf
 ln -sf ~/dotfiles/prezto/zlogin ~/.zlogin
@@ -31,4 +26,5 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     ln -sf ~/dotfiles/i3/config ~/.config/i3/config
     ln -sf ~/dotfiles/i3blocks/config ~/.i3blocks.conf
     ln -sf ~/dotfiles/xmodmap/xmodmap ~/.Xmodmap
+    ln -sf ~/dotfiles/xresources/Xresources ~/.Xresources
 fi
