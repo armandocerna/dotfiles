@@ -71,7 +71,14 @@ require('lspconfig').jsonls.setup{
 }
 
 require('lspconfig').lua_ls.setup{
-  on_attach = on_attach
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = {'vim', 'on_attach'}
+      }
+    }
+  }
 }
 
 require('lspconfig').sqlls.setup{
