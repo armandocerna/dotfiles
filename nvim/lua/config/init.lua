@@ -1,6 +1,4 @@
 -- Basic settings
-vim.opt.background = 'dark'
-vim.opt.termguicolors = true
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
@@ -11,7 +9,11 @@ vim.opt.autowrite = true
 vim.opt.mouse = 'a'
 vim.opt.ttyfast = true
 vim.opt.lazyredraw = true
+vim.opt.background = 'dark'
+vim.opt.termguicolors = true
 vim.cmd('colorscheme dracula')
+vim.cmd('highlight Normal guibg=NONE')
+vim.cmd('highlight nonText guibg=NONE')
 
 -- Undo/Backup
 local tmp = vim.fn.stdpath('data')
