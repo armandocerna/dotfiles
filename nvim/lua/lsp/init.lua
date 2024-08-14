@@ -86,7 +86,19 @@ require('lspconfig').sqlls.setup{
 }
 
 require('lspconfig').tailwindcss.setup{
-  on_attach = on_attach
+  on_attach = on_attach,
+  settings = {
+    tailwindCSS = {
+      validate = true,
+      classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
+      includeLanguages = {
+        eelixir = "html-eex",
+        eruby = "erb",
+        htmlangular = "html",
+        templ = "html"
+      }
+    }
+  }
 }
 
 require('lspconfig').terraformls.setup{
