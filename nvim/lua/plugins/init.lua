@@ -27,6 +27,16 @@ require('packer').startup(function(use)
   use 'williamboman/mason.nvim'
   use 'williamboman/mason-lspconfig.nvim'
   use 'neovim/nvim-lspconfig'
+  use 'joerdav/templ.vim'
+  use {
+  'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',    -- LSP source for nvim-cmp
+      'hrsh7th/cmp-buffer',      -- Buffer completions
+      'hrsh7th/cmp-path',        -- Path completions
+      'hrsh7th/cmp-cmdline',     -- Cmdline completions
+    }
+  }
   -- Themes
   use 'dfxyz/CandyPaper.vim'
   use 'chriskempson/base16-vim'
