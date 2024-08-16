@@ -51,6 +51,7 @@ require('packer').startup(function(use)
   use 'whatyouhide/vim-gotham'
   use 'vim-airline/vim-airline-themes'
   use {'dracula/vim', as = 'dracula'}
+  use 'tinted-theming/base16-vim'
 end)
 
 -- Treesitter

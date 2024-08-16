@@ -11,7 +11,7 @@ vim.opt.ttyfast = true
 vim.opt.lazyredraw = true
 vim.opt.background = 'dark'
 vim.opt.termguicolors = true
-vim.cmd('colorscheme dracula')
+vim.cmd('colorscheme base16-eighties')
 vim.cmd('highlight Normal guibg=NONE')
 vim.cmd('highlight nonText guibg=NONE')
 
@@ -45,7 +45,7 @@ end
 -- Airline
 vim.g.airline_extensions = { 'tabline' }
 vim.g.airline_extensions_tabline_enabled = 1
-vim.g.airline_theme = 'dracula'
+vim.g.airline_theme = 'base16'
 vim.g.airline_powerline_fonts = 1
 
 -- Quickscope
