@@ -8,6 +8,7 @@ config.enable_scroll_bar = false
 config.font_size = 14.0
 config.native_macos_fullscreen_mode = true
 config.window_decorations = "RESIZE"
+config.audible_bell = "Disabled"
 
 -- No Padding
 config.window_padding = {
