@@ -18,6 +18,9 @@ ln -sf ~/dotfiles/prezto/p10k.zsh ~/.p10k.zsh
 ln -sf ~/dotfiles/prezto/aliases.sh ~/.aliases.sh
 ln -sf ~/dotfiles/intellij/ideavimrc ~/.ideavimrc
 
+# Scripts
+ln -sf ~/dotfiles/scripts/tmux_battery.sh ~/bin/tmux_battery.sh
+
 # Linux Specific things
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     mkdir -p ~/.config/fontconfig
