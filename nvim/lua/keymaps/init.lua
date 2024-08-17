@@ -19,5 +19,10 @@ vim.api.nvim_set_keymap('n', '<leader>ws', ':StripWhitespace<cr>', { noremap = t
 vim.api.nvim_set_keymap('n', '<leader>ln', ':set rnu!<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>a', ':cclose<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>t', ':NvimTreeOpen<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>yy', '"+yy', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>y', '"+y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>p', '"+p', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<leader>p', '"+p', { noremap = true, silent = true })
 
 
