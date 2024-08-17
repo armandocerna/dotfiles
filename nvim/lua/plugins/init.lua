@@ -51,10 +51,14 @@ require("lazy").setup({
 
   -- Fuzzy Finder
   {
-    'junegunn/fzf',
-    build = './install --all'
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -- calling `setup` is optional for customization
+      require("fzf-lua").setup({})
+    end
   },
-  'junegunn/fzf.vim',           -- Fzf integration for vim
 
   -- Code Completion
   {
