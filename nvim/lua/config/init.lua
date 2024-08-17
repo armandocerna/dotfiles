@@ -42,12 +42,6 @@ else
   vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true })
 end
 
--- Airline
-vim.g.airline_extensions = { 'tabline' }
-vim.g.airline_extensions_tabline_enabled = 1
-vim.g.airline_theme = 'base16'
-vim.g.airline_powerline_fonts = 1
-
 -- Quickscope
 vim.g.qs_highlight_on_keys = {'f', 'F', 't', 'T'}
 

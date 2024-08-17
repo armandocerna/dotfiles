@@ -1,60 +1,104 @@
--- Plugin manager
-vim.cmd [[packadd packer.nvim]]
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out, "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
 
-require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-surround'
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-repeat'
-  use 'tpope/vim-unimpaired'
-  use 'tpope/vim-endwise'
-  use 'bling/vim-airline'
-  use 'unblevable/quick-scope'
-  use 'pearofducks/ansible-vim'
-  use 'airblade/vim-gitgutter'
-  use {'junegunn/fzf', run = './install --all'}
-  use 'junegunn/fzf.vim'
-  use 'wellle/targets.vim'
-  use 'ntpeters/vim-better-whitespace'
-  use 'nathanaelkane/vim-indent-guides'
-  use 'christoomey/vim-tmux-navigator'
-  use 'justinmk/vim-sneak'
-  use 'dhruvasagar/vim-zoom'
-  use 'fatih/vim-go'
-  use 'google/vim-jsonnet'
-  use 'github/copilot.vim'
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
-  use 'neovim/nvim-lspconfig'
-  use 'joerdav/templ.vim'
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-  use {
-  'hrsh7th/nvim-cmp',
-    requires = {
+require("lazy").setup({
+  -- Essential Vim Enhancements
+  'tpope/vim-fugitive',         -- Git integration
+  'tpope/vim-surround',         -- Manipulate surrounding characters
+  'tpope/vim-commentary',       -- Commenting utility
+  'tpope/vim-repeat',           -- Enable repeat support for plugins
+  'tpope/vim-unimpaired',       -- Pairs of handy bracket mappings
+  'tpope/vim-endwise',          -- Automatically add `end` in Ruby, etc.
+
+  -- UI Enhancements
+  'bling/vim-airline',          -- Status/tabline
+  'bling/vim-airline',          -- Status/tabline
+  {
+    'vim-airline/vim-airline-themes',
+    lazy = false,               -- Ensure it loads immediately with vim-airline
+    config = function()
+      vim.g.airline_theme = 'base16'  -- Apply your preferred theme
+      vim.g.airline_powerline_fonts = 1  -- Use Powerline fonts if required
+      vim.g.airline_extensions = { 'tabline' }
+      vim.g.airline_extensions_tabline_enabled = 1
+    end,
+  },
+  'vim-airline/vim-airline-themes', -- Themes for vim-airline
+  'airblade/vim-gitgutter',     -- Git diff in the gutter
+  'ntpeters/vim-better-whitespace', -- Highlight and strip trailing whitespace
+  'nathanaelkane/vim-indent-guides', -- Display indent levels with guides
+  'dhruvasagar/vim-zoom',       -- Zoom into splits
+
+  -- Navigation
+  'christoomey/vim-tmux-navigator', -- Seamless navigation between vim and tmux
+  'justinmk/vim-sneak',         -- Jump to any location specified by two characters
+  'wellle/targets.vim',         -- Additional text objects
+  'unblevable/quick-scope',     -- Highlight unique characters to jump to
+
+  -- Fuzzy Finder
+  {
+    'junegunn/fzf',
+    build = './install --all'
+  },
+  'junegunn/fzf.vim',           -- Fzf integration for vim
+
+  -- Code Completion
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = {
       'hrsh7th/cmp-nvim-lsp',    -- LSP source for nvim-cmp
       'hrsh7th/cmp-buffer',      -- Buffer completions
       'hrsh7th/cmp-path',        -- Path completions
       'hrsh7th/cmp-cmdline',     -- Cmdline completions
     }
-  }
-  use {
-  'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional
-    },
-  }
-  -- Themes
-  use 'dfxyz/CandyPaper.vim'
-  use 'chriskempson/base16-vim'
-  use 'tomasr/molokai'
-  use 'whatyouhide/vim-gotham'
-  use 'vim-airline/vim-airline-themes'
-  use {'dracula/vim', as = 'dracula'}
-  use 'tinted-theming/base16-vim'
-end)
+  },
 
--- Treesitter
+  -- Language Server Protocol (LSP)
+  'williamboman/mason.nvim',    -- Manage LSP servers, linters & formatters
+  'williamboman/mason-lspconfig.nvim', -- Bridge mason with lspconfig
+  'neovim/nvim-lspconfig',      -- Quickstart configurations for the Nvim LSP client
+
+  -- Language Support
+  'fatih/vim-go',               -- Go development
+  'google/vim-jsonnet',         -- Jsonnet support
+  'joerdav/templ.vim',          -- Templating support
+
+  -- Code Syntax Highlighting
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate'
+  },
+
+  -- File Explorer
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies = {
+      'nvim-tree/nvim-web-devicons', -- File icons for nvim-tree
+    },
+  },
+
+  -- AI Assistant
+  'github/copilot.vim',         -- GitHub Copilot for AI pair programming
+
+  -- Themes
+  'tinted-theming/base16-vim',  -- Base16 themes for vim
+})
+
+-- Treesitter Config
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "go", "jsonnet", "json", "python", "bash", "html", "css", "javascript", "typescript", "rust", "toml", "dockerfile", "lua", "python", "ruby", "yaml"},
   sync_install = false,
@@ -67,5 +111,5 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 
--- Nvim-tree
+-- Nvim-tree Config
 require("nvim-tree").setup()
