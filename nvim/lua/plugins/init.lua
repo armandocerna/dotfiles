@@ -47,7 +47,7 @@ require("lazy").setup({
     end,
   },
   'vim-airline/vim-airline-themes', -- Themes for vim-airline
-  'airblade/vim-gitgutter',     -- Git diff in the gutter
+  'lewis6991/gitsigns.nvim',     -- Git diff in the gutter
   'ntpeters/vim-better-whitespace', -- Highlight and strip trailing whitespace
   'nathanaelkane/vim-indent-guides', -- Display indent levels with guides
   'dhruvasagar/vim-zoom',       -- Zoom into splits
@@ -126,3 +126,6 @@ require'nvim-treesitter.configs'.setup {
 
 -- Nvim-tree Config
 require("nvim-tree").setup()
+
+-- gitsigns Config
+require('gitsigns').setup()
