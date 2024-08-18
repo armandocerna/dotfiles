@@ -17,12 +17,21 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   -- Essential Vim Enhancements
-  'tpope/vim-fugitive',         -- Git integration
+  -- 'tpope/vim-fugitive',         -- Git integration
   'tpope/vim-surround',         -- Manipulate surrounding characters
   'tpope/vim-commentary',       -- Commenting utility
   'tpope/vim-repeat',           -- Enable repeat support for plugins
   'tpope/vim-unimpaired',       -- Pairs of handy bracket mappings
   'tpope/vim-endwise',          -- Automatically add `end` in Ruby, etc.
+  {
+  "NeogitOrg/neogit",
+  dependencies = {
+    "nvim-lua/plenary.nvim",         -- required
+    "sindrets/diffview.nvim",        -- optional - Diff integration
+    "ibhagwan/fzf-lua",              -- optional
+  },
+  config = true
+  },
 
   -- UI Enhancements
   'bling/vim-airline',          -- Status/tabline

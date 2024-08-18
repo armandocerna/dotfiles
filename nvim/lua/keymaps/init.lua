@@ -6,7 +6,7 @@ vim.api.nvim_set_keymap('n', '<leader>f', ':FzfLua files<cr>', { noremap = true,
 vim.api.nvim_set_keymap('n', '<leader>gf', ':FzfLua git_files<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>b', ':FzfLua buffers<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>dab', ':1,$bd<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>gs', ':Git<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gs', ':Neogit<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ws', ':StripWhitespace<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ln', ':set rnu!<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>a', ':cclose<CR>', { noremap = true, silent = true })
