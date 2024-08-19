@@ -11,7 +11,7 @@ vim.opt.ttyfast = true
 vim.opt.lazyredraw = true
 vim.opt.background = 'dark'
 vim.opt.termguicolors = true
-vim.cmd('colorscheme base16-eighties')
+vim.cmd[[colorscheme tokyonight]]
 vim.cmd('highlight Normal guibg=NONE')
 vim.cmd('highlight nonText guibg=NONE')
 

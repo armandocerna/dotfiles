@@ -35,7 +35,6 @@ require("lazy").setup({
 
   -- UI Enhancements
   'bling/vim-airline',          -- Status/tabline
-  'bling/vim-airline',          -- Status/tabline
   {
     'vim-airline/vim-airline-themes',
     lazy = false,               -- Ensure it loads immediately with vim-airline
@@ -109,6 +108,12 @@ require("lazy").setup({
 
   -- Themes
   'tinted-theming/base16-vim',  -- Base16 themes for vim
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 })
 
 -- Treesitter Config
