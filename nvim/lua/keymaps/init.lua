@@ -1,9 +1,9 @@
 -- Keymappings
 vim.g.mapleader = ' '
 vim.api.nvim_set_keymap('i', 'jj', '<Esc>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>/', ':Pick grep<cr>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>f', ':Pick files<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>gf', ':Pick files tool="git"<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>/', ':FzfLua grep<cr>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>f', ':FzfLua files<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gf', ':FzfLua git_files<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>b', ':FzfLua buffers<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>bd', ':bd<cr>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>dab', ':1,$bd<cr>', { noremap = true, silent = true })
