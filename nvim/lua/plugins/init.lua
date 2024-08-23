@@ -24,28 +24,26 @@ require("lazy").setup({
   'tpope/vim-unimpaired',       -- Pairs of handy bracket mappings
   'tpope/vim-endwise',          -- Automatically add `end` in Ruby, etc.
   {
-  "NeogitOrg/neogit",
-  dependencies = {
-    "nvim-lua/plenary.nvim",         -- required
-    "sindrets/diffview.nvim",        -- optional - Diff integration
-    "ibhagwan/fzf-lua",              -- optional
-  },
-  config = true
-  },
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",         -- required
+      "sindrets/diffview.nvim",        -- optional - Diff integration
+      "ibhagwan/fzf-lua",              -- optional
+    },
+    config = true
+    },
 
   -- UI Enhancements
-  'bling/vim-airline',          -- Status/tabline
   {
-    'vim-airline/vim-airline-themes',
-    lazy = false,               -- Ensure it loads immediately with vim-airline
-    config = function()
-      vim.g.airline_theme = 'base16'  -- Apply your preferred theme
-      vim.g.airline_powerline_fonts = 1  -- Use Powerline fonts if required
-      vim.g.airline_extensions = { 'tabline' }
-      vim.g.airline_extensions_tabline_enabled = 1
-    end,
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
   },
-  'vim-airline/vim-airline-themes', -- Themes for vim-airline
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons',
+    config = true,
+  },
   'lewis6991/gitsigns.nvim',     -- Git diff in the gutter
   'ntpeters/vim-better-whitespace', -- Highlight and strip trailing whitespace
   'nathanaelkane/vim-indent-guides', -- Display indent levels with guides
@@ -105,9 +103,6 @@ require("lazy").setup({
 
   -- AI Assistant
   'github/copilot.vim',         -- GitHub Copilot for AI pair programming
-
-  -- Themes
-  'tinted-theming/base16-vim',  -- Base16 themes for vim
   {
     "folke/tokyonight.nvim",
     lazy = false,
@@ -134,3 +129,32 @@ require("nvim-tree").setup()
 
 -- gitsigns Config
 require('gitsigns').setup()
+
+-- Lualine Config
+require('lualine').setup {
+  options = {
+    theme = 'moonfly',
+    section_separators = { '', '' },
+    component_separators = { '', '' },
+  },
+  sections = {
+    lualine_a = { 'mode' },
+    lualine_b = { 'branch' },
+    lualine_c = { 'filename' },
+    lualine_x = { 'encoding', 'fileformat', 'filetype' },
+    lualine_y = { 'progress' },
+    lualine_z = { 'location'  },
+  },
+}
+
+-- Bufferline Config
+require('bufferline').setup {
+  options = {
+    right_mouse_command = "bdelete! %d",
+    -- Enable Lualine integration with bufferline
+    diagnostics = "nvim_lsp",
+    show_buffer_close_icons = false,
+    show_close_icon = false,
+    show_tab_indicators = true,
+  }
+}
