@@ -100,6 +100,7 @@ require("lazy").setup({
       'nvim-tree/nvim-web-devicons', -- File icons for nvim-tree
     },
   },
+  { 'echasnovski/mini.files', version = '*' },
 
   -- AI Assistant
   'github/copilot.vim',         -- GitHub Copilot for AI pair programming
@@ -158,3 +159,6 @@ require('bufferline').setup {
     show_tab_indicators = true,
   }
 }
+
+-- mini.files
+require('mini.files').setup()
