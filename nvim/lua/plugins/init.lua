@@ -28,6 +28,7 @@ require("lazy").setup({
     dependencies = {
       "nvim-lua/plenary.nvim",         -- required
       "sindrets/diffview.nvim",        -- optional - Diff integration
+      "ibhagwan/fzf-lua",              -- optional
     },
     config = true
     },
@@ -55,7 +56,11 @@ require("lazy").setup({
   'unblevable/quick-scope',     -- Highlight unique characters to jump to
 
   -- Fuzzy Finder
-  { 'echasnovski/mini.pick', version = '*' },
+  {
+    "ibhagwan/fzf-lua",
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
 
   -- Code Completion
   {
@@ -154,5 +159,12 @@ require('bufferline').setup {
 -- mini.files
 require('mini.files').setup()
 
--- mini.pick
-require('mini.pick').setup()
+-- fzf-lua Config
+require('fzf-lua').setup {
+  actions = {
+    files = {
+      ["default"] = require("fzf-lua.actions").file_edit,
+    },
+  },
+}
+
