@@ -99,7 +99,8 @@ require("lazy").setup({
   { 'echasnovski/mini.files', version = '*' },
 
   -- AI Assistant
-  'github/copilot.vim',         -- GitHub Copilot for AI pair programming
+  -- 'github/copilot.vim',         -- GitHub Copilot for AI pair programming
+  'pasky/claude.vim',           -- Claude AI integration
   {
     "folke/tokyonight.nvim",
     lazy = false,
