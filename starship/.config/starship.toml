@@ -18,7 +18,7 @@ format = "[$symbol$branch]($style) "
 
 [git_status]
 style = "red"
-stashed = "\\*"
+stashed = '*'
 
 [kubernetes]
 disabled = false
