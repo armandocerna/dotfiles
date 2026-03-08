@@ -2,11 +2,11 @@ STOW_FLAGS := --target=$(HOME) --restow
 
 PACKAGES := zsh tmux nvim starship ghostty git wezterm
 
-BREW_PACKAGES := neovim tmux starship fzf fd ripgrep bat stow
+BREW_PACKAGES := neovim tmux starship fzf fd ripgrep bat stow node go lua-language-server
 
-PACMAN_PACKAGES := neovim tmux starship fzf fd ripgrep bat stow ghostty
+PACMAN_PACKAGES := neovim tmux starship fzf fd ripgrep bat stow ghostty npm go lua-language-server base-devel
 
-APT_PACKAGES := neovim tmux fzf fd-find ripgrep bat stow
+APT_PACKAGES := neovim tmux fzf fd-find ripgrep bat stow nodejs npm golang build-essential
 
 .PHONY: install uninstall $(PACKAGES) deps deps-mac deps-arch deps-apt
 
