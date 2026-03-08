@@ -2,7 +2,7 @@ STOW_FLAGS := --target=$(HOME) --restow
 
 PACKAGES := zsh tmux nvim starship ghostty git wezterm
 
-BREW_PACKAGES := neovim tmux starship fzf fd ripgrep bat stow ghostty
+BREW_PACKAGES := neovim tmux starship fzf fd ripgrep bat stow
 
 PACMAN_PACKAGES := neovim tmux starship fzf fd ripgrep bat stow ghostty
 
@@ -34,6 +34,7 @@ endif
 deps-mac:
 	@command -v brew >/dev/null || (echo "Install Homebrew first: https://brew.sh" && exit 1)
 	brew install $(BREW_PACKAGES)
+	@command -v ghostty >/dev/null || echo "NOTE: Install Ghostty from https://ghostty.org/download"
 
 deps-apt:
 	sudo apt update
