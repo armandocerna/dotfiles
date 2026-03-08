@@ -1,0 +1,8 @@
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+[user]
+	name = Armando Cerna
+	email = armandocerna@gmail.com

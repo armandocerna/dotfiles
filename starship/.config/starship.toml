@@ -1,0 +1,68 @@
+palette = "tokyo_night"
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$cmd_duration\
+$character"""
+
+[directory]
+style = "blue bold"
+truncation_length = 3
+truncate_to_repo = true
+
+[git_branch]
+style = "magenta"
+format = "[$symbol$branch]($style) "
+
+[git_status]
+style = "red"
+
+[kubernetes]
+disabled = false
+style = "muted"
+format = "[$context:$namespace]($style)"
+
+[golang]
+style = "cyan"
+format = "[$symbol$version]($style) "
+
+[python]
+style = "yellow"
+format = "[$symbol$version]($style) "
+
+[nodejs]
+style = "green"
+format = "[$symbol$version]($style) "
+
+[rust]
+style = "red"
+format = "[$symbol$version]($style) "
+
+[terraform]
+style = "magenta"
+format = "[$symbol$version]($style) "
+
+[cmd_duration]
+style = "yellow"
+min_time = 2000
+format = "[$duration]($style) "
+
+[fill]
+symbol = " "
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+
+[palettes.tokyo_night]
+blue = "#7aa2f7"
+cyan = "#7dcfff"
+green = "#9ece6a"
+magenta = "#bb9af7"
+red = "#f7768e"
+yellow = "#e0af68"
+fg = "#c0caf5"
+muted = "#565f89"
+bg = "#1a1b26"

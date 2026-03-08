@@ -17,7 +17,8 @@ fi
 # Executes commands at the start of an interactive session.
 
 # Load fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 
 unsetopt AUTO_NAME_DIRS
@@ -25,11 +26,13 @@ unsetopt AUTO_NAME_DIRS
 # Source aliases
 source ~/.aliases.sh
 
+
 export GOPATH=~/workspace/go
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 export PATH=$PATH:/opt/goland/bin
 export PATH=$PATH:$HOME/workspace/blackbox/bin
+export PATH=$PATH:$HOME/.local/bin
 
 
 # (wal -r &)
@@ -40,6 +43,18 @@ cpstat () {
   tar cf - "$1" | pv | (cd "$2";tar xf -)
 }
 
+watchi () {
+  watch "zsh -ic '$*'"
+}
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# pnpm
+export PNPM_HOME="/home/armando/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
