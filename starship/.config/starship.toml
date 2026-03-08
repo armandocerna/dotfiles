@@ -1,6 +1,7 @@
 palette = "tokyo_night"
 
 format = """
+$hostname\
 $directory\
 $git_branch\
 $git_status\
@@ -15,6 +16,11 @@ truncate_to_repo = true
 [git_branch]
 style = "magenta"
 format = "[$symbol$branch]($style) "
+
+[hostname]
+ssh_only = true
+style = "yellow"
+format = "[$hostname]($style):"
 
 [git_status]
 style = "red"
