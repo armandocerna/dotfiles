@@ -14,6 +14,13 @@ path=(
   $path
 )
 
+# Homebrew (macOS)
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
 # Go
 export GOPATH=$HOME/workspace/go
 path=($GOPATH/bin /usr/local/go/bin $path)
@@ -22,11 +29,11 @@ path=($GOPATH/bin /usr/local/go/bin $path)
 export PNPM_HOME="$HOME/.local/share/pnpm"
 path=($PNPM_HOME $path)
 
-# Capslock as ctrl
-export XKB_DEFAULT_OPTIONS=ctrl:nocaps
-
-# Temp files
-if [[ ! -d "$TMPDIR" ]]; then
-  export TMPDIR="/tmp/$LOGNAME"
-  mkdir -p -m 700 "$TMPDIR"
+# Linux-specific
+if [[ "$OSTYPE" == linux* ]]; then
+  export XKB_DEFAULT_OPTIONS=ctrl:nocaps
+  if [[ ! -d "$TMPDIR" ]]; then
+    export TMPDIR="/tmp/$LOGNAME"
+    mkdir -p -m 700 "$TMPDIR"
+  fi
 fi
