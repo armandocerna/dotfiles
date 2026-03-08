@@ -35,6 +35,7 @@ deps-mac:
 	@command -v brew >/dev/null || (echo "Install Homebrew first: https://brew.sh" && exit 1)
 	brew install $(BREW_PACKAGES)
 	@command -v ghostty >/dev/null || brew install --cask ghostty
+	@command -v wezterm >/dev/null || brew install --cask wezterm
 
 deps-apt:
 	sudo apt update
