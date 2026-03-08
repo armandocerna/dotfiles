@@ -80,9 +80,4 @@ export XKB_DEFAULT_OPTIONS=ctrl:nocaps
 export WLC_REPEAT_DELAY=200
 export WLC_REPEAT_RATE=50
 
-if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-  exec startx
-fi
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-source ~/.orbstack/shell/init.zsh 2>/dev/null || :

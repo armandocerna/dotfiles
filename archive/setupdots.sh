@@ -22,12 +22,12 @@ ln -sf ~/dotfiles/intellij/ideavimrc ~/.ideavimrc
 ln -sf ~/dotfiles/scripts/tmux_battery.sh ~/bin/tmux_battery.sh
 
 # Linux Specific things
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    mkdir -p ~/.config/fontconfig
-    mkdir -p ~/.config/i3
-    ln -sf ~/dotfiles/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
-    ln -sf ~/dotfiles/i3/config ~/.config/i3/config
-    ln -sf ~/dotfiles/i3blocks/config ~/.i3blocks.conf
-    ln -sf ~/dotfiles/xmodmap/xmodmap ~/.Xmodmap
-    ln -sf ~/dotfiles/xresources/Xresources ~/.Xresources
-fi
+# if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+#     mkdir -p ~/.config/fontconfig
+#     mkdir -p ~/.config/i3
+#     ln -sf ~/dotfiles/fontconfig/fonts.conf ~/.config/fontconfig/fonts.conf
+#     ln -sf ~/dotfiles/i3/config ~/.config/i3/config
+#     ln -sf ~/dotfiles/i3blocks/config ~/.i3blocks.conf
+#     ln -sf ~/dotfiles/xmodmap/xmodmap ~/.Xmodmap
+#     ln -sf ~/dotfiles/xresources/Xresources ~/.Xresources
+# fi

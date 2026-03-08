@@ -10,8 +10,7 @@ if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprofile"
 fi
 
-# Gnome keyring stuff for ssh agent
-# if [ -n "$DESKTOP_SESSION" ];then
-#     eval $(gnome-keyring-daemon --start)
-#     export SSH_AUTH_SOCK
-#   fi
+# SSH agent
+# if [[ -z "$SSH_AUTH_SOCK" ]]; then
+#   export SSH_AUTH_SOCK=$(ls ~/.ssh/agent/s.* 2>/dev/null | head -1)
+# fi

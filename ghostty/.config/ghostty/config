@@ -1,0 +1,8 @@
+theme = TokyoNight Night
+font-size = 14
+window-padding-x = 0
+window-padding-y = 0
+window-decoration = true
+mouse-hide-while-typing = true
+copy-on-select = clipboard
+confirm-close-surface = false
