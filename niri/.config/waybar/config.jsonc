@@ -1,0 +1,90 @@
+{
+  "layer": "overlay",
+  "position": "top",
+  "height": 38,
+  "spacing": 0,
+  "margin-top": 4,
+  "margin-left": 8,
+  "margin-right": 8,
+  "start_hidden": true,
+  "modules-left": [
+    "niri/workspaces",
+    "niri/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "custom/separator",
+    "cpu",
+    "custom/separator",
+    "memory",
+    "custom/separator",
+    "pulseaudio",
+    "custom/separator",
+    "network",
+    "custom/separator",
+    "tray"
+  ],
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
+  "niri/window": {
+    "format": "{}",
+    "max-length": 40,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": " $1",
+      "(.*) - Ghostty": " $1",
+      "(.*)": "$1"
+    }
+  },
+  "clock": {
+    "format": "  {:%a %d %b   %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "format": {
+        "today": "<b><u>{}</u></b>"
+      }
+    }
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 3,
+    "tooltip": true
+  },
+  "memory": {
+    "format": " {}%",
+    "interval": 3,
+    "tooltip-format": "{used:0.1f}G / {total:0.1f}G"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "  muted",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+",
+    "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
+  },
+  "network": {
+    "format-wifi": "  {essid}",
+    "format-ethernet": "󰈀 {ipaddr}",
+    "format-disconnected": "󰖪  offline",
+    "tooltip-format-wifi": " {signalStrength}%  {ipaddr}",
+    "tooltip-format-ethernet": "󰈀 {ipaddr}"
+  },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  },
+  "custom/separator": {
+    "format": "│",
+    "tooltip": false
+  }
+}
