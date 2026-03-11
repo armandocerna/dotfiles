@@ -8,12 +8,17 @@ PACMAN_PACKAGES := neovim tmux starship fzf fd ripgrep bat stow ghostty npm go l
 
 APT_PACKAGES := neovim tmux fzf fd-find ripgrep bat stow nodejs npm golang build-essential
 
-.PHONY: install uninstall $(PACKAGES) deps deps-mac deps-arch deps-apt
+.PHONY: install uninstall $(PACKAGES) deps deps-mac deps-arch deps-apt tpm
 
-install: deps $(PACKAGES)
+install: deps $(PACKAGES) tpm
 
 $(PACKAGES):
 	stow $(STOW_FLAGS) $@
+
+tpm:
+	@if [ ! -d $(HOME)/.tmux/plugins/tpm ]; then \
+		git clone https://github.com/tmux-plugins/tpm $(HOME)/.tmux/plugins/tpm; \
+	fi
 
 uninstall:
 	@for pkg in $(PACKAGES); do stow --target=$(HOME) --delete $$pkg; done
