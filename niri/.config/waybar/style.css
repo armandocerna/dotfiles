@@ -1,0 +1,148 @@
+/* Tokyo Night palette */
+@define-color bg #1a1b26;
+@define-color bg-dark #16161e;
+@define-color bg-hl #292e42;
+@define-color fg #c0caf5;
+@define-color fg-dim #565f89;
+@define-color blue #7aa2f7;
+@define-color cyan #7dcfff;
+@define-color green #9ece6a;
+@define-color magenta #bb9af7;
+@define-color red #f7768e;
+@define-color yellow #e0af68;
+@define-color orange #ff9e64;
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: alpha(@bg, 0.9);
+    color: @fg;
+    border-radius: 12px;
+    border: 1px solid @bg-hl;
+}
+
+/* Workspaces */
+#workspaces {
+    margin-left: 4px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    color: @fg-dim;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    transition: all 0.2s ease;
+    margin: 4px 2px;
+}
+
+#workspaces button.active {
+    color: @blue;
+    background: @bg-hl;
+}
+
+#workspaces button:hover {
+    background: alpha(@blue, 0.15);
+    color: @blue;
+}
+
+/* Window title */
+#window {
+    color: @fg-dim;
+    padding: 0 12px;
+    font-style: italic;
+}
+
+/* Clock */
+#clock {
+    color: @fg;
+    font-weight: bold;
+    padding: 0 16px;
+}
+
+/* Right modules */
+#cpu,
+#memory,
+#pulseaudio,
+#network,
+#tray {
+    padding: 0 10px;
+    margin: 4px 0;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+#cpu {
+    color: @cyan;
+}
+
+#cpu:hover {
+    background: alpha(@cyan, 0.12);
+}
+
+#memory {
+    color: @magenta;
+}
+
+#memory:hover {
+    background: alpha(@magenta, 0.12);
+}
+
+#pulseaudio {
+    color: @green;
+}
+
+#pulseaudio:hover {
+    background: alpha(@green, 0.12);
+}
+
+#pulseaudio.muted {
+    color: @fg-dim;
+}
+
+#network {
+    color: @yellow;
+}
+
+#network:hover {
+    background: alpha(@yellow, 0.12);
+}
+
+#network.disconnected {
+    color: @red;
+}
+
+/* Separator */
+#custom-separator {
+    color: @bg-hl;
+    padding: 0 2px;
+}
+
+/* Tray */
+#tray {
+    margin-right: 4px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* Tooltips */
+tooltip {
+    background-color: @bg-dark;
+    border: 1px solid @blue;
+    border-radius: 8px;
+}
+
+tooltip label {
+    color: @fg;
+    padding: 4px;
+}

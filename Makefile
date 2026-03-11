@@ -1,10 +1,10 @@
 STOW_FLAGS := --target=$(HOME) --restow
 
-PACKAGES := zsh tmux nvim starship ghostty git wezterm
+PACKAGES := zsh tmux nvim starship ghostty git wezterm niri
 
 BREW_PACKAGES := neovim tmux starship fzf fd ripgrep bat stow node go lua-language-server
 
-PACMAN_PACKAGES := neovim tmux starship fzf fd ripgrep bat stow ghostty npm go lua-language-server base-devel
+PACMAN_PACKAGES := neovim tmux starship fzf fd ripgrep bat stow ghostty npm go lua-language-server base-devel niri waybar fuzzel swww mako grim slurp swaylock wl-clipboard brightnessctl playerctl
 
 APT_PACKAGES := neovim tmux fzf fd-find ripgrep bat stow nodejs npm golang build-essential
 

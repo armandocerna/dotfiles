@@ -1,0 +1,12 @@
+configuration {
+    modes: "drun,run,web:~/.local/bin/rofi-web-search";
+    show-icons: true;
+    icon-theme: "Papirus";
+    terminal: "ghostty";
+    drun-display-format: "{name}";
+    display-drun: " apps";
+    display-run: " run";
+    display-web: " search";
+}
+
+@theme "tokyonight"

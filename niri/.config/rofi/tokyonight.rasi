@@ -1,0 +1,97 @@
+* {
+    bg:         #1a1b26;
+    bg-alt:     #292e42;
+    fg:         #c0caf5;
+    fg-dim:     #565f89;
+    blue:       #7aa2f7;
+    cyan:       #7dcfff;
+    magenta:    #bb9af7;
+    red:        #f7768e;
+    green:      #9ece6a;
+    yellow:     #e0af68;
+    border:     #414868;
+    transparent: rgba(0, 0, 0, 0);
+
+    font: "JetBrainsMono Nerd Font 13";
+
+    background-color: @transparent;
+    text-color: @fg;
+}
+
+window {
+    width: 600px;
+    background-color: @bg;
+    border: 1px;
+    border-color: @border;
+    border-radius: 12px;
+    padding: 0;
+    location: center;
+}
+
+mainbox {
+    background-color: @bg;
+    border-radius: 12px;
+    children: [inputbar, message, listview];
+}
+
+inputbar {
+    background-color: @bg-alt;
+    border-radius: 12px 12px 0 0;
+    padding: 12px 16px;
+    spacing: 8px;
+    children: [prompt, entry];
+}
+
+prompt {
+    text-color: @blue;
+    background-color: @transparent;
+}
+
+entry {
+    placeholder: "type to search...";
+    placeholder-color: @fg-dim;
+    background-color: @transparent;
+    text-color: @fg;
+}
+
+listview {
+    background-color: @bg;
+    border-radius: 0 0 12px 12px;
+    lines: 8;
+    padding: 8px 0;
+    scrollbar: false;
+    fixed-height: false;
+}
+
+element {
+    padding: 8px 16px;
+    background-color: @transparent;
+    text-color: @fg-dim;
+}
+
+element selected {
+    background-color: @bg-alt;
+    text-color: @fg;
+    border-radius: 0;
+}
+
+element-icon {
+    size: 20px;
+    padding: 0 8px 0 0;
+    background-color: @transparent;
+}
+
+element-text {
+    background-color: @transparent;
+    text-color: inherit;
+}
+
+message {
+    background-color: @bg;
+    padding: 8px 16px;
+}
+
+textbox {
+    background-color: @bg;
+    text-color: @fg-dim;
+}
