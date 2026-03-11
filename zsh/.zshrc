@@ -87,5 +87,8 @@ cpstat() {
 }
 
 
+# --- OrbStack ---
+export PATH="$HOME/.orbstack/bin:$PATH"
+
 # --- Starship prompt ---
 eval "$(starship init zsh)"
