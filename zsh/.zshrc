@@ -90,5 +90,8 @@ cpstat() {
 # --- OrbStack ---
 export PATH="$HOME/.orbstack/bin:$PATH"
 
+# --- Local overrides (machine-specific, not in git) ---
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+
 # --- Starship prompt ---
 eval "$(starship init zsh)"
