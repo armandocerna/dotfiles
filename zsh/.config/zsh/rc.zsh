@@ -87,11 +87,13 @@ cpstat() {
 }
 
 
+# --- GNU sed (macOS: prefer gsed so `sed -i` matches Linux) ---
+if [[ -d "${HOMEBREW_PREFIX:-/opt/homebrew}/opt/gnu-sed/libexec/gnubin" ]]; then
+  path=("${HOMEBREW_PREFIX:-/opt/homebrew}/opt/gnu-sed/libexec/gnubin" $path)
+fi
+
 # --- OrbStack ---
 export PATH="$HOME/.orbstack/bin:$PATH"
-
-# --- Local overrides (machine-specific, not in git) ---
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
 
 # --- Starship prompt ---
 eval "$(starship init zsh)"
