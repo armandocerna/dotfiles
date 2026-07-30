@@ -42,12 +42,16 @@ zshrc:
 		  '# Tracked config lives in ~/.config/zsh/rc.zsh (stow-managed).' \
 		  'source ~/.config/zsh/rc.zsh' \
 		  '' \
-		  '# Kept for machines migrated from the old layout.' \
+		  '# Work overrides and anything else not for git.' \
 		  '[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local' \
 		  '' \
 		  '# Everything below is machine-local -- installers append here.' \
 		  > $(HOME)/.zshrc; \
 		echo "created $(HOME)/.zshrc"; \
+	fi
+	@if [ -f $(HOME)/.zshrc.local ]; then \
+		chmod 600 $(HOME)/.zshrc.local; \
+		echo "secured ~/.zshrc.local (600) -- may hold work tokens"; \
 	fi
 
 $(PACKAGES):
